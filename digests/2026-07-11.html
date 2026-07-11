@@ -40,38 +40,63 @@
 <div class="wrap">
   <h1>技术进展雷达 · 2026-07-11</h1>
   <div class="meta">arXiv (cs.CV / eess.IV / cs.AI / cs.LG / cs.MM) · 窗口 2026-07-08 ~ 2026-07-11 · 命中 44 篇 · S2 未启用</div>
-  <p class="note">arXiv 最新公开列表停在 2026-07-09；07-10/07-11 周末无新提交，故本窗口实际有效日期为 07-08 与 07-09。</p>
+  <p class="note">周末（周六）无当日新提交，命中主要来自 07-08/07-09 批次；SEMANTIC_SCHOLAR_API_KEY 未设置，S2 未启用。“计算机视觉/多模态大模型”等宽泛查询召回了整批近期 cs.CV 列表，多数细分影像主题（HDR/多帧融合/RAW去噪/ISP/防抖等）本窗口无新论文。</p>
   <div class="back"><a href="../index.html">← 返回索引</a></div>
 
   <h2>📊 今日概览</h2>
-  <p class="summary">今天扫描 13 个主题，去重后共命中 44 篇窗口内新论文。绝大多数集中在通用计算机视觉（cs.CV）与多模态大模型两簇；影像底层方向（HDR、多帧融合、RAW 去噪、计算摄影、手机拍照/录像、视频处理/编辑、low-level CV）本窗口几乎没有新论文（仅 tone mapping 命中 1 篇），符合周末提交空档的预期，未作编造。最值得关注的两个方向：(1) 统一多模态模型的推理效率——DeltaV 的视觉增量更新、Switch-Reasoner 的自适应是否思考、Cognitive-structured Agent 的情景视觉记忆，都在攻视觉 token 爆炸 / 长程多模态对话的老大难；(2) 端侧与实时化——ZipDepth（6.1M 参数零样本深度）、SAM-MT（实时多目标视频分割）显示学界在把大模型能力压到可部署尺度。</p>
+  <p class="summary">本次扫描了 keywords.txt 全部 17 个主题，去重后共命中 44 篇（多为 07-08/07-09 提交，周六无当日新增）。新进展集中在“多模态推理与视频生成”两大方向：一是让推理形态从文本 CoT 走向视频“帧链”与统一模型的视觉状态增量（OpenCoF、DeltaV、Switch-Reasoner、认知结构化多模态智能体）；二是长视频/事件视频生成与实时视频分割的工程化（OPSD-V、LongE2V、SAM-MT）。传统计算摄影细分（HDR、多帧融合、RAW去噪、ISP、防抖）本窗口无新论文，端侧影像仅有轻量深度估计 ZipDepth 值得关注。</p>
 
   <h2>🌟 极大维度推荐</h2>
     <ol class="rec">
       <li>
-        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08771" target="_blank" rel="noopener">ZipDepth: Bringing Lightweight Zero-Shot Monocular Depth Anywhere, on Any Device</a></b> <span class="aid">[2607.08771]</span></div>
-        <div class="hl">亮点：仅 6.1M 参数，用基础模型的大规模跨域知识蒸馏，做到端侧实时的零样本单目深度估计，直面基础模型太重、轻量模型遇域偏移即失效的痛点。</div>
-        <div class="dim">代表性维度：①突破性 + ④覆盖面（端侧/手机 ISP 与 low-level CV 簇的最强代表，弥补该簇本窗口的空缺）</div>
-      </li>
-      <li>
-        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08497" target="_blank" rel="noopener">Cognitive-structured Multimodal Agent for Multimodal Understanding, Generation, and Editing</a></b> <span class="aid">[2607.08497]</span></div>
-        <div class="hl">亮点：把历史视觉信息外化为 Episodic Visual Memory 并按需重激活，用感知抽象 + 认知检索三引擎解决长程多模态对话中的视觉 token 爆炸与跨轮引用不可靠。</div>
-        <div class="dim">代表性维度：①突破性 + ④覆盖面（同时踩中 Agent 与多模态大模型两簇，架构思路新颖）</div>
-      </li>
-      <li>
-        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08770" target="_blank" rel="noopener">LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models</a></b> <span class="aid">[2607.08770]</span></div>
-        <div class="hl">亮点：复用预训练视频扩散先验，统一处理事件流的视频重建/预测/插帧；用 Autoregressive Unrolling + Adaptive Context Switching 抑制超长序列的时序漂移。</div>
-        <div class="dim">代表性维度：①突破性 + ③主题相关度（视频处理/低层视觉簇的代表，数据高效）</div>
-      </li>
-      <li>
-        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08185" target="_blank" rel="noopener">Leveraging Color Naming for Image Enhancement</a></b> <span class="aid">[2607.08185]</span></div>
-        <div class="hl">亮点：把颜色命名（一组通用色名）引入学习框架，为每个命名颜色学习色调曲线，实现可解释、可调的全局图像增强——本窗口 tone mapping / 计算摄影方向唯一新作。</div>
-        <div class="dim">代表性维度：③主题相关度 + ④覆盖面（覆盖影像增强簇，填补该簇空白）</div>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08763" target="_blank" rel="noopener">OpenCoF: Learning to Reason Through Video Generation</a></b> <span class="aid">[2607.08763]</span></div>
+        <div class="hl">亮点：提出“帧链”(Chain-of-Frame)推理范式：推理沿时间连贯帧展开，让视频生成模型把生成过程当作推理路径，并为其设计专门监督。</div>
+        <div class="dim">代表性维度：①突破性——把 CoT 从文本迁移到视频生成的帧序列，是新的推理形态。</div>
       </li>
       <li>
         <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08434" target="_blank" rel="noopener">DeltaV: Thinking with Visual State Updates in Unified Large Multimodal Models</a></b> <span class="aid">[2607.08434]</span></div>
-        <div class="hl">亮点：统一多模态模型推理时不再每步生成整张图，而是预测紧凑的视觉增量更新 token，只建模变化部分，显著削减视觉 token 冗余、强化对稀疏关键状态转移的监督。</div>
-        <div class="dim">代表性维度：①突破性（对交错多模态推理范式的直接改进，与 #2 呼应但角度不同）</div>
+        <div class="hl">亮点：统一多模态模型推理时不再逐步生成整幅图，而是预测紧凑的“视觉状态增量更新” token，大幅降低视觉 token 冗余并聚焦推理关键的稀疏状态变化。</div>
+        <div class="dim">代表性维度：①突破性/③相关度——直击统一多模态推理的 token 效率瓶颈，思路新颖。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08497" target="_blank" rel="noopener">Cognitive-structured Multimodal Agent for Multimodal Understanding, Generation, and Editing</a></b> <span class="aid">[2607.08497]</span></div>
+        <div class="hl">亮点：把历史视觉信息外化为“情景视觉记忆”并按需重激活，解决长程多模态对话中视觉 token 爆炸与跨轮引用不可靠的问题。</div>
+        <div class="dim">代表性维度：③相关度——同时覆盖 Agent 与多模态大模型两个核心主题。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08766" target="_blank" rel="noopener">OPSD-V: On-Policy Self-Distillation for Post-Training Few-Step Autoregressive Video Generators</a></b> <span class="aid">[2607.08766]</span></div>
+        <div class="hl">亮点：为少步自回归视频扩散设计在线自蒸馏后训练，用真实长视频提供轨迹级密集监督，在保持少步推理路径的同时抑制长程误差累积与动态弱化。</div>
+        <div class="dim">代表性维度：①突破性——针对长视频生成的实用后训练方案。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08771" target="_blank" rel="noopener">ZipDepth: Bringing Lightweight Zero-Shot Monocular Depth Anywhere, on Any Device</a></b> <span class="aid">[2607.08771]</span></div>
+        <div class="hl">亮点：用大规模知识蒸馏把基础模型的零样本泛化能力压进可重参数化的轻量编解码网络，让单目深度估计在嵌入式/移动设备上跨域可用。</div>
+        <div class="dim">代表性维度：③相关度——端侧/移动影像方向的落地型工作。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08770" target="_blank" rel="noopener">LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models</a></b> <span class="aid">[2607.08770]</span></div>
+        <div class="hl">亮点：借预训练视频扩散先验统一处理事件相机的视频重建/预测/插帧，用自回归展开+自适应上下文切换缓解超长序列的时间漂移。</div>
+        <div class="dim">代表性维度：④覆盖面——事件相机+视频扩散+low-level 重建交叉方向。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08688" target="_blank" rel="noopener">SAM-MT: Real-Time Interactive Multi-Target Video Segmentation</a></b> <span class="aid">[2607.08688]</span></div>
+        <div class="hl">亮点：在 SAM2 基础上改造为交互式多目标框架，避免逐目标复制处理导致的帧率随目标数下降，实现实时多目标视频分割。</div>
+        <div class="dim">代表性维度：②影响力——基于 SAM2 生态，实时多目标分割实用价值高。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08572" target="_blank" rel="noopener">Switch-Reasoner: Learn When to Think in Multitask Mixtures via Reinforcement Learning</a></b> <span class="aid">[2607.08572]</span></div>
+        <div class="hl">亮点：用 GRPO 让多模态大模型学会“何时该思考”，把思考建模为虚拟工具调用，避免后训练中滑向“总思考/总不思考”的失衡。</div>
+        <div class="dim">代表性维度：③相关度——多模态大模型自适应推理，兼顾效率。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08705" target="_blank" rel="noopener">HumanForge: A Human-Centric Deepfake Video Benchmark with Multi-Agent Forgery Rationales</a></b> <span class="aid">[2607.08705]</span></div>
+        <div class="hl">亮点：构建以人为中心的深伪视频取证基准，含多智能体生成的伪造“理由”标注，弥补现有基准忽视人-物/人-人交互与多模态对齐的空缺。</div>
+        <div class="dim">代表性维度：④覆盖面——视频取证+多智能体标注，主题独特。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.08185" target="_blank" rel="noopener">Leveraging Color Naming for Image Enhancement</a></b> <span class="aid">[2607.08185]</span></div>
+        <div class="hl">亮点：把“颜色命名”这一通用色名体系引入学习框架，做可解释、可供用户直觉调节的全局图像增强。</div>
+        <div class="dim">代表性维度：③相关度——命中 tone mapping/图像增强主题，且强调可解释与交互。</div>
       </li>
     </ol>
 
@@ -80,7 +105,7 @@
       <div class="none">— 无新进展</div></div>
       <div class="topic"><h3>tone mapping | tone mapping</h3>
       <ul>
-        <li><a href="https://arxiv.org/abs/2607.08185" target="_blank" rel="noopener">Leveraging Color Naming for Image Enhancement</a> <span class="aid">[2607.08185]</span> — 引入通用色名到深度增强框架，为每个命名颜色学习色调曲线，兼顾可解释性与用户可调性，兼含局部调整设计。</li>
+        <li><a href="https://arxiv.org/abs/2607.08185" target="_blank" rel="noopener">Leveraging Color Naming for Image Enhancement</a> <span class="aid">[2607.08185]</span> — 借助“颜色命名”（一套通用色名）构建可解释、可交互调节的图像增强框架，让全局色彩调整更符合直觉。</li>
       </ul></div>
       <div class="topic"><h3>多帧融合 | multi-frame image fusion burst</h3>
       <div class="none">— 无新进展</div></div>
@@ -94,80 +119,118 @@
       <div class="none">— 无新进展</div></div>
       <div class="topic"><h3>视频处理 | video processing restoration</h3>
       <div class="none">— 无新进展</div></div>
-      <div class="topic"><h3>计算机视觉 | computer vision（宽泛短语，实为当日 cs.CV 主列表，下列为较具代表性者）</h3>
+      <div class="topic"><h3>计算机视觉 | computer vision</h3>
       <ul>
-        <li><a href="https://arxiv.org/abs/2607.08771" target="_blank" rel="noopener">ZipDepth</a> <span class="aid">[2607.08771]</span> — 6.1M 参数、跨域蒸馏，端侧实时零样本单目深度估计。</li>
-        <li><a href="https://arxiv.org/abs/2607.08770" target="_blank" rel="noopener">LongE2V</a> <span class="aid">[2607.08770]</span> — 借视频扩散先验统一事件流重建/预测/插帧，抑制长程时序漂移。</li>
-        <li><a href="https://arxiv.org/abs/2607.08766" target="_blank" rel="noopener">OPSD-V</a> <span class="aid">[2607.08766]</span> — 少步自回归视频扩散的在轨自蒸馏后训练，缓解长程 rollout 误差累积与动态弱化。</li>
-        <li><a href="https://arxiv.org/abs/2607.08688" target="_blank" rel="noopener">SAM-MT</a> <span class="aid">[2607.08688]</span> — 基于 SAM2 的实时交互式多目标视频分割，用显式 query 并行表征各目标，避免逐目标复制导致的帧率下降。</li>
-        <li><a href="https://arxiv.org/abs/2607.08674" target="_blank" rel="noopener">GenRes</a> <span class="aid">[2607.08674]</span> — 生成式残差学习（神经张量网络）建模原图与变换样本的细粒度关系，提升 AI 生成图像检测的泛化。</li>
-        <li><a href="https://arxiv.org/abs/2607.08541" target="_blank" rel="noopener">VocaDet</a> <span class="aid">[2607.08541]</span> — 样本驱动的开放词表检测/分割，用视觉 tokenization + 向量库检索从用户正负样本学概念，无需重训。</li>
-        <li><a href="https://arxiv.org/abs/2607.08639" target="_blank" rel="noopener">Native Video-Action Pretraining (LingBot-VA 2.0)</a> <span class="aid">[2607.08639]</span> — 面向具身从零构建的视频-动作基础模型，语义视觉-动作 tokenizer 对齐语义与动作。</li>
-        <li><a href="https://arxiv.org/abs/2607.08375" target="_blank" rel="noopener">WCog-VLA</a> <span class="aid">[2607.08375]</span> — 双层世界认知的 VLA 端到端自动驾驶，缓解世界预见碎片化导致的被动式驾驶。</li>
+        <li><a href="https://arxiv.org/abs/2607.08772" target="_blank" rel="noopener">Wat3R: Underwater 3D Geometry Learning without Annotations</a> <span class="aid">[2607.08772]</span> — 无需标注即可学习水下 3D 几何的 Wat3R。</li>
+        <li><a href="https://arxiv.org/abs/2607.08771" target="_blank" rel="noopener">ZipDepth: Bringing Lightweight Zero-Shot Monocular Depth Anywhere, on Any Device</a> <span class="aid">[2607.08771]</span> — ZipDepth：轻量零样本单目深度估计，靠基础模型知识蒸馏在移动/嵌入式设备上跨域可用。</li>
+        <li><a href="https://arxiv.org/abs/2607.08770" target="_blank" rel="noopener">LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models</a> <span class="aid">[2607.08770]</span> — LongE2V：借视频扩散先验统一事件相机的视频重建/预测/插帧，用自回归展开缓解长序列时间漂移。</li>
+        <li><a href="https://arxiv.org/abs/2607.08769" target="_blank" rel="noopener">Geometry and Gradient-based Partitioning for Panoramic Outdoor Reconstruction</a> <span class="aid">[2607.08769]</span> — 面向全景户外重建的几何与梯度分区方法。</li>
+        <li><a href="https://arxiv.org/abs/2607.08766" target="_blank" rel="noopener">OPSD-V: On-Policy Self-Distillation for Post-Training Few-Step Autoregressive Video Generators</a> <span class="aid">[2607.08766]</span> — OPSD-V：为少步自回归视频扩散做在线自蒸馏后训练，用真实长视频轨迹级监督抑制长程误差累积与动态弱化。</li>
+        <li><a href="https://arxiv.org/abs/2607.08765" target="_blank" rel="noopener">Enhancing In-context Panoramic Generation via Geometric-aware Pretraining</a> <span class="aid">[2607.08765]</span> — 借几何感知预训练增强上下文全景生成。</li>
+        <li><a href="https://arxiv.org/abs/2607.08763" target="_blank" rel="noopener">OpenCoF: Learning to Reason Through Video Generation</a> <span class="aid">[2607.08763]</span> — OpenCoF：把推理展开为时间连贯的“帧链”(Chain-of-Frame)，让视频生成模型学会通过生成过程推理。</li>
+        <li><a href="https://arxiv.org/abs/2607.08745" target="_blank" rel="noopener">AUTOPILOT VQA: Benchmarking Vision-Language Models for Incident-Centric Dashcam Understanding</a> <span class="aid">[2607.08745]</span> — AUTOPILOT VQA：面向行车记录仪“事故为中心”场景的视觉语言模型安全推理基准。</li>
+        <li><a href="https://arxiv.org/abs/2607.08741" target="_blank" rel="noopener">ARDY: Autoregressive Diffusion with Hybrid Representation for Interactive Human Motion Generation</a> <span class="aid">[2607.08741]</span> — ARDY：混合表征的自回归扩散，用于交互式人体动作生成。</li>
+        <li><a href="https://arxiv.org/abs/2607.08729" target="_blank" rel="noopener">WaspMOT: A Benchmark for Long-Term Multi-Object Tracking of Trichogramma Wasps</a> <span class="aid">[2607.08729]</span> — WaspMOT：赤眼蜂长时多目标跟踪基准。</li>
+        <li><a href="https://arxiv.org/abs/2607.08725" target="_blank" rel="noopener">Pose-to-Biomechanics: Bridging 3D Human Pose Estimation and Biomechanical Attribute Prediction</a> <span class="aid">[2607.08725]</span> — 把 3D 人体姿态估计与生物力学属性打通的 Pose-to-Biomechanics。</li>
+        <li><a href="https://arxiv.org/abs/2607.08711" target="_blank" rel="noopener">LTM: Large-scale Terrain Model for Wildfire-prone Landscapes</a> <span class="aid">[2607.08711]</span> — 面向易燃地貌的大尺度地形模型 LTM。</li>
+        <li><a href="https://arxiv.org/abs/2607.08705" target="_blank" rel="noopener">HumanForge: A Human-Centric Deepfake Video Benchmark with Multi-Agent Forgery Rationales</a> <span class="aid">[2607.08705]</span> — HumanForge：以人为中心、含多智能体伪造“理由”标注的深伪视频取证基准，覆盖人-物/人-人交互。</li>
+        <li><a href="https://arxiv.org/abs/2607.08688" target="_blank" rel="noopener">SAM-MT: Real-Time Interactive Multi-Target Video Segmentation</a> <span class="aid">[2607.08688]</span> — SAM-MT：基于 SAM2 的实时交互式多目标视频分割，避免逐目标复制导致的帧率随目标数下降。</li>
+        <li><a href="https://arxiv.org/abs/2607.08679" target="_blank" rel="noopener">Multi-Resolution Feature Stem for Diabetic Retinopathy lesion segmentation</a> <span class="aid">[2607.08679]</span> — 多分辨率特征主干用于糖网病变分割。</li>
+        <li><a href="https://arxiv.org/abs/2607.08674" target="_blank" rel="noopener">Do Transformations Reveal the Truth? Generative Residual Learning for Generalized AI-Generated Image Detection</a> <span class="aid">[2607.08674]</span> — 面向泛化的生成式残差学习检测方法。</li>
+        <li><a href="https://arxiv.org/abs/2607.08639" target="_blank" rel="noopener">Native Video-Action Pretraining for Generalizable Robot Control</a> <span class="aid">[2607.08639]</span> — LingBot-VA 2.0：为具身控制从零构建的视频-动作基础模型，用语义视觉-动作分词器替代重建式 VAE。</li>
+        <li><a href="https://arxiv.org/abs/2607.08605" target="_blank" rel="noopener">When Structured Sparse Autoencoders Learn Consistent Concepts Across Modalities</a> <span class="aid">[2607.08605]</span> — 结构化稀疏自编码器跨模态学到一致概念。</li>
+        <li><a href="https://arxiv.org/abs/2607.08572" target="_blank" rel="noopener">Switch-Reasoner: Learn When to Think in Multitask Mixtures via Reinforcement Learning</a> <span class="aid">[2607.08572]</span> — Switch-Reasoner：用 GRPO 让多模态大模型学会“何时该思考”，把思考当作虚拟工具调用以适配多任务混合。</li>
+        <li><a href="https://arxiv.org/abs/2607.08541" target="_blank" rel="noopener">VocaDet: Sample-Driven Open-Vocabulary Object Detection and Segmentation via Visual Tokenization and Vector Database Retrieval</a> <span class="aid">[2607.08541]</span> — VocaDet：样本驱动的开放词表检测分割，靠视觉分词+向量库检索从正负样本直接学概念，易扩展到海量类别。</li>
+        <li><a href="https://arxiv.org/abs/2607.08537" target="_blank" rel="noopener">Whareformer: Learning to Track What is Where in Long Egocentric Videos</a> <span class="aid">[2607.08537]</span> — Whareformer：长第一人称视频中的“何物何处”跟踪。</li>
+        <li><a href="https://arxiv.org/abs/2607.08515" target="_blank" rel="noopener">Beyond wheelchairs and blindfolds: Investigating disability stereotypes in T2I models with INCLUDE-BENCH</a> <span class="aid">[2607.08515]</span> — 探究文生图模型中的残障刻板印象。</li>
+        <li><a href="https://arxiv.org/abs/2607.08514" target="_blank" rel="noopener">Do Egocentric Video-Language Models Capture Both Hand- and Object-Centric Cues?</a> <span class="aid">[2607.08514]</span> — 考察第一人称视频-语言模型是否兼顾手部与物体线索。</li>
+        <li><a href="https://arxiv.org/abs/2607.08511" target="_blank" rel="noopener">Systematic Evaluation of Learning Rate Scheduling Strategies Across Heterogeneous Architectures</a> <span class="aid">[2607.08511]</span> — 跨异构任务系统评估学习率调度策略。</li>
+        <li><a href="https://arxiv.org/abs/2607.08503" target="_blank" rel="noopener">CT-CLIP Representations for Multimodal Lung Cancer Survival Prediction</a> <span class="aid">[2607.08503]</span> — CT-CLIP 表征用于多模态肺癌生存预测。</li>
+        <li><a href="https://arxiv.org/abs/2607.08497" target="_blank" rel="noopener">Cognitive-structured Multimodal Agent for Multimodal Understanding, Generation, and Editing</a> <span class="aid">[2607.08497]</span> — 认知结构化多模态智能体：把视觉信息外化为“情景视觉记忆”并按需重激活，缓解长程多模态对话中的视觉 token 爆炸与跨轮引用不可靠。</li>
+        <li><a href="https://arxiv.org/abs/2607.08489" target="_blank" rel="noopener">VEGAS: Human-Aligned Video Caption Evaluation via Gaze</a> <span class="aid">[2607.08489]</span> — VEGAS：借注视信号做人类对齐的视频描述评测。</li>
+        <li><a href="https://arxiv.org/abs/2607.08449" target="_blank" rel="noopener">Predicting Viticulture Potential through an Ensemble of U-Net and a Geospatial Foundation Model</a> <span class="aid">[2607.08449]</span> — U-Net 集成+地理基础模型预测葡萄种植潜力。</li>
+        <li><a href="https://arxiv.org/abs/2607.08434" target="_blank" rel="noopener">DeltaV: Thinking with Visual State Updates in Unified Large Multimodal Models</a> <span class="aid">[2607.08434]</span> — DeltaV：统一多模态模型里用“视觉状态增量更新” token 取代全图生成，减少视觉 token 冗余、聚焦推理关键的稀疏状态变化。</li>
+        <li><a href="https://arxiv.org/abs/2607.08408" target="_blank" rel="noopener">Track2Map: Online Deformable SLAM with Motion-Aware Pose Optimization in Robotic Surgery</a> <span class="aid">[2607.08408]</span> — Track2Map：机器人场景下运动感知位姿优化的在线可变形 SLAM。</li>
+        <li><a href="https://arxiv.org/abs/2607.08402" target="_blank" rel="noopener">Swapping Faces, Saving Features: A Dual-Purpose Pipeline for Pedestrian Privacy in ITS</a> <span class="aid">[2607.08402]</span> — 兼顾行人隐私（换脸）与特征保留的双用途流水线。</li>
+        <li><a href="https://arxiv.org/abs/2607.08398" target="_blank" rel="noopener">HoloTetSphere: Unified TetSphere Mesh Reconstruction for Physical Simulations</a> <span class="aid">[2607.08398]</span> — HoloTetSphere：面向物理仿真的统一 TetSphere 网格重建。</li>
+        <li><a href="https://arxiv.org/abs/2607.08397" target="_blank" rel="noopener">Attribute Retrieving for Open-Vocabulary Endoscopic Compositional Referring Segmentation</a> <span class="aid">[2607.08397]</span> — 开放词表内窥镜组合式指代分割的属性检索。</li>
+        <li><a href="https://arxiv.org/abs/2607.08379" target="_blank" rel="noopener">Classical versus Deep Mirror-Symmetry Scoring: A Benchmark of Thirteen Methods</a> <span class="aid">[2607.08379]</span> — 十三种镜像对称评分方法的经典 vs 深度基准。</li>
+        <li><a href="https://arxiv.org/abs/2607.08375" target="_blank" rel="noopener">WCog-VLA: A Dual-Level World-Cognitive Vision-Language-Action Model for End-to-End Autonomous Driving</a> <span class="aid">[2607.08375]</span> — WCog-VLA：双层“世界认知”视觉-语言-动作模型，为端到端自动驾驶补齐世界前瞻、从被动反应走向前瞻决策。</li>
+        <li><a href="https://arxiv.org/abs/2607.08321" target="_blank" rel="noopener">Texture Representations in Deep Vision Models: Comparing CNNs, Vision Transformers, and Human Perception</a> <span class="aid">[2607.08321]</span> — 比较 CNN/ViT 等深度视觉模型中的纹理表征。</li>
+        <li><a href="https://arxiv.org/abs/2607.08297" target="_blank" rel="noopener">ARGUS: Accelerated, Robust, General, and Unsupervised Cell Tracking Solutions</a> <span class="aid">[2607.08297]</span> — ARGUS：加速、鲁棒、通用且无监督的细胞跟踪方案。</li>
+        <li><a href="https://arxiv.org/abs/2607.08281" target="_blank" rel="noopener">Enhancing the KidSat Model: Integrating Geographical Encoding and Data Quality Assessment for Childhood Poverty Prediction</a> <span class="aid">[2607.08281]</span> — 增强 KidSat 模型：融合地理编码与数据质量。</li>
+        <li><a href="https://arxiv.org/abs/2607.08270" target="_blank" rel="noopener">Progression as Latent Drift: Generative Forecasting of Slow-Evolving Pathologies</a> <span class="aid">[2607.08270]</span> — 把慢演化病理建模为“潜在漂移”的生成式预测。</li>
+        <li><a href="https://arxiv.org/abs/2607.08267" target="_blank" rel="noopener">UniRef-UAV: A Multimodal Benchmark for Universal Referring in UAV Imagery</a> <span class="aid">[2607.08267]</span> — UniRef-UAV：无人机影像通用指代的多模态基准。</li>
       </ul></div>
       <div class="topic"><h3>视频编辑 | video editing generative</h3>
       <div class="none">— 无新进展</div></div>
       <div class="topic"><h3>low-level CV | low-level computer vision</h3>
       <div class="none">— 无新进展</div></div>
       <div class="topic"><h3>Agent | LLM agent autonomous</h3>
-      <ul>
-        <li><a href="https://arxiv.org/abs/2607.08497" target="_blank" rel="noopener">Cognitive-structured Multimodal Agent（见多模态簇）</a> <span class="aid">[2607.08497]</span> — 情景视觉记忆 + 三引擎，长程多模态 Agent；本主题无独立新进展，相关工作归此。</li>
-      </ul></div>
+      <div class="none">— 无新进展</div></div>
       <div class="topic"><h3>多模态大模型 | multimodal large language model</h3>
       <ul>
-        <li><a href="https://arxiv.org/abs/2607.08745" target="_blank" rel="noopener">AUTOPILOT VQA</a> <span class="aid">[2607.08745]</span> — 面向行车记录仪事故为中心理解的 VLM 基准，评测模型对安全关键事件的推理可靠性。</li>
-        <li><a href="https://arxiv.org/abs/2607.08572" target="_blank" rel="noopener">Switch-Reasoner</a> <span class="aid">[2607.08572]</span> — 基于 GRPO，让 MLLM 自适应是否思考，把思考视作虚拟工具调用，稳定多任务后训练。</li>
-        <li><a href="https://arxiv.org/abs/2607.07673" target="_blank" rel="noopener">MedPMC</a> <span class="aid">[2607.07673]</span> — 从 610 万篇 PMC 文献自动构建 1100 万医学图文对的可持续更新框架，供医学多模态基础模型训练。</li>
-        <li><a href="https://arxiv.org/abs/2607.07117" target="_blank" rel="noopener">Tree-of-Thoughts for T2I-ICL</a> <span class="aid">[2607.07117]</span> — 为文生图上下文学习引入 ToT 多分支推理与筛选层，改善组合推理与 prompt 敏感问题。</li>
-        <li><a href="https://arxiv.org/abs/2607.06882" target="_blank" rel="noopener">GemNav</a> <span class="aid">[2607.06882]</span> — 仅对冻结 MLLM 的语言塔做 LoRA、用离散 token 统一表示航点与导航信号，做视觉机器人导航，无需专用视觉编码器与回归头。</li>
+        <li><a href="https://arxiv.org/abs/2607.08745" target="_blank" rel="noopener">AUTOPILOT VQA: Benchmarking Vision-Language Models for Incident-Centric Dashcam Understanding</a> <span class="aid">[2607.08745]</span> — AUTOPILOT VQA：面向行车记录仪“事故为中心”场景的视觉语言模型安全推理基准。</li>
+        <li><a href="https://arxiv.org/abs/2607.08572" target="_blank" rel="noopener">Switch-Reasoner: Learn When to Think in Multitask Mixtures via Reinforcement Learning</a> <span class="aid">[2607.08572]</span> — Switch-Reasoner：用 GRPO 让多模态大模型学会“何时该思考”，把思考当作虚拟工具调用以适配多任务混合。</li>
+        <li><a href="https://arxiv.org/abs/2607.07673" target="_blank" rel="noopener">MedPMC: A Systematic Framework for Scaling High-Fidelity Medical Multimodal Data for Foundation Models</a> <span class="aid">[2607.07673]</span> — MedPMC：把开放许可文献自动转化为高保真医学多模态数据的可持续更新框架。</li>
+        <li><a href="https://arxiv.org/abs/2607.07117" target="_blank" rel="noopener">Tree-of-Thoughts Reasoning for Text-to-Image In-Context Learning</a> <span class="aid">[2607.07117]</span> — 为文生图上下文学习引入“思维树”多阶段推理与候选筛选，缓解组合推理不足与提示敏感。</li>
+        <li><a href="https://arxiv.org/abs/2607.06882" target="_blank" rel="noopener">GemNav: Discrete-Token Visual Robot Navigation using a Multimodal Large Language Model</a> <span class="aid">[2607.06882]</span> — GemNav：仅用 LoRA 微调冻结的多模态大模型语言塔做离散 token 视觉机器人导航，去掉专用视觉编码器与回归动作头。</li>
       </ul></div>
+      <div class="topic"><h3>防抖 | image video stabilization</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>ISP处理 | image signal processor pipeline</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机影像 | mobile computational imaging</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>图片处理 | image processing restoration enhancement</h3>
+      <div class="none">— 无新进展</div></div>
 
   <h2>🔗 附：全部命中列表</h2>
     <ul class="hits">
-        <li><a href="https://arxiv.org/abs/2607.08772" target="_blank" rel="noopener">2607.08772</a> Wat3R: Underwater 3D Geometry Learning without Annotations</li>
-        <li><a href="https://arxiv.org/abs/2607.08771" target="_blank" rel="noopener">2607.08771</a> ZipDepth: Bringing Lightweight Zero-Shot Monocular Depth Anywhere, on Any Device</li>
-        <li><a href="https://arxiv.org/abs/2607.08770" target="_blank" rel="noopener">2607.08770</a> LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models</li>
-        <li><a href="https://arxiv.org/abs/2607.08769" target="_blank" rel="noopener">2607.08769</a> Geometry and Gradient-based Partitioning for Panoramic Outdoor Reconstruction</li>
-        <li><a href="https://arxiv.org/abs/2607.08766" target="_blank" rel="noopener">2607.08766</a> OPSD-V: On-Policy Self-Distillation for Post-Training Few-Step Autoregressive Video Generators</li>
-        <li><a href="https://arxiv.org/abs/2607.08765" target="_blank" rel="noopener">2607.08765</a> Enhancing In-context Panoramic Generation via Geometric-aware Pretraining</li>
-        <li><a href="https://arxiv.org/abs/2607.08763" target="_blank" rel="noopener">2607.08763</a> OpenCoF: Learning to Reason Through Video Generation</li>
-        <li><a href="https://arxiv.org/abs/2607.08745" target="_blank" rel="noopener">2607.08745</a> AUTOPILOT VQA: Benchmarking Vision-Language Models for Incident-Centric Dashcam Understanding</li>
-        <li><a href="https://arxiv.org/abs/2607.08741" target="_blank" rel="noopener">2607.08741</a> ARDY: Autoregressive Diffusion with Hybrid Representation for Interactive Human Motion Generation</li>
-        <li><a href="https://arxiv.org/abs/2607.08729" target="_blank" rel="noopener">2607.08729</a> WaspMOT: A Benchmark for Long-Term Multi-Object Tracking of Trichogramma Wasps</li>
-        <li><a href="https://arxiv.org/abs/2607.08725" target="_blank" rel="noopener">2607.08725</a> Pose-to-Biomechanics: Bridging 3D Human Pose Estimation and Biomechanical Attribute Prediction</li>
-        <li><a href="https://arxiv.org/abs/2607.08711" target="_blank" rel="noopener">2607.08711</a> LTM: Large-scale Terrain Model for Wildfire-prone Landscapes</li>
-        <li><a href="https://arxiv.org/abs/2607.08705" target="_blank" rel="noopener">2607.08705</a> HumanForge: A Human-Centric Deepfake Video Benchmark with Multi-Agent Forgery Rationales</li>
-        <li><a href="https://arxiv.org/abs/2607.08688" target="_blank" rel="noopener">2607.08688</a> SAM-MT: Real-Time Interactive Multi-Target Video Segmentation</li>
-        <li><a href="https://arxiv.org/abs/2607.08679" target="_blank" rel="noopener">2607.08679</a> Multi-Resolution Feature Stem for Diabetic Retinopathy lesion segmentation</li>
-        <li><a href="https://arxiv.org/abs/2607.08674" target="_blank" rel="noopener">2607.08674</a> Do Transformations Reveal the Truth? Generative Residual Learning for Generalized AI-Generated Image Detection</li>
-        <li><a href="https://arxiv.org/abs/2607.08639" target="_blank" rel="noopener">2607.08639</a> Native Video-Action Pretraining for Generalizable Robot Control</li>
-        <li><a href="https://arxiv.org/abs/2607.08605" target="_blank" rel="noopener">2607.08605</a> When Structured Sparse Autoencoders Learn Consistent Concepts Across Modalities</li>
-        <li><a href="https://arxiv.org/abs/2607.08572" target="_blank" rel="noopener">2607.08572</a> Switch-Reasoner: Learn When to Think in Multitask Mixtures via Reinforcement Learning</li>
-        <li><a href="https://arxiv.org/abs/2607.08541" target="_blank" rel="noopener">2607.08541</a> VocaDet: Sample-Driven Open-Vocabulary Object Detection and Segmentation via Visual Tokenization and Vector Database Retrieval</li>
-        <li><a href="https://arxiv.org/abs/2607.08537" target="_blank" rel="noopener">2607.08537</a> Whareformer: Learning to Track What is Where in Long Egocentric Videos</li>
-        <li><a href="https://arxiv.org/abs/2607.08515" target="_blank" rel="noopener">2607.08515</a> Beyond wheelchairs and blindfolds: Investigating disability stereotypes in T2I models with INCLUDE-BENCH</li>
-        <li><a href="https://arxiv.org/abs/2607.08514" target="_blank" rel="noopener">2607.08514</a> Do Egocentric Video-Language Models Capture Both Hand- and Object-Centric Cues?</li>
-        <li><a href="https://arxiv.org/abs/2607.08511" target="_blank" rel="noopener">2607.08511</a> Systematic Evaluation of Learning Rate Scheduling Strategies Across Heterogeneous Architectures</li>
-        <li><a href="https://arxiv.org/abs/2607.08503" target="_blank" rel="noopener">2607.08503</a> CT-CLIP Representations for Multimodal Lung Cancer Survival Prediction</li>
-        <li><a href="https://arxiv.org/abs/2607.08497" target="_blank" rel="noopener">2607.08497</a> Cognitive-structured Multimodal Agent for Multimodal Understanding, Generation, and Editing</li>
-        <li><a href="https://arxiv.org/abs/2607.08489" target="_blank" rel="noopener">2607.08489</a> VEGAS: Human-Aligned Video Caption Evaluation via Gaze</li>
-        <li><a href="https://arxiv.org/abs/2607.08449" target="_blank" rel="noopener">2607.08449</a> Predicting Viticulture Potential through an Ensemble of U-Net and a Geospatial Foundation Model</li>
-        <li><a href="https://arxiv.org/abs/2607.08434" target="_blank" rel="noopener">2607.08434</a> DeltaV: Thinking with Visual State Updates in Unified Large Multimodal Models</li>
-        <li><a href="https://arxiv.org/abs/2607.08408" target="_blank" rel="noopener">2607.08408</a> Track2Map: Online Deformable SLAM with Motion-Aware Pose Optimization in Robotic Surgery</li>
-        <li><a href="https://arxiv.org/abs/2607.08402" target="_blank" rel="noopener">2607.08402</a> Swapping Faces, Saving Features: A Dual-Purpose Pipeline for Pedestrian Privacy in ITS</li>
-        <li><a href="https://arxiv.org/abs/2607.08398" target="_blank" rel="noopener">2607.08398</a> HoloTetSphere: Unified TetSphere Mesh Reconstruction for Physical Simulations</li>
-        <li><a href="https://arxiv.org/abs/2607.08397" target="_blank" rel="noopener">2607.08397</a> Attribute Retrieving for Open-Vocabulary Endoscopic Compositional Referring Segmentation</li>
-        <li><a href="https://arxiv.org/abs/2607.08379" target="_blank" rel="noopener">2607.08379</a> Classical versus Deep Mirror-Symmetry Scoring: A Benchmark of Thirteen Methods</li>
-        <li><a href="https://arxiv.org/abs/2607.08375" target="_blank" rel="noopener">2607.08375</a> WCog-VLA: A Dual-Level World-Cognitive Vision-Language-Action Model for End-to-End Autonomous Driving</li>
-        <li><a href="https://arxiv.org/abs/2607.08321" target="_blank" rel="noopener">2607.08321</a> Texture Representations in Deep Vision Models: Comparing CNNs, Vision Transformers, and Human Perception</li>
-        <li><a href="https://arxiv.org/abs/2607.08297" target="_blank" rel="noopener">2607.08297</a> ARGUS: Accelerated, Robust, General, and Unsupervised Cell Tracking Solutions</li>
-        <li><a href="https://arxiv.org/abs/2607.08281" target="_blank" rel="noopener">2607.08281</a> Enhancing the KidSat Model: Integrating Geographical Encoding and Data Quality Assessment for Childhood Poverty Prediction</li>
-        <li><a href="https://arxiv.org/abs/2607.08270" target="_blank" rel="noopener">2607.08270</a> Progression as Latent Drift: Generative Forecasting of Slow-Evolving Pathologies</li>
-        <li><a href="https://arxiv.org/abs/2607.08267" target="_blank" rel="noopener">2607.08267</a> UniRef-UAV: A Multimodal Benchmark for Universal Referring in UAV Imagery</li>
-        <li><a href="https://arxiv.org/abs/2607.08185" target="_blank" rel="noopener">2607.08185</a> Leveraging Color Naming for Image Enhancement</li>
-        <li><a href="https://arxiv.org/abs/2607.07673" target="_blank" rel="noopener">2607.07673</a> MedPMC: A Systematic Framework for Scaling High-Fidelity Medical Multimodal Data for Foundation Models</li>
-        <li><a href="https://arxiv.org/abs/2607.07117" target="_blank" rel="noopener">2607.07117</a> Tree-of-Thoughts Reasoning for Text-to-Image In-Context Learning</li>
         <li><a href="https://arxiv.org/abs/2607.06882" target="_blank" rel="noopener">2607.06882</a> GemNav: Discrete-Token Visual Robot Navigation using a Multimodal Large Language Model</li>
+        <li><a href="https://arxiv.org/abs/2607.07117" target="_blank" rel="noopener">2607.07117</a> Tree-of-Thoughts Reasoning for Text-to-Image In-Context Learning</li>
+        <li><a href="https://arxiv.org/abs/2607.07673" target="_blank" rel="noopener">2607.07673</a> MedPMC: A Systematic Framework for Scaling High-Fidelity Medical Multimodal Data for Foundation Models</li>
+        <li><a href="https://arxiv.org/abs/2607.08185" target="_blank" rel="noopener">2607.08185</a> Leveraging Color Naming for Image Enhancement</li>
+        <li><a href="https://arxiv.org/abs/2607.08267" target="_blank" rel="noopener">2607.08267</a> UniRef-UAV: A Multimodal Benchmark for Universal Referring in UAV Imagery</li>
+        <li><a href="https://arxiv.org/abs/2607.08270" target="_blank" rel="noopener">2607.08270</a> Progression as Latent Drift: Generative Forecasting of Slow-Evolving Pathologies</li>
+        <li><a href="https://arxiv.org/abs/2607.08281" target="_blank" rel="noopener">2607.08281</a> Enhancing the KidSat Model: Integrating Geographical Encoding and Data Quality Assessment for Childhood Poverty Prediction</li>
+        <li><a href="https://arxiv.org/abs/2607.08297" target="_blank" rel="noopener">2607.08297</a> ARGUS: Accelerated, Robust, General, and Unsupervised Cell Tracking Solutions</li>
+        <li><a href="https://arxiv.org/abs/2607.08321" target="_blank" rel="noopener">2607.08321</a> Texture Representations in Deep Vision Models: Comparing CNNs, Vision Transformers, and Human Perception</li>
+        <li><a href="https://arxiv.org/abs/2607.08375" target="_blank" rel="noopener">2607.08375</a> WCog-VLA: A Dual-Level World-Cognitive Vision-Language-Action Model for End-to-End Autonomous Driving</li>
+        <li><a href="https://arxiv.org/abs/2607.08379" target="_blank" rel="noopener">2607.08379</a> Classical versus Deep Mirror-Symmetry Scoring: A Benchmark of Thirteen Methods</li>
+        <li><a href="https://arxiv.org/abs/2607.08397" target="_blank" rel="noopener">2607.08397</a> Attribute Retrieving for Open-Vocabulary Endoscopic Compositional Referring Segmentation</li>
+        <li><a href="https://arxiv.org/abs/2607.08398" target="_blank" rel="noopener">2607.08398</a> HoloTetSphere: Unified TetSphere Mesh Reconstruction for Physical Simulations</li>
+        <li><a href="https://arxiv.org/abs/2607.08402" target="_blank" rel="noopener">2607.08402</a> Swapping Faces, Saving Features: A Dual-Purpose Pipeline for Pedestrian Privacy in ITS</li>
+        <li><a href="https://arxiv.org/abs/2607.08408" target="_blank" rel="noopener">2607.08408</a> Track2Map: Online Deformable SLAM with Motion-Aware Pose Optimization in Robotic Surgery</li>
+        <li><a href="https://arxiv.org/abs/2607.08434" target="_blank" rel="noopener">2607.08434</a> DeltaV: Thinking with Visual State Updates in Unified Large Multimodal Models</li>
+        <li><a href="https://arxiv.org/abs/2607.08449" target="_blank" rel="noopener">2607.08449</a> Predicting Viticulture Potential through an Ensemble of U-Net and a Geospatial Foundation Model</li>
+        <li><a href="https://arxiv.org/abs/2607.08489" target="_blank" rel="noopener">2607.08489</a> VEGAS: Human-Aligned Video Caption Evaluation via Gaze</li>
+        <li><a href="https://arxiv.org/abs/2607.08497" target="_blank" rel="noopener">2607.08497</a> Cognitive-structured Multimodal Agent for Multimodal Understanding, Generation, and Editing</li>
+        <li><a href="https://arxiv.org/abs/2607.08503" target="_blank" rel="noopener">2607.08503</a> CT-CLIP Representations for Multimodal Lung Cancer Survival Prediction</li>
+        <li><a href="https://arxiv.org/abs/2607.08511" target="_blank" rel="noopener">2607.08511</a> Systematic Evaluation of Learning Rate Scheduling Strategies Across Heterogeneous Architectures</li>
+        <li><a href="https://arxiv.org/abs/2607.08514" target="_blank" rel="noopener">2607.08514</a> Do Egocentric Video-Language Models Capture Both Hand- and Object-Centric Cues?</li>
+        <li><a href="https://arxiv.org/abs/2607.08515" target="_blank" rel="noopener">2607.08515</a> Beyond wheelchairs and blindfolds: Investigating disability stereotypes in T2I models with INCLUDE-BENCH</li>
+        <li><a href="https://arxiv.org/abs/2607.08537" target="_blank" rel="noopener">2607.08537</a> Whareformer: Learning to Track What is Where in Long Egocentric Videos</li>
+        <li><a href="https://arxiv.org/abs/2607.08541" target="_blank" rel="noopener">2607.08541</a> VocaDet: Sample-Driven Open-Vocabulary Object Detection and Segmentation via Visual Tokenization and Vector Database Retrieval</li>
+        <li><a href="https://arxiv.org/abs/2607.08572" target="_blank" rel="noopener">2607.08572</a> Switch-Reasoner: Learn When to Think in Multitask Mixtures via Reinforcement Learning</li>
+        <li><a href="https://arxiv.org/abs/2607.08605" target="_blank" rel="noopener">2607.08605</a> When Structured Sparse Autoencoders Learn Consistent Concepts Across Modalities</li>
+        <li><a href="https://arxiv.org/abs/2607.08639" target="_blank" rel="noopener">2607.08639</a> Native Video-Action Pretraining for Generalizable Robot Control</li>
+        <li><a href="https://arxiv.org/abs/2607.08674" target="_blank" rel="noopener">2607.08674</a> Do Transformations Reveal the Truth? Generative Residual Learning for Generalized AI-Generated Image Detection</li>
+        <li><a href="https://arxiv.org/abs/2607.08679" target="_blank" rel="noopener">2607.08679</a> Multi-Resolution Feature Stem for Diabetic Retinopathy lesion segmentation</li>
+        <li><a href="https://arxiv.org/abs/2607.08688" target="_blank" rel="noopener">2607.08688</a> SAM-MT: Real-Time Interactive Multi-Target Video Segmentation</li>
+        <li><a href="https://arxiv.org/abs/2607.08705" target="_blank" rel="noopener">2607.08705</a> HumanForge: A Human-Centric Deepfake Video Benchmark with Multi-Agent Forgery Rationales</li>
+        <li><a href="https://arxiv.org/abs/2607.08711" target="_blank" rel="noopener">2607.08711</a> LTM: Large-scale Terrain Model for Wildfire-prone Landscapes</li>
+        <li><a href="https://arxiv.org/abs/2607.08725" target="_blank" rel="noopener">2607.08725</a> Pose-to-Biomechanics: Bridging 3D Human Pose Estimation and Biomechanical Attribute Prediction</li>
+        <li><a href="https://arxiv.org/abs/2607.08729" target="_blank" rel="noopener">2607.08729</a> WaspMOT: A Benchmark for Long-Term Multi-Object Tracking of Trichogramma Wasps</li>
+        <li><a href="https://arxiv.org/abs/2607.08741" target="_blank" rel="noopener">2607.08741</a> ARDY: Autoregressive Diffusion with Hybrid Representation for Interactive Human Motion Generation</li>
+        <li><a href="https://arxiv.org/abs/2607.08745" target="_blank" rel="noopener">2607.08745</a> AUTOPILOT VQA: Benchmarking Vision-Language Models for Incident-Centric Dashcam Understanding</li>
+        <li><a href="https://arxiv.org/abs/2607.08763" target="_blank" rel="noopener">2607.08763</a> OpenCoF: Learning to Reason Through Video Generation</li>
+        <li><a href="https://arxiv.org/abs/2607.08765" target="_blank" rel="noopener">2607.08765</a> Enhancing In-context Panoramic Generation via Geometric-aware Pretraining</li>
+        <li><a href="https://arxiv.org/abs/2607.08766" target="_blank" rel="noopener">2607.08766</a> OPSD-V: On-Policy Self-Distillation for Post-Training Few-Step Autoregressive Video Generators</li>
+        <li><a href="https://arxiv.org/abs/2607.08769" target="_blank" rel="noopener">2607.08769</a> Geometry and Gradient-based Partitioning for Panoramic Outdoor Reconstruction</li>
+        <li><a href="https://arxiv.org/abs/2607.08770" target="_blank" rel="noopener">2607.08770</a> LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models</li>
+        <li><a href="https://arxiv.org/abs/2607.08771" target="_blank" rel="noopener">2607.08771</a> ZipDepth: Bringing Lightweight Zero-Shot Monocular Depth Anywhere, on Any Device</li>
+        <li><a href="https://arxiv.org/abs/2607.08772" target="_blank" rel="noopener">2607.08772</a> Wat3R: Underwater 3D Geometry Learning without Annotations</li>
     </ul>
 
   <footer>tech-research-radar · 自动生成于每日检索 · 数据源 arXiv</footer>
