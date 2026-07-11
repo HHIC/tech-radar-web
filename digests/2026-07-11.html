@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术进展雷达 · 2026-07-11</title>
+<style>
+  :root {
+    --bg:#0f1115; --card:#181b22; --border:#262b36; --fg:#e6e8ec; --muted:#9aa3b2;
+    --accent:#5b9dff; --accent2:#ffb454; --tag:#232833; --feat:#1f2a1c; --featborder:#3d6b2f;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg);
+    font:15px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  header { padding:24px 28px 16px; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--bg); z-index:10; }
+  header h1 { margin:0 0 6px; font-size:22px; }
+  .meta { color:var(--muted); font-size:13px; }
+  .note { color:var(--accent2); font-size:12.5px; margin-top:6px; }
+  .layout { display:flex; align-items:flex-start; }
+  nav { position:sticky; top:104px; width:210px; flex:none; padding:20px 16px; align-self:flex-start; }
+  nav .navtitle { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px; }
+  nav a { display:flex; justify-content:space-between; padding:7px 10px; border-radius:8px; color:var(--fg); font-size:14px; }
+  nav a:hover { background:var(--card); text-decoration:none; }
+  nav a b { color:var(--muted); font-weight:600; }
+  main { flex:1; min-width:0; padding:20px 28px 80px; max-width:900px; }
+  .summary { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 18px; margin-bottom:24px; }
+  .summary h2 { margin:0 0 8px; font-size:16px; color:var(--accent2); }
+  .cat { margin-bottom:32px; scroll-margin-top:120px; }
+  .cat h2 { font-size:18px; border-left:3px solid var(--accent); padding-left:10px; margin:0 0 14px; }
+  .cat-count { color:var(--muted); font-size:14px; font-weight:500; }
+  .paper { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:12px; }
+  .paper.featured { background:var(--feat); border-color:var(--featborder); }
+  .paper-head { display:flex; align-items:baseline; gap:10px; }
+  .score { flex:none; background:var(--accent); color:#0b0d12; font-weight:700; font-size:13px; border-radius:6px; padding:1px 8px; }
+  .featured .score { background:var(--accent2); }
+  .paper-title { font-size:15.5px; font-weight:600; color:var(--fg); }
+  .paper-meta { font-size:12.5px; margin:3px 0 6px; }
+  .paper-zh { color:#cdd3dd; font-size:14px; }
+  .tags { margin-top:8px; }
+  .tag { display:inline-block; background:var(--tag); color:var(--muted); font-size:11.5px; border-radius:999px; padding:2px 9px; margin:2px 4px 2px 0; }
+  .reason { margin-top:6px; font-size:12.5px; color:var(--accent2); }
+  footer { color:var(--muted); font-size:12px; padding:20px 28px; border-top:1px solid var(--border); }
+  @media (max-width:720px){ nav{display:none;} main{padding:16px;} header{position:static;} }
+</style>
+</head>
+<body>
+<header>
+  <h1>技术进展雷达 · 2026-07-11</h1>
+  <div class="meta">arXiv (cs.CV / eess.IV / cs.AI / cs.LG / cs.MM) · 窗口 2026-07-08 ~ 2026-07-11 · 命中 44 篇 · S2 未启用</div>
+  <div class="note">arXiv 最新公开列表停在 2026-07-09；07-10/07-11 周末无新提交。</div>
+  <div class="meta" style="margin-top:6px;"><a href="index.html">← 返回索引</a></div>
+</header>
+<div class="layout">
+  <nav>
+    <div class="navtitle">分类导航</div>
+    <a href="#summary">今日热点</a>
+    <a href="#cat-1">多模态大模型 <b>7</b></a><a href="#cat-2">视频算法 <b>4</b></a><a href="#cat-3">底层视觉 / 影像 <b>3</b></a><a href="#cat-4">AI Agent / 具身 <b>2</b></a><a href="#cat-5">其他 CV <b>2</b></a>
+  </nav>
+  <main>
+    <section id="summary" class="summary">
+      <h2>📊 今日热点总结</h2>
+      <div>今天扫描 13 个主题，去重后命中 44 篇。绝大多数集中在通用计算机视觉与多模态大模型两簇；影像底层方向（HDR、多帧融合、RAW 去噪、计算摄影、手机拍照/录像、视频处理/编辑、low-level CV）本窗口几乎无新论文（仅 tone mapping 命中 1 篇），符合周末提交空档。两大看点：(1) 统一多模态模型的推理效率（DeltaV 视觉增量更新、Switch-Reasoner 自适应是否思考、Cognitive-structured Agent 情景视觉记忆）都在攻视觉 token 爆炸 / 长程多模态对话；(2) 端侧与实时化（ZipDepth 6.1M 参数零样本深度、SAM-MT 实时多目标视频分割）。</div>
+    </section>
+    <section id="cat-1" class="cat">
+      <h2>多模态大模型 <span class="cat-count">7</span></h2>
+      <div class="paper featured">
+        <div class="paper-head">
+          <span class="score">9.5</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08497" target="_blank" rel="noopener">Cognitive-structured Multimodal Agent for Multimodal Understanding, Generation, and Editing</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08497" target="_blank" rel="noopener">arXiv:2607.08497</a></div>
+        <div class="paper-zh">把历史视觉信息外化为 Episodic Visual Memory 并按需重激活，用感知抽象+认知检索三引擎解决长程多模态对话中的视觉 token 爆炸与跨轮引用不可靠。</div>
+        <div class="tags"><span class="tag">multimodal agent</span><span class="tag">visual memory</span><span class="tag">long-horizon</span></div>
+        <div class="reason">★ ①突破性 + ④覆盖面（同踩 Agent 与多模态两簇）</div>
+      </div>
+      <div class="paper featured">
+        <div class="paper-head">
+          <span class="score">9.0</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08434" target="_blank" rel="noopener">DeltaV: Thinking with Visual State Updates in Unified Large Multimodal Models</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08434" target="_blank" rel="noopener">arXiv:2607.08434</a></div>
+        <div class="paper-zh">统一多模态模型推理时不再每步生成整张图，而是预测紧凑的视觉增量更新 token，只建模变化部分，削减视觉 token 冗余、强化对稀疏关键状态转移的监督。</div>
+        <div class="tags"><span class="tag">unified LMM</span><span class="tag">visual state</span><span class="tag">token efficiency</span></div>
+        <div class="reason">★ ①突破性（交错多模态推理范式改进）</div>
+      </div>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">8.0</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08572" target="_blank" rel="noopener">Switch-Reasoner: Learn When to Think in Multitask Mixtures via Reinforcement Learning</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08572" target="_blank" rel="noopener">arXiv:2607.08572</a></div>
+        <div class="paper-zh">基于 GRPO 让 MLLM 自适应是否思考，把思考视作虚拟工具调用，稳定多任务后训练。</div>
+        <div class="tags"><span class="tag">MLLM</span><span class="tag">RL</span><span class="tag">GRPO</span></div>
+        
+      </div>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">7.5</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08745" target="_blank" rel="noopener">AUTOPILOT VQA: Benchmarking Vision-Language Models for Incident-Centric Dashcam Understanding</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08745" target="_blank" rel="noopener">arXiv:2607.08745</a></div>
+        <div class="paper-zh">面向行车记录仪事故为中心理解的 VLM 基准，评测模型对安全关键事件的推理可靠性。</div>
+        <div class="tags"><span class="tag">VLM</span><span class="tag">benchmark</span><span class="tag">dashcam</span></div>
+        
+      </div>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">7.0</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.07673" target="_blank" rel="noopener">MedPMC: A Systematic Framework for Scaling High-Fidelity Medical Multimodal Data</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.07673" target="_blank" rel="noopener">arXiv:2607.07673</a></div>
+        <div class="paper-zh">从 610 万篇 PMC 文献自动构建 1100 万医学图文对的可持续更新框架，供医学多模态基础模型训练。</div>
+        <div class="tags"><span class="tag">medical</span><span class="tag">data scaling</span><span class="tag">multimodal</span></div>
+        
+      </div>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">7.0</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.07117" target="_blank" rel="noopener">Tree-of-Thoughts Reasoning for Text-to-Image In-Context Learning</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.07117" target="_blank" rel="noopener">arXiv:2607.07117</a></div>
+        <div class="paper-zh">为文生图上下文学习引入 ToT 多分支推理与筛选层，改善组合推理与 prompt 敏感问题。</div>
+        <div class="tags"><span class="tag">T2I</span><span class="tag">in-context</span><span class="tag">ToT</span></div>
+        
+      </div>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">6.5</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.06882" target="_blank" rel="noopener">GemNav: Discrete-Token Visual Robot Navigation using a Multimodal LLM</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.06882" target="_blank" rel="noopener">arXiv:2607.06882</a></div>
+        <div class="paper-zh">仅对冻结 MLLM 的语言塔做 LoRA、用离散 token 统一表示航点与导航信号，做视觉机器人导航，无需专用视觉编码器与回归头。</div>
+        <div class="tags"><span class="tag">navigation</span><span class="tag">MLLM</span><span class="tag">LoRA</span></div>
+        
+      </div>
+    </section>
+    <section id="cat-2" class="cat">
+      <h2>视频算法 <span class="cat-count">4</span></h2>
+      <div class="paper featured">
+        <div class="paper-head">
+          <span class="score">9.0</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08770" target="_blank" rel="noopener">LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08770" target="_blank" rel="noopener">arXiv:2607.08770</a></div>
+        <div class="paper-zh">复用预训练视频扩散先验，统一处理事件流的视频重建/预测/插帧；用 Autoregressive Unrolling + Adaptive Context Switching 抑制超长序列时序漂移。</div>
+        <div class="tags"><span class="tag">video diffusion</span><span class="tag">event camera</span><span class="tag">interpolation</span></div>
+        <div class="reason">★ ①突破性 + ③相关度（视频/低层视觉簇代表）</div>
+      </div>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">8.5</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08688" target="_blank" rel="noopener">SAM-MT: Real-Time Interactive Multi-Target Video Segmentation</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08688" target="_blank" rel="noopener">arXiv:2607.08688</a></div>
+        <div class="paper-zh">基于 SAM2 的实时交互式多目标视频分割，用显式 query 并行表征各目标，避免逐目标复制导致的帧率下降。</div>
+        <div class="tags"><span class="tag">SAM2</span><span class="tag">video segmentation</span><span class="tag">real-time</span></div>
+        
+      </div>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">7.5</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08766" target="_blank" rel="noopener">OPSD-V: On-Policy Self-Distillation for Post-Training Few-Step Autoregressive Video Generators</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08766" target="_blank" rel="noopener">arXiv:2607.08766</a></div>
+        <div class="paper-zh">少步自回归视频扩散的在轨自蒸馏后训练，缓解长程 rollout 误差累积与动态弱化。</div>
+        <div class="tags"><span class="tag">video generation</span><span class="tag">distillation</span></div>
+        
+      </div>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">6.5</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08763" target="_blank" rel="noopener">OpenCoF: Learning to Reason Through Video Generation</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08763" target="_blank" rel="noopener">arXiv:2607.08763</a></div>
+        <div class="paper-zh">通过视频生成进行推理学习的框架。</div>
+        <div class="tags"><span class="tag">video generation</span><span class="tag">reasoning</span></div>
+        
+      </div>
+    </section>
+    <section id="cat-3" class="cat">
+      <h2>底层视觉 / 影像 <span class="cat-count">3</span></h2>
+      <div class="paper featured">
+        <div class="paper-head">
+          <span class="score">9.5</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08771" target="_blank" rel="noopener">ZipDepth: Bringing Lightweight Zero-Shot Monocular Depth Anywhere, on Any Device</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08771" target="_blank" rel="noopener">arXiv:2607.08771</a></div>
+        <div class="paper-zh">仅 6.1M 参数，用基础模型的大规模跨域知识蒸馏，做到端侧实时的零样本单目深度估计，直面基础模型太重、轻量模型遇域偏移即失效的痛点。</div>
+        <div class="tags"><span class="tag">monocular depth</span><span class="tag">on-device</span><span class="tag">distillation</span></div>
+        <div class="reason">★ ①突破性 + ④覆盖面（端侧/手机 ISP 与 low-level CV 簇最强代表）</div>
+      </div>
+      <div class="paper featured">
+        <div class="paper-head">
+          <span class="score">8.0</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08185" target="_blank" rel="noopener">Leveraging Color Naming for Image Enhancement</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08185" target="_blank" rel="noopener">arXiv:2607.08185</a></div>
+        <div class="paper-zh">把颜色命名（一组通用色名）引入学习框架，为每个命名颜色学习色调曲线，实现可解释、可调的全局图像增强——本窗口 tone mapping / 计算摄影方向唯一新作。</div>
+        <div class="tags"><span class="tag">tone mapping</span><span class="tag">image enhancement</span><span class="tag">interpretable</span></div>
+        <div class="reason">★ ③相关度 + ④覆盖面（填补影像增强簇空白）</div>
+      </div>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">7.0</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08674" target="_blank" rel="noopener">GenRes: Generative Residual Learning for Generalized AI-Generated Image Detection</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08674" target="_blank" rel="noopener">arXiv:2607.08674</a></div>
+        <div class="paper-zh">生成式残差学习（神经张量网络）建模原图与变换样本的细粒度关系，提升 AI 生成图像检测的泛化。</div>
+        <div class="tags"><span class="tag">AIGC detection</span><span class="tag">residual</span></div>
+        
+      </div>
+    </section>
+    <section id="cat-4" class="cat">
+      <h2>AI Agent / 具身 <span class="cat-count">2</span></h2>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">7.5</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08639" target="_blank" rel="noopener">Native Video-Action Pretraining for Generalizable Robot Control (LingBot-VA 2.0)</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08639" target="_blank" rel="noopener">arXiv:2607.08639</a></div>
+        <div class="paper-zh">面向具身从零构建的视频-动作基础模型，语义视觉-动作 tokenizer 对齐语义与动作。</div>
+        <div class="tags"><span class="tag">embodied</span><span class="tag">video-action</span><span class="tag">pretraining</span></div>
+        
+      </div>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">7.0</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08375" target="_blank" rel="noopener">WCog-VLA: A Dual-Level World-Cognitive Vision-Language-Action Model for End-to-End Autonomous Driving</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08375" target="_blank" rel="noopener">arXiv:2607.08375</a></div>
+        <div class="paper-zh">双层世界认知的 VLA 端到端自动驾驶，缓解世界预见碎片化导致的被动式驾驶。</div>
+        <div class="tags"><span class="tag">VLA</span><span class="tag">autonomous driving</span></div>
+        
+      </div>
+    </section>
+    <section id="cat-5" class="cat">
+      <h2>其他 CV <span class="cat-count">2</span></h2>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">7.0</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08541" target="_blank" rel="noopener">VocaDet: Sample-Driven Open-Vocabulary Object Detection and Segmentation</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08541" target="_blank" rel="noopener">arXiv:2607.08541</a></div>
+        <div class="paper-zh">样本驱动的开放词表检测/分割，用视觉 tokenization + 向量库检索从用户正负样本学概念，无需重训。</div>
+        <div class="tags"><span class="tag">open-vocabulary</span><span class="tag">detection</span></div>
+        
+      </div>
+      <div class="paper">
+        <div class="paper-head">
+          <span class="score">6.5</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.08772" target="_blank" rel="noopener">Wat3R: Underwater 3D Geometry Learning without Annotations</a>
+        </div>
+        <div class="paper-meta"><a href="https://arxiv.org/abs/2607.08772" target="_blank" rel="noopener">arXiv:2607.08772</a></div>
+        <div class="paper-zh">无标注的水下三维几何学习。</div>
+        <div class="tags"><span class="tag">3D</span><span class="tag">underwater</span><span class="tag">self-supervised</span></div>
+        
+      </div>
+    </section>
+  </main>
+</div>
+<footer>tech-research-radar · 自动生成于每日检索 · 数据源 arXiv</footer>
+</body>
+</html>
