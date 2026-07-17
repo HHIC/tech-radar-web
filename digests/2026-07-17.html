@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术进展雷达 · 2026-07-17</title>
+<style>
+  :root { --bg:#0f1115; --fg:#e6e8ec; --muted:#9aa3b2; --accent:#5b9dff; --accent2:#ffb454; --border:#262b36; --code:#1b1f27; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .wrap { max-width:860px; margin:0 auto; padding:36px 24px 80px; }
+  h1 { font-size:24px; margin:0 0 6px; }
+  .meta { color:var(--muted); font-size:13px; }
+  .note { color:var(--accent2); font-size:13px; margin:6px 0 0; }
+  .back { font-size:13px; margin:10px 0 24px; }
+  h2 { font-size:19px; margin:32px 0 12px; padding-bottom:6px; border-bottom:1px solid var(--border); }
+  .summary { font-size:15.5px; color:#cdd3dd; }
+  ol.rec { padding-left:22px; }
+  ol.rec li { margin-bottom:16px; }
+  .rec-title { font-size:15.5px; }
+  .aid { color:var(--muted); font-size:12.5px; }
+  .hl { color:#cdd3dd; font-size:14.5px; margin-top:3px; }
+  .dim { color:var(--accent2); font-size:13px; margin-top:2px; }
+  .topic { margin-bottom:18px; }
+  .topic h3 { font-size:15.5px; margin:0 0 6px; color:var(--fg); }
+  .topic ul { margin:0; padding-left:20px; }
+  .topic li { margin-bottom:5px; font-size:14.5px; color:#cdd3dd; }
+  .none { color:var(--muted); font-size:14px; padding-left:2px; }
+  ul.hits { padding-left:20px; }
+  ul.hits li { font-size:13.5px; color:var(--muted); margin-bottom:3px; }
+  ul.hits a { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .empty { color:var(--muted); }
+  footer { color:var(--muted); font-size:12px; margin-top:40px; padding-top:16px; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>技术进展雷达 · 2026-07-17</h1>
+  <div class="meta">arXiv (cs.CV / eess.IV / cs.AI / cs.LG / cs.MM) · 窗口 2026-07-14 ~ 2026-07-17 · 命中 41 篇 · S2 未启用</div>
+  <p class="note">本次全部命中来自 07-15 公告批次；07-16 的批次周五当日尚未上线（arXiv 常规节奏），非故障。已对历史 digest 跨天去重（丢弃 7 篇重复）。核心影像主题（HDR/色调映射/多帧融合/RAW去噪/计算摄影/手机拍照录像/防抖/ISP/手机影像）当日无新论文；影像相关进展集中在低光增强、重打光、视频去雨与多模态大模型方向。S2 未启用（无 API key）。</p>
+  <div class="back"><a href="../index.html">← 返回索引</a></div>
+
+  <h2>📊 今日概览</h2>
+  <p class="summary">今日扫描 17 个主题，去重后共 41 篇新命中，全部来自 07-15 公告批次（07-16 批次周五当日尚未上线，属正常节奏）。手机影像/HDR/RAW 等核心摄影主题当日空档，进展主要落在通用视觉与多模态大模型：低光增强出现按层自适应的阈值化跨流注意力融合（TCA-Net），重打光领域有无需配对数据、物理引导扩散的 FreeLit；视频侧 VideoRAE 尝试把冻结的视频基础模型表征转成生成友好的隐空间，&#x27;From Pixels to States&#x27; 把交互式世界模型重构为游戏引擎；多模态大模型集中攻&#x27;可信度&#x27;（Groc-PO 的分阶段偏好优化）与 3D 空间推理。整体属轻量进展日，最值得关注的是低光/重打光的可部署性改进与视频基础模型隐空间这两条线。</p>
+
+  <h2>🌟 极大维度推荐</h2>
+    <ol class="rec">
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.13925" target="_blank" rel="noopener">Thresholded Cross-Attention for Reliable Intensity-Chromaticity Fusion in Low-Light Image Enhancement</a></b> <span class="aid">[2607.13925]</span></div>
+        <div class="hl">亮点：低光增强中把强度/色度解耦后再融合的可靠性常被忽视；作者发现跨流注意力置信度强依赖网络层，固定配额的 Top-K 稀疏注意力与之不匹配，提出阈值化跨流注意力 TCA-Net 按层自适应保留有效依赖、剔除噪声。</div>
+        <div class="dim">代表性维度：③相关度：与手机影像/低光成像直接相关，且给出可落地的注意力设计洞察</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.13656" target="_blank" rel="noopener">FreeLit: Paired-Free Indoor Relighting via Physics-Guided Diffusion</a></b> <span class="aid">[2607.13656]</span></div>
+        <div class="hl">亮点：室内重打光通常依赖昂贵、难扩展的多光照配对数据；FreeLit 用物理引导扩散实现无需配对数据、可对光源位置/颜色/强度做光源级控制的可控重打光，兼顾数据无关性与鲁棒性。</div>
+        <div class="dim">代表性维度：①突破性：以物理先验绕开配对数据瓶颈，提升重打光的可扩展与可控性</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.14088" target="_blank" rel="noopener">VideoRAE: Taming Video Foundation Models for Generative Modeling via Representation Autoencoders</a></b> <span class="aid">[2607.14088]</span></div>
+        <div class="hl">亮点：针对 3D-VAE 只优化像素重建、隐空间语义弱的问题，VideoRAE 用表征自编码器把 V-JEPA 2/VideoMAEv2 等冻结视频基础模型的多尺度层级特征转成紧凑、可重建、且生成友好的视频隐空间。</div>
+        <div class="dim">代表性维度：②影响力：把&#x27;理解&#x27;型视频基础模型接入&#x27;生成&#x27;管线，可能改写视频生成的隐空间构建方式</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.14076" target="_blank" rel="noopener">From Pixels to States: Rethinking Interactive World Models as Game Engines</a></b> <span class="aid">[2607.14076]</span></div>
+        <div class="hl">亮点：把可交互世界模型重新审视为游戏引擎：指出真正可交互需要遵循随游戏状态演化的规则、长时程持久后果与实时生成循环，借鉴引擎的&#x27;动作-状态-观测&#x27;递归回路来约束视频生成。</div>
+        <div class="dim">代表性维度：①突破性：为&#x27;视频生成模型即下一代游戏引擎&#x27;给出结构化的状态-规则框架</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.13802" target="_blank" rel="noopener">RainDancer: RGB-Event Video Deraining with Rain-Oriented Spiking Dynamics</a></b> <span class="aid">[2607.13802]</span></div>
+        <div class="hl">亮点：纯 RGB 视频去雨在动态雨景中因雨纹/纹理/运动/遮挡视觉相似而歧义大；RainDancer 引入事件相机的高时间分辨率运动线索，用面向雨的脉冲动态做渐进式 RGB-Event 融合，抑制跨模态干扰。</div>
+        <div class="dim">代表性维度：③相关度：视频复原+多模态传感，贴合视频处理与低层视觉主题</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.13712" target="_blank" rel="noopener">Groc-PO: Grounded Context Preference Optimization for Truthful Multimodal LLMs</a></b> <span class="aid">[2607.13712]</span></div>
+        <div class="hl">亮点：多模态推理错误常源于早期 grounding 阶段，而标准 DPO 只在最终答案层做偏好优化导致信用分配困难；Groc-PO 提出基于 grounded 上下文的分阶段偏好优化，直击视觉幻觉与不忠实推理。</div>
+        <div class="dim">代表性维度：②影响力：切中 MLLM 可信度这一核心痛点，方法可迁移到广泛对齐场景</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.13681" target="_blank" rel="noopener">Towards Spatial Supersensing in the Wild</a></b> <span class="aid">[2607.13681]</span></div>
+        <div class="hl">亮点：现有空间超感知基准依赖随机拼接短片的合成长视频且局限于居家场景；作者提出 VSI-Super-Wild，面向多样真实场景、长时程连续性的大规模空间超感知评测基准。</div>
+        <div class="dim">代表性维度：④覆盖面：以更真实的长视频基准推动多模态世界建模评测</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.13685" target="_blank" rel="noopener">DNA: Dual-stage Native Attribution for Generated Image Source Tracing</a></b> <span class="aid">[2607.13685]</span></div>
+        <div class="hl">亮点：面向数字取证的生成图溯源：观察到隐式生成模型的归因信号在架构层级上天然分层（VAE 层反映家族共享信息等），据此做被动式双阶段原生归因，无需水印/改模型即可区分同源近似变体。</div>
+        <div class="dim">代表性维度：③相关度：图像取证/生成溯源，是图片处理与内容安全的现实议题</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.13674" target="_blank" rel="noopener">WAVE-Stereo: Warp-Aligned Volume Encoding for Stereo Matching</a></b> <span class="aid">[2607.13674]</span></div>
+        <div class="hl">亮点：指出相关体（显式匹配搜索）与特征 warping（局部残差细化）提供互补匹配线索却长期分开建模；WAVE-Stereo 在 ConvGRU 输入端用 GeoWarp 编码器并行编码匹配搜索、残差对齐与视差先验，并以周期性全局上下文传播缓解弱纹理退化。</div>
+        <div class="dim">代表性维度：③相关度：立体匹配是深度/多帧成像的底层基石，方法上有整合创新</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2607.13808" target="_blank" rel="noopener">Bake It Till You Make It: Ultrafast Spatial Texture-Atlas Splatting</a></b> <span class="aid">[2607.13808]</span></div>
+        <div class="hl">亮点：针对 3DGS 用哈希网格做外观参数化时的高渲染开销，用 2D surfel 表低频几何/视角相关外观、用视角无关的空间哈希网格表高频纹理并烘焙进紧凑纹理图集，并以稀疏性优化激进剪枝，得到更快更稀疏的重建。</div>
+        <div class="dim">代表性维度：②影响力：显著提速的 3DGS 表征，对实时渲染与移动端部署有价值</div>
+      </li>
+    </ol>
+
+  <h2>📚 分主题进展</h2>
+      <div class="topic"><h3>HDR | high dynamic range imaging</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>tone mapping | tone mapping</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>多帧融合 | multi-frame image fusion burst</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>RAW去噪 | RAW image denoising</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>计算摄影 | computational photography</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机拍照 | smartphone photography on-device ISP</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机录像 | smartphone video capture mobile videography</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>视频处理 | video processing restoration</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2607.14088" target="_blank" rel="noopener">VideoRAE: Taming Video Foundation Models for Generative Modeling via Representation Autoencoders</a> <span class="aid">[2607.14088]</span> — 用表征自编码器把冻结视频基础模型的多尺度层级特征转成紧凑、可重建、生成友好的视频隐空间。</li>
+        <li><a href="https://arxiv.org/abs/2607.13802" target="_blank" rel="noopener">RainDancer: RGB-Event Video Deraining with Rain-Oriented Spiking Dynamics</a> <span class="aid">[2607.13802]</span> — 引入事件相机运动线索，以面向雨的脉冲动态做渐进式 RGB-Event 融合视频去雨。</li>
+        <li><a href="https://arxiv.org/abs/2607.13941" target="_blank" rel="noopener">Peak-End-Net: A Peak-End Rule Inspired Framework for Generalizable Video Aesthetic Assessment</a> <span class="aid">[2607.13941]</span> — 借心理学&#x27;峰终定律&#x27;构建轻量可解释的视频美学评估框架，聚焦显著时刻与结尾。</li>
+      </ul></div>
+      <div class="topic"><h3>计算机视觉 | computer vision</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2607.14076" target="_blank" rel="noopener">From Pixels to States: Rethinking Interactive World Models as Game Engines</a> <span class="aid">[2607.14076]</span> — 把可交互世界模型重构为游戏引擎，用&#x27;动作-状态-观测&#x27;递归回路约束实时视频生成与长时程持久后果。</li>
+        <li><a href="https://arxiv.org/abs/2607.13983" target="_blank" rel="noopener">Screening Is Effective for Visual Recognition</a> <span class="aid">[2607.13983]</span> — 把语言模型里的 Screening 引入视觉识别，独立评估每个 patch 相关性以显式拒绝背景/冗余 patch。</li>
+        <li><a href="https://arxiv.org/abs/2607.13674" target="_blank" rel="noopener">WAVE-Stereo: Warp-Aligned Volume Encoding for Stereo Matching</a> <span class="aid">[2607.13674]</span> — 并行编码匹配搜索、残差对齐与视差先验，并用周期性全局上下文传播缓解弱纹理区退化。</li>
+        <li><a href="https://arxiv.org/abs/2607.13808" target="_blank" rel="noopener">Bake It Till You Make It: Ultrafast Spatial Texture-Atlas Splatting</a> <span class="aid">[2607.13808]</span> — 解耦低频几何与高频纹理，将纹理烘焙进哈希网格纹理图集，实现更快更稀疏的 3DGS 重建。</li>
+        <li><a href="https://arxiv.org/abs/2607.13681" target="_blank" rel="noopener">Towards Spatial Supersensing in the Wild</a> <span class="aid">[2607.13681]</span> — 提出面向真实多样长视频的空间超感知评测基准 VSI-Super-Wild。</li>
+        <li><a href="https://arxiv.org/abs/2607.13805" target="_blank" rel="noopener">AspectCLIP: Optimizing CLIP Representation Space via Aspect-Guided Consistency Regularization</a> <span class="aid">[2607.13805]</span> — 用方面引导的一致性正则优化 CLIP 表征空间。</li>
+        <li><a href="https://arxiv.org/abs/2607.13661" target="_blank" rel="noopener">Fine-grained CLIP fine-tuning with self-annotated region alignment</a> <span class="aid">[2607.13661]</span> — 以自标注区域对齐做细粒度 CLIP 微调。</li>
+      </ul></div>
+      <div class="topic"><h3>视频编辑 | video editing generative</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2607.13927" target="_blank" rel="noopener">Cyclone: Diffusion Model for Cycle-Consistent Weather Editing from Unpaired Driving Data</a> <span class="aid">[2607.13927]</span> — 用循环一致扩散从非配对驾驶数据做天气编辑。</li>
+        <li><a href="https://arxiv.org/abs/2607.13654" target="_blank" rel="noopener">T3HG-Editor: Text-driven 3D Human Garment Editing with Body Priors Embedded in SMPL-X</a> <span class="aid">[2607.13654]</span> — 在 SMPL-X 中嵌入身体先验，做文本驱动的 3D 人体服装编辑。</li>
+        <li><a href="https://arxiv.org/abs/2607.13978" target="_blank" rel="noopener">Music-to-Dance Generation via Atomic Movements</a> <span class="aid">[2607.13978]</span> — 以&#x27;原子动作&#x27;为单元做音乐到舞蹈的生成。</li>
+      </ul></div>
+      <div class="topic"><h3>low-level CV | low-level computer vision</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2607.13925" target="_blank" rel="noopener">Thresholded Cross-Attention for Reliable Intensity-Chromaticity Fusion in Low-Light Image Enhancement</a> <span class="aid">[2607.13925]</span> — 阈值化跨流注意力按层自适应融合强度/色度流，改进低光增强的噪声抑制与色彩保真。</li>
+      </ul></div>
+      <div class="topic"><h3>Agent | LLM agent autonomous</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2607.13792" target="_blank" rel="noopener">EgoProceVQA: A Novel Egocentric Procedural Understanding Task with Self-Skill-Exploration Agent</a> <span class="aid">[2607.13792]</span> — 提出第一人称程序化理解任务，配自我技能探索 Agent。</li>
+        <li><a href="https://arxiv.org/abs/2607.13653" target="_blank" rel="noopener">Exploratory, Communicative, and Deployable: Vision-Driven Embodied Agents for Open-World Mobile Manipulation</a> <span class="aid">[2607.13653]</span> — 面向开放世界移动操作的视觉驱动具身 Agent，兼顾探索、沟通与可部署性。</li>
+      </ul></div>
+      <div class="topic"><h3>多模态大模型 | multimodal large language model</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2607.13712" target="_blank" rel="noopener">Groc-PO: Grounded Context Preference Optimization for Truthful Multimodal LLMs</a> <span class="aid">[2607.13712]</span> — 基于 grounded 上下文的分阶段偏好优化，缓解 MLLM 视觉幻觉与不忠实推理的信用分配难题。</li>
+        <li><a href="https://arxiv.org/abs/2607.13860" target="_blank" rel="noopener">Towards Enhancing 3D Spatial Reasoning in Medical Multimodal Large Language Models</a> <span class="aid">[2607.13860]</span> — 用切片级数据合成范式构建结构化推理数据集，增强医学 MLLM 的 3D 空间推理。</li>
+        <li><a href="https://arxiv.org/abs/2607.13881" target="_blank" rel="noopener">Unleashing Multimodal Large Language Models for Training-free HOI Detection in the Wild</a> <span class="aid">[2607.13881]</span> — 挖掘 MLLM 的多模态推理能力做免训练的开放世界人-物交互检测。</li>
+        <li><a href="https://arxiv.org/abs/2607.13454" target="_blank" rel="noopener">GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding</a> <span class="aid">[2607.13454]</span> — 交织文本-隐表征推理，把 3D 空间信息分解为多互补分量以适配多样空间任务。</li>
+      </ul></div>
+      <div class="topic"><h3>防抖 | image video stabilization</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>ISP处理 | image signal processor pipeline</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机影像 | mobile computational imaging</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>图片处理 | image processing restoration enhancement</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2607.13656" target="_blank" rel="noopener">FreeLit: Paired-Free Indoor Relighting via Physics-Guided Diffusion</a> <span class="aid">[2607.13656]</span> — 无需配对数据、物理引导扩散的可控室内重打光，支持光源级位置/颜色/强度控制。</li>
+        <li><a href="https://arxiv.org/abs/2607.13685" target="_blank" rel="noopener">DNA: Dual-stage Native Attribution for Generated Image Source Tracing</a> <span class="aid">[2607.13685]</span> — 利用生成模型归因信号的架构层级分层特性，做被动式双阶段生成图溯源。</li>
+      </ul></div>
+
+  <h2>🔗 附：全部命中列表</h2>
+    <ul class="hits">
+        <li><a href="https://arxiv.org/abs/2607.14088" target="_blank" rel="noopener">2607.14088</a> VideoRAE: Taming Video Foundation Models for Generative Modeling via Representation Autoencoders</li>
+        <li><a href="https://arxiv.org/abs/2607.14076" target="_blank" rel="noopener">2607.14076</a> From Pixels to States: Rethinking Interactive World Models as Game Engines</li>
+        <li><a href="https://arxiv.org/abs/2607.14041" target="_blank" rel="noopener">2607.14041</a> Multi-Expert Routing for Multi-Domain Low-Resource OCR: A Manchu Case Study</li>
+        <li><a href="https://arxiv.org/abs/2607.14005" target="_blank" rel="noopener">2607.14005</a> M4World: A Multi-view Multimodal Driving World Model for Interactive Object Manipulation and Minute-long Streaming</li>
+        <li><a href="https://arxiv.org/abs/2607.13986" target="_blank" rel="noopener">2607.13986</a> Task-Specific Feature Fusion Method for Multi-Task Affective Behavior Analysis</li>
+        <li><a href="https://arxiv.org/abs/2607.13983" target="_blank" rel="noopener">2607.13983</a> Screening Is Effective for Visual Recognition</li>
+        <li><a href="https://arxiv.org/abs/2607.13978" target="_blank" rel="noopener">2607.13978</a> Music-to-Dance Generation via Atomic Movements</li>
+        <li><a href="https://arxiv.org/abs/2607.13976" target="_blank" rel="noopener">2607.13976</a> CF-Net: Conflict Fusion with Speaker Normalisation and Certainty Weighting for Ambivalence/Hesitancy Recognition</li>
+        <li><a href="https://arxiv.org/abs/2607.13945" target="_blank" rel="noopener">2607.13945</a> PlumeQuant: Uncertainty-aware consistency assessment of methane plume masks and emission-rate estimates</li>
+        <li><a href="https://arxiv.org/abs/2607.13941" target="_blank" rel="noopener">2607.13941</a> Peak-End-Net: A Peak-End Rule Inspired Framework for Generalizable Video Aesthetic Assessment</li>
+        <li><a href="https://arxiv.org/abs/2607.13936" target="_blank" rel="noopener">2607.13936</a> A novel unsupervised machine learning strategy to handle multimodal cardiac PET/MRI data</li>
+        <li><a href="https://arxiv.org/abs/2607.13931" target="_blank" rel="noopener">2607.13931</a> SIVA-RL: Sensitivity-Invariance Visual Alignment for Multimodal Reinforcement Learning</li>
+        <li><a href="https://arxiv.org/abs/2607.13927" target="_blank" rel="noopener">2607.13927</a> Cyclone: Diffusion Model for Cycle-Consistent Weather Editing from Unpaired Driving Data</li>
+        <li><a href="https://arxiv.org/abs/2607.13925" target="_blank" rel="noopener">2607.13925</a> Thresholded Cross-Attention for Reliable Intensity-Chromaticity Fusion in Low-Light Image Enhancement</li>
+        <li><a href="https://arxiv.org/abs/2607.13905" target="_blank" rel="noopener">2607.13905</a> The 2nd International StepUP Competition for Biometric Footstep Recognition: From Steps to Strides</li>
+        <li><a href="https://arxiv.org/abs/2607.13892" target="_blank" rel="noopener">2607.13892</a> Fine-Grained Vision-Language Pretraining with Organ-Conditioned Pattern Tokens for CT Understanding</li>
+        <li><a href="https://arxiv.org/abs/2607.13891" target="_blank" rel="noopener">2607.13891</a> PiVoT: A Variational Solution for Real-time Large-scale Multi-object Detection and Tracking under Heavy Clutter</li>
+        <li><a href="https://arxiv.org/abs/2607.13881" target="_blank" rel="noopener">2607.13881</a> Unleashing Multimodal Large Language Models for Training-free HOI Detection in the Wild</li>
+        <li><a href="https://arxiv.org/abs/2607.13860" target="_blank" rel="noopener">2607.13860</a> Towards Enhancing 3D Spatial Reasoning in Medical Multimodal Large Language Models</li>
+        <li><a href="https://arxiv.org/abs/2607.13830" target="_blank" rel="noopener">2607.13830</a> Recursive ArUco Markers: A Scalable Fiducial Marker Design for Unmanned Aerial Vehicle Landing Pads</li>
+        <li><a href="https://arxiv.org/abs/2607.13826" target="_blank" rel="noopener">2607.13826</a> Multimodal Assessment of Pancreatic Cancer Resectability Using Deep Learning</li>
+        <li><a href="https://arxiv.org/abs/2607.13812" target="_blank" rel="noopener">2607.13812</a> TCAM-Diff: Triplane-Aware Cross-Attention Medical Diffusion Model</li>
+        <li><a href="https://arxiv.org/abs/2607.13808" target="_blank" rel="noopener">2607.13808</a> Bake It Till You Make It: Ultrafast Spatial Texture-Atlas Splatting</li>
+        <li><a href="https://arxiv.org/abs/2607.13805" target="_blank" rel="noopener">2607.13805</a> AspectCLIP: Optimizing CLIP Representation Space via Aspect-Guided Consistency Regularization</li>
+        <li><a href="https://arxiv.org/abs/2607.13802" target="_blank" rel="noopener">2607.13802</a> RainDancer: RGB-Event Video Deraining with Rain-Oriented Spiking Dynamics</li>
+        <li><a href="https://arxiv.org/abs/2607.13800" target="_blank" rel="noopener">2607.13800</a> Prospective clinical indication, post-hoc report leakage, and fusion design in multi-image chest radiograph classification: a patient-clustered evaluation</li>
+        <li><a href="https://arxiv.org/abs/2607.13792" target="_blank" rel="noopener">2607.13792</a> EgoProceVQA: A Novel Egocentric Procedural Understanding Task with Self-Skill-Exploration Agent</li>
+        <li><a href="https://arxiv.org/abs/2607.13738" target="_blank" rel="noopener">2607.13738</a> Anatomically Faithful but Temporally Blind: Auditing Attribution for Left-Ventricular Ejection-Fraction Estimation from Echocardiography</li>
+        <li><a href="https://arxiv.org/abs/2607.13712" target="_blank" rel="noopener">2607.13712</a> Groc-PO: Grounded Context Preference Optimization for Truthful Multimodal LLMs</li>
+        <li><a href="https://arxiv.org/abs/2607.13698" target="_blank" rel="noopener">2607.13698</a> Towards a Modular Bin-picking Framework for Handling Object Pose Uncertainties</li>
+        <li><a href="https://arxiv.org/abs/2607.13689" target="_blank" rel="noopener">2607.13689</a> Barnamala: Parameter-Efficient Handwritten Devanagari Recognition at Benchmark Saturation</li>
+        <li><a href="https://arxiv.org/abs/2607.13685" target="_blank" rel="noopener">2607.13685</a> DNA: Dual-stage Native Attribution for Generated Image Source Tracing</li>
+        <li><a href="https://arxiv.org/abs/2607.13682" target="_blank" rel="noopener">2607.13682</a> Calibrated Closed-Form Uncertainty for Radiative Gaussian Splatting in Sparse-View CT</li>
+        <li><a href="https://arxiv.org/abs/2607.13681" target="_blank" rel="noopener">2607.13681</a> Towards Spatial Supersensing in the Wild</li>
+        <li><a href="https://arxiv.org/abs/2607.13674" target="_blank" rel="noopener">2607.13674</a> WAVE-Stereo: Warp-Aligned Volume Encoding for Stereo Matching</li>
+        <li><a href="https://arxiv.org/abs/2607.13669" target="_blank" rel="noopener">2607.13669</a> Learning Speaker Identity Beyond Language and Modality Constraints: Insights from the POLY-SIM 2026 Challenge</li>
+        <li><a href="https://arxiv.org/abs/2607.13661" target="_blank" rel="noopener">2607.13661</a> Fine-grained CLIP fine-tuning with self-annotated region alignment</li>
+        <li><a href="https://arxiv.org/abs/2607.13656" target="_blank" rel="noopener">2607.13656</a> FreeLit: Paired-Free Indoor Relighting via Physics-Guided Diffusion</li>
+        <li><a href="https://arxiv.org/abs/2607.13654" target="_blank" rel="noopener">2607.13654</a> T3HG-Editor: Text-driven 3D Human Garment Editing with Body Priors Embedded in SMPL-X</li>
+        <li><a href="https://arxiv.org/abs/2607.13653" target="_blank" rel="noopener">2607.13653</a> Exploratory, Communicative, and Deployable: Vision-Driven Embodied Agents for Open-World Mobile Manipulation</li>
+        <li><a href="https://arxiv.org/abs/2607.13454" target="_blank" rel="noopener">2607.13454</a> GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding</li>
+    </ul>
+
+  <footer>tech-research-radar · 自动生成于每日检索 · 数据源 arXiv</footer>
+</div>
+</body>
+</html>
