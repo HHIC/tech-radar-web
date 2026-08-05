@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术进展雷达 · 2026-08-05</title>
+<style>
+  :root { --bg:#0f1115; --fg:#e6e8ec; --muted:#9aa3b2; --accent:#5b9dff; --accent2:#ffb454; --border:#262b36; --code:#1b1f27; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .wrap { max-width:860px; margin:0 auto; padding:36px 24px 80px; }
+  h1 { font-size:24px; margin:0 0 6px; }
+  .meta { color:var(--muted); font-size:13px; }
+  .note { color:var(--accent2); font-size:13px; margin:6px 0 0; }
+  .back { font-size:13px; margin:10px 0 24px; }
+  h2 { font-size:19px; margin:32px 0 12px; padding-bottom:6px; border-bottom:1px solid var(--border); }
+  .summary { font-size:15.5px; color:#cdd3dd; }
+  ol.rec { padding-left:22px; }
+  ol.rec li { margin-bottom:16px; }
+  .rec-title { font-size:15.5px; }
+  .aid { color:var(--muted); font-size:12.5px; }
+  .hl { color:#cdd3dd; font-size:14.5px; margin-top:3px; }
+  .dim { color:var(--accent2); font-size:13px; margin-top:2px; }
+  .topic { margin-bottom:18px; }
+  .topic h3 { font-size:15.5px; margin:0 0 6px; color:var(--fg); }
+  .topic ul { margin:0; padding-left:20px; }
+  .topic li { margin-bottom:5px; font-size:14.5px; color:#cdd3dd; }
+  .none { color:var(--muted); font-size:14px; padding-left:2px; }
+  ul.hits { padding-left:20px; }
+  ul.hits li { font-size:13.5px; color:var(--muted); margin-bottom:3px; }
+  ul.hits a { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .empty { color:var(--muted); }
+  footer { color:var(--muted); font-size:12px; margin-top:40px; padding-top:16px; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>技术进展雷达 · 2026-08-05</h1>
+  <div class="meta">arXiv (cs.CV / eess.IV / cs.AI / cs.LG / cs.MM) · 窗口 2026-08-02 ~ 2026-08-05 · 命中 69 篇 · S2 未启用</div>
+  <p class="note">SEMANTIC_SCHOLAR_API_KEY 未设置，S2 未启用。17 个主题中仅「计算机视觉」「多模态大模型」两个宽泛主题命中新论文（去重后 69 篇），其余 15 个偏底层影像/计算摄影主题（HDR/tone mapping/RAW/ISP/防抖/手机影像/视频处理等）本窗口无 arXiv 新提交，如实标为无新进展。跨天去重（历史 331 个 ID）未丢弃任何本次命中。</p>
+  <div class="back"><a href="../index.html">← 返回索引</a></div>
+
+  <h2>📊 今日概览</h2>
+  <p class="summary">今日扫描 17 个主题，仅「计算机视觉」「多模态大模型」两个宽泛主题命中新提交，去重后共 69 篇；其余 15 个偏底层影像/计算摄影主题（HDR、RAW 去噪、ISP、防抖、手机影像等）本窗口 arXiv 无新论文。整体主线高度集中在 MLLM/VLM 的效率与可靠性：视觉 token 剪枝/压缩、端侧结构化剪枝、幻觉检测、持续学习抗遗忘密集出现。最值得关注的两个方向：一是生成式编辑范式升级——UniWorld-Design 转向图层原生设计、JoyAI-Video-Edit 实现 16B 自回归扩散的实时视频编辑；二是多模态 agent 与实时视频——Video-DeepResearch 把 agent 推向连续视频流、StreamDAM 在真实时钟约束下重建 VOS 记忆。</p>
+
+  <h2>🌟 极大维度推荐</h2>
+    <ol class="rec">
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.03971" target="_blank" rel="noopener">UniWorld-Design: From Pixel Generation to Layer-Native Design</a></b> <span class="aid">[2608.03971]</span></div>
+        <div class="hl">亮点：把图像生成从平面像素合成重定义为结构化图层组合：以语义 RGBA 图层为生成/理解/编辑的原子单位，赋予多模态生成模型设计师式的图层原生工作空间。</div>
+        <div class="dim">代表性维度：①突破性——从像素范式转向图层原生设计，重塑生成式设计的表示与交互方式。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.03974" target="_blank" rel="noopener">JoyAI-Video-Edit: Real-Time Open-Ended Video Editing with Autoregressive Diffusion</a></b> <span class="aid">[2608.03974]</span></div>
+        <div class="hl">亮点：16B 自回归扩散实时开放式视频编辑：分块 AR 适配 + 源锚定分布匹配蒸馏(SA-DMD) + 长时程 AR 蒸馏，无需未来帧或预设时长，两步生成即保真且长时序一致。</div>
+        <div class="dim">代表性维度：①突破性——把开放式视频编辑推进到实时因果生成，兼顾源保真与长时程一致。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.04010" target="_blank" rel="noopener">ParVL: Parallel Scaling and Expandable Compute Allocation for Multimodal LLMs</a></b> <span class="aid">[2608.04010]</span></div>
+        <div class="hl">亮点：并行视觉-语言扩展框架：复用现有 ViT/LLM 主干做并行计算扩展，打破 ViT 与 LLM 间僵化固定的算力分配，可按任务弹性调配，避免显存/延迟激增。</div>
+        <div class="dim">代表性维度：①突破性——提出与参数/序列扩展正交的并行扩展维度，重构 MLLM 的算力分配。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.03979" target="_blank" rel="noopener">Video-DeepResearch: Towards the Next-Generation Multimodal Deepresearch Agent</a></b> <span class="aid">[2608.03979]</span></div>
+        <div class="hl">亮点：将多模态 agent 从静态图扩展到连续视频流：诊断出模态偏置与参数知识泄漏两大瓶颈，提出解耦感知-探索、分阶段的视频深度研究框架。</div>
+        <div class="dim">代表性维度：③相关度——多模态 agent 与视频理解交叉，切中长时程视觉工具增强推理的核心难题。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.03912" target="_blank" rel="noopener">StreamDAM: Presence-Aware Memory for Real-Time Streaming Video Object Segmentation</a></b> <span class="aid">[2608.03912]</span></div>
+        <div class="hl">亮点：揭示顶尖离线 VOS 跟踪器在 30fps 诚实流式协议下崩溃（记忆太慢、对目标是否在场无感知），从记忆管线入手重建面向流式的在场感知记忆。</div>
+        <div class="dim">代表性维度：①突破性——把 VOS 评测拉回真实时钟约束，重新定义实时跟踪的记忆设计。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.03580" target="_blank" rel="noopener">SlimVLM: Sensitivity-aware Dynamic Structured Pruning with Adaptive Visual Token Selection</a></b> <span class="aid">[2608.03580]</span></div>
+        <div class="hl">亮点：面向端侧的 VLM 结构化剪枝：先做自适应视觉 token 选择去除冗余，再敏感度感知地动态剪枝，避免冗余视觉 token 干扰重要性估计导致的精度崩塌。</div>
+        <div class="dim">代表性维度：③相关度——直指 VLM 端侧/资源受限部署，与手机影像/端侧算力主题高度相关。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.03812" target="_blank" rel="noopener">OmniPack: Unified Token Compression for Efficient Omni-modal Large Language Models</a></b> <span class="aid">[2608.03812]</span></div>
+        <div class="hl">亮点：全模态 LLM 的统一 token 压缩：兼顾 LLM 前压缩易丢全局证据、LLM 内压缩欠挖 query 条件音视频协同两种缺陷，在低 token 预算下保持性能。</div>
+        <div class="dim">代表性维度：④覆盖面——覆盖音视频全模态高效推理，代表 MLLM 效率优化的前沿方向。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.03711" target="_blank" rel="noopener">Attention is Case-Sensitive</a></b> <span class="aid">[2608.03711]</span></div>
+        <div class="hl">亮点：系统实证发现 LLM/VLM 注意力对字母大小写敏感：大写/交替大小写在小写语境中天然充当显著性线索，跨 13 个模型（9 LLM+4 VLM、不同分词）稳定成立。</div>
+        <div class="dim">代表性维度：①突破性——揭示注意力机制一个此前未被刻画的普遍属性，具方法论启发。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.03851" target="_blank" rel="noopener">LiteMVS: Efficient Multi-View Stereo with Foundation Distillation and Expert Aggregation</a></b> <span class="aid">[2608.03851]</span></div>
+        <div class="hl">亮点：高效多视图立体：基础模型蒸馏 + 专家聚合，融合几何对应（弱纹理/重复区易失效）与单目深度强先验，面向机器人/AR/具身实时 3D 感知与 4D 表征。</div>
+        <div class="dim">代表性维度：③相关度——低层 3D 视觉与端侧实时几何重建，贴合影像/计算摄影底层能力。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.03923" target="_blank" rel="noopener">GeoMAR: Unleashing Geometrically Aligned Features for Masked Autoregressive Blind Face Restoration</a></b> <span class="aid">[2608.03923]</span></div>
+        <div class="hl">亮点：盲人脸修复：用双输入提取组件级几何文本先验作显式空间锚点，与低质特征对齐融合，再以掩码自回归精化，缓解严重退化下条件模糊与预测脆弱。</div>
+        <div class="dim">代表性维度：③相关度——图像修复/复原核心任务，与低层视觉、图片处理主题直接相关。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.01113" target="_blank" rel="noopener">CoT-Edit: Let CoT Guide Instruction Video Editing</a></b> <span class="aid">[2608.01113]</span></div>
+        <div class="hl">亮点：plan-guide-edit 框架：CoT 增强的 MLLM 作规划器对视频与指令结构化推理，导出精确框序列，桥接语义意图与空间执行，缓解纯文本提示的目标歧义与物理不合理。</div>
+        <div class="dim">代表性维度：④覆盖面——指令式视频编辑，代表生成式视频编辑与 MLLM 规划的结合方向。</div>
+      </li>
+    </ol>
+
+  <h2>📚 分主题进展</h2>
+      <div class="topic"><h3>HDR | high dynamic range imaging</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>tone mapping | tone mapping</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>多帧融合 | multi-frame image fusion burst</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>RAW去噪 | RAW image denoising</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>计算摄影 | computational photography</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机拍照 | smartphone photography on-device ISP</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机录像 | smartphone video capture mobile videography</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>视频处理 | video processing restoration</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>计算机视觉 | computer vision</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2608.04010" target="_blank" rel="noopener">ParVL: Parallel Scaling and Expandable Compute Allocation for Multimodal LLMs</a> <span class="aid">[2608.04010]</span> — 并行扩展 MLLM 框架：复用现有 ViT/LLM 主干做并行计算扩展，可按任务弹性分配视觉与语言组件的算力，兼顾显存与延迟。</li>
+        <li><a href="https://arxiv.org/abs/2608.03991" target="_blank" rel="noopener">Perceptual Anchoring: Prototype-Guided Text Calibration for Training-free Open-Vocabulary Semantic Segmentation</a> <span class="aid">[2608.03991]</span> — 训练-free 开放词表分割：用原型引导对文本嵌入做校准，弥合通用类别概念与实例外观的语义鸿沟，减少不完整/错误掩码。</li>
+        <li><a href="https://arxiv.org/abs/2608.03979" target="_blank" rel="noopener">Video-DeepResearch: Towards the Next-Generation Multimodal Deepresearch Agent</a> <span class="aid">[2608.03979]</span> — 把多模态 agent 从静态图扩展到连续视频流，针对模态偏置与参数记忆泄漏，提出解耦感知-探索的分阶段视频深度研究框架。</li>
+        <li><a href="https://arxiv.org/abs/2608.03974" target="_blank" rel="noopener">JoyAI-Video-Edit: Real-Time Open-Ended Video Editing with Autoregressive Diffusion</a> <span class="aid">[2608.03974]</span> — 16B 自回归扩散的实时开放式视频编辑：分块 AR + 源锚定分布匹配蒸馏 + 长时程蒸馏，两步生成即可保真且时序一致，无需未来帧。</li>
+        <li><a href="https://arxiv.org/abs/2608.03971" target="_blank" rel="noopener">UniWorld-Design: From Pixel Generation to Layer-Native Design</a> <span class="aid">[2608.03971]</span> — 从像素生成转向图层原生设计：以语义 RGBA 图层为生成/理解/编辑的原子单位，让多模态生成模型具备设计师式的图层操作空间。</li>
+        <li><a href="https://arxiv.org/abs/2608.03937" target="_blank" rel="noopener">Progressive Learning of a Diffusion-based Inpainting Model for Separating Overlapped Fingerprints</a> <span class="aid">[2608.03937]</span> — 扩散式修复流程分离重叠指纹（潜指纹/活体采集残留），结合领域先验做渐进学习，优于纯规则或端到端方法。</li>
+        <li><a href="https://arxiv.org/abs/2608.03929" target="_blank" rel="noopener">Latent Reward Registers for Diffusion Preference Alignment</a> <span class="aid">[2608.03929]</span> — 扩散偏好对齐的潜在奖励寄存器：在冻结 DiT 前置可学习寄存 token，从中间噪声潜变量直接读出终端偏好奖励，缓解时序信用分配。</li>
+        <li><a href="https://arxiv.org/abs/2608.03926" target="_blank" rel="noopener">PRISM: Powerful Time Series to Image (TS2I) Representations for Multivariate Anomaly Detection</a> <span class="aid">[2608.03926]</span> — Time series anomaly detection (TSAD) underpins applications in predictive maintenance, finance, and cloud computing, how</li>
+        <li><a href="https://arxiv.org/abs/2608.03923" target="_blank" rel="noopener">GeoMAR: Unleashing Geometrically Aligned Features for Masked Autoregressive Blind Face Restoration</a> <span class="aid">[2608.03923]</span> — 盲人脸修复 GeoMAR：用几何对齐的组件文本先验条件化 + 掩码自回归精化，在严重退化下更鲁棒。</li>
+        <li><a href="https://arxiv.org/abs/2608.03919" target="_blank" rel="noopener">Low-Dimensional High-Leverage Subspace Optimization: Beyond Full-Parameter Coupled Training for Neural Network Quantization</a> <span class="aid">[2608.03919]</span> — Low-bit quantization suffers severe accuracy degradation on compact networks, rooted in the dominant full-parameter coup</li>
+        <li><a href="https://arxiv.org/abs/2608.03918" target="_blank" rel="noopener">When and Where to Look: Adaptive Visual Evidence Scheduling for Efficient Long Video Understanding</a> <span class="aid">[2608.03918]</span> — 长视频理解 EcoFrame：训练-free 的查询自适应视觉证据调度，利用 VLM 推理反馈决定何时增帧、去哪找证据，降低开销。</li>
+        <li><a href="https://arxiv.org/abs/2608.03912" target="_blank" rel="noopener">StreamDAM: Presence-Aware Memory for Real-Time Streaming Video Object Segmentation</a> <span class="aid">[2608.03912]</span> — StreamDAM：面向 30fps 诚实流式协议重建 VOS 记忆管线，解决顶尖离线跟踪器在实时下因记忆过慢而崩溃、且对目标是否在场无感知的问题。</li>
+        <li><a href="https://arxiv.org/abs/2608.03911" target="_blank" rel="noopener">UniEvo-RS: Omni-Prompt Unified Remote Sensing Segmentation with Representative Exemplar-Driven Prototype Evolution</a> <span class="aid">[2608.03911]</span> — Prompt-driven vision-language models (VLMs) hold immense promise for accelerating dense remote sensing (RS) annotation, </li>
+        <li><a href="https://arxiv.org/abs/2608.03895" target="_blank" rel="noopener">NCGR: Noise-Conditional Gated Rectification for Camera Extrinsic Perturbations in BEV 3D Object Detection</a> <span class="aid">[2608.03895]</span> — Camera-based bird&#x27;s-eye-view (BEV) 3D detection typically assumes accurate and fixed camera extrinsics. In detectors usi</li>
+        <li><a href="https://arxiv.org/abs/2608.03890" target="_blank" rel="noopener">CARE-X: Towards Clinically Useful Radiology VLMs with Auxiliary Supervision, Reward-Aligned Learning, and Tool-Augmented Measurement</a> <span class="aid">[2608.03890]</span> — A clinically useful chest X-ray system must go beyond fluent report generation: it should classify findings with tunable</li>
+        <li><a href="https://arxiv.org/abs/2608.03885" target="_blank" rel="noopener">MuRA: Multi-Rank Adaptation for Efficient and Effective Test-Time Vision-Language Generalization</a> <span class="aid">[2608.03885]</span> — NCGR：BEV 3D 检测中相机外参扰动的噪声条件门控矫正，逐 query-camera 预测 2D 矫正偏移，无需估计完整 6DoF 外参。</li>
+        <li><a href="https://arxiv.org/abs/2608.03884" target="_blank" rel="noopener">BanglaWild: An In-the-Wild Bengali Scene Text Recognition Benchmark for OCR and Vision-Language Models</a> <span class="aid">[2608.03884]</span> — In-the-wild Bengali scene text recognition is largely unmeasured: existing resources target handwritten documents or con</li>
+        <li><a href="https://arxiv.org/abs/2608.03863" target="_blank" rel="noopener">CPrefix: A Combinatorial Tensor Framework for Structured Discrete Color Mappings</a> <span class="aid">[2608.03863]</span> — Discrete multi-channel mappings are typically represented through sampled values, providing accurate evaluations but lim</li>
+        <li><a href="https://arxiv.org/abs/2608.03851" target="_blank" rel="noopener">LiteMVS: Efficient Multi-View Stereo with Foundation Distillation and Expert Aggregation</a> <span class="aid">[2608.03851]</span> — LiteMVS：基础模型蒸馏 + 专家聚合的高效多视图立体，融合几何对应与单目深度先验，面向机器人/AR 实时 3D 感知。</li>
+        <li><a href="https://arxiv.org/abs/2608.03826" target="_blank" rel="noopener">Geo-Embed: Towards Unified Multimodal Embeddings for Urban Understanding</a> <span class="aid">[2608.03826]</span> — Geospatial and urban applications increasingly require models to compare heterogeneous evidence across street-view image</li>
+        <li><a href="https://arxiv.org/abs/2608.03822" target="_blank" rel="noopener">FlowForm: Synergizing Fluid Physics with Topological Consistency for Satellite Flood Synthesis</a> <span class="aid">[2608.03822]</span> — Developing robust flood assessment models requires high-quality paired satellite imagery, yet such data remain scarce fo</li>
+        <li><a href="https://arxiv.org/abs/2608.03817" target="_blank" rel="noopener">UHP Detection: LVLMs have their Unique Hallucination Pattern in the Consistency Space</a> <span class="aid">[2608.03817]</span> — 发现 LVLM 在一致性空间存在独特幻觉模式（UHP），用多种行为探针刻画不确定性，改进黑盒幻觉检测。</li>
+        <li><a href="https://arxiv.org/abs/2608.03812" target="_blank" rel="noopener">OmniPack: Unified Token Compression for Efficient Omni-modal Large Language Models</a> <span class="aid">[2608.03812]</span> — OmniPack：全模态 LLM 的统一 token 压缩，兼顾 LLM 前压缩不丢全局证据与 LLM 内 query 条件音视频协同，低预算下更稳。</li>
+        <li><a href="https://arxiv.org/abs/2608.03779" target="_blank" rel="noopener">AgenticVAU: Multi-Agent Explore-Verify Reasoning for Video Anomaly Understanding</a> <span class="aid">[2608.03779]</span> — Video anomaly understanding (VAU) focuses on comprehensively interpreting abnormal events in videos, requiring models to</li>
+        <li><a href="https://arxiv.org/abs/2608.03763" target="_blank" rel="noopener">TDVR: Joint Text Disambiguation and Viewpoint Reasoning for Zero-Shot 3D Visual Grounding</a> <span class="aid">[2608.03763]</span> — Zero-shot 3D visual grounding aims to localize specific objects based on textual descriptions and 3D visual input. Howev</li>
+        <li><a href="https://arxiv.org/abs/2608.03762" target="_blank" rel="noopener">Unsupervised Adversarial Domain Adaptation for Uterine layer Segmentation: From Labeled Cine to Unlabeled Dynamic EPI MRI</a> <span class="aid">[2608.03762]</span> — Uterine peristalsis is a key physiological phenomenon responsible for various functions across the menstrual cycle, inti</li>
+        <li><a href="https://arxiv.org/abs/2608.03724" target="_blank" rel="noopener">Towards Reliable and Reproducible Fetal Brain Biometry: A Deep Learning Approach Using MRI</a> <span class="aid">[2608.03724]</span> — Fetal brain biometry is essential for quantitative assessment of brain development, supporting gestational age estimatio</li>
+        <li><a href="https://arxiv.org/abs/2608.03711" target="_blank" rel="noopener">Attention is Case-Sensitive</a> <span class="aid">[2608.03711]</span> — 实证发现 LLM/VLM 注意力对字母大小写敏感——大写/交替大小写在小写语境中天然成为显著性线索，会集中注意力，跨 13 个模型验证。</li>
+        <li><a href="https://arxiv.org/abs/2608.03708" target="_blank" rel="noopener">MultiCompose: Multi-Concept Personalized Composition with Per-Subject Attribute Binding</a> <span class="aid">[2608.03708]</span> — MultiCompose：多概念个性化合成，为每个主体绑定服装/配饰/持物等属性，缓解跨注意力重叠导致的身份退化与属性错配。</li>
+        <li><a href="https://arxiv.org/abs/2608.03691" target="_blank" rel="noopener">Pattern over Pixels: Measuring Pattern Completion Bias in Multimodal Code Generation</a> <span class="aid">[2608.03691]</span> — 度量多模态代码生成的模式补全偏置：截图转前端代码时重复 UI 模式会诱导模型输出视觉错误但模式一致的结果，首个该偏置基准。</li>
+        <li><a href="https://arxiv.org/abs/2608.03681" target="_blank" rel="noopener">Keep the Needle, Prune the Haystack: Defect-Preserving Token Pruning for Efficient Zero-Shot Anomaly Detection</a> <span class="aid">[2608.03681]</span> — 零样本异常检测的缺陷保留 token 剪枝：识别剪枝的非对称风险（误删异常 token 致命），在加速同时保留关键缺陷区域。</li>
+        <li><a href="https://arxiv.org/abs/2608.03666" target="_blank" rel="noopener">XiDepth: a Lightweight and Efficient Network for Self-supervised Monocular Depth Estimation</a> <span class="aid">[2608.03666]</span> — XiDepth：轻量高效自监督单目深度估计网络，面向算力受限设备部署。</li>
+        <li><a href="https://arxiv.org/abs/2608.03664" target="_blank" rel="noopener">Morphology-Aware Implicit Super-Resolution Network for Pathological Images</a> <span class="aid">[2608.03664]</span> — Accurate diagnosis in Digital Pathology (DP) relies on high-resolution whole-slide images, yet clinical deployment is of</li>
+        <li><a href="https://arxiv.org/abs/2608.03649" target="_blank" rel="noopener">When Do Fewer Visual Tokens Accelerate Multimodal Inference? A Break-Even Study Across Decision Locations and Hardware</a> <span class="aid">[2608.03649]</span> — 实证研究更少视觉 token 何时才真正加速多模态推理：分阶段分解延迟，发现两种 AR 探针仍慢于 Full，轻量后视觉预测器可显著获益。</li>
+        <li><a href="https://arxiv.org/abs/2608.03637" target="_blank" rel="noopener">Learning Biomechanically Plausible Human Motion from Sparse Radar Point Clouds</a> <span class="aid">[2608.03637]</span> — Radar-based human pose estimation has focused on improving learning algorithms while representing the body as unconstrai</li>
+        <li><a href="https://arxiv.org/abs/2608.03631" target="_blank" rel="noopener">SEER: A Self-Grounded Evidence Interface for Controlled Spatial Relation Classification</a> <span class="aid">[2608.03631]</span> — Spatial relation questions require a model to identify the queried subject and object before comparing their layout. Yet</li>
+        <li><a href="https://arxiv.org/abs/2608.03618" target="_blank" rel="noopener">Geospatial-Prior Guidance for 3D Semantic Scene Completion</a> <span class="aid">[2608.03618]</span> — Inferring complete 3D geometry and semantics from onboard images remains challenging because occlusions and restricted f</li>
+        <li><a href="https://arxiv.org/abs/2608.03617" target="_blank" rel="noopener">A machine-readable catalogue of the Tsiolkovsky papers (fond 555, Archive of the Russian Academy of Sciences), and a way to measure how well its handwriting can be read</a> <span class="aid">[2608.03617]</span> — The personal archive of Konstantin Tsiolkovsky (1857-1935) is held as fond 555 of the Archive of the Russian Academy of </li>
+        <li><a href="https://arxiv.org/abs/2608.03612" target="_blank" rel="noopener">Predictive Enhancement Calibration for Latent Breast MRI Virtual Contrast Enhancement</a> <span class="aid">[2608.03612]</span> — Virtual contrast enhancement (VCE) synthesizes enhanced breast MR images from pre-contrast acquisitions. Modern latent g</li>
+        <li><a href="https://arxiv.org/abs/2608.03580" target="_blank" rel="noopener">SlimVLM: Sensitivity-aware Dynamic Structured Pruning with Adaptive Visual Token Selection for Efficient Vision-Language Models</a> <span class="aid">[2608.03580]</span> — SlimVLM：敏感度感知的动态结构化剪枝 + 自适应视觉 token 选择，在压缩 VLM 时抑制冗余视觉 token 对重要性估计的干扰，面向端侧部署。</li>
+      </ul></div>
+      <div class="topic"><h3>视频编辑 | video editing generative</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>low-level CV | low-level computer vision</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>Agent | LLM agent autonomous</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>多模态大模型 | multimodal large language model</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2608.04010" target="_blank" rel="noopener">ParVL: Parallel Scaling and Expandable Compute Allocation for Multimodal LLMs</a> <span class="aid">[2608.04010]</span> — 并行扩展 MLLM 框架：复用现有 ViT/LLM 主干做并行计算扩展，可按任务弹性分配视觉与语言组件的算力，兼顾显存与延迟。</li>
+        <li><a href="https://arxiv.org/abs/2608.03782" target="_blank" rel="noopener">KnowHal: A Knowledge-Driven Benchmark for Comprehensive Multimodal Hallucination Evaluation</a> <span class="aid">[2608.03782]</span> — KnowHal：知识驱动的多模态幻觉综合基准，统一评测实体/属性/关系/知识四个维度的幻觉。</li>
+        <li><a href="https://arxiv.org/abs/2608.03733" target="_blank" rel="noopener">Failure-Informed Image Self-Augmentation for Multimodal Large Language Model Self-Improvement</a> <span class="aid">[2608.03733]</span> — 失败导向的图像自增强：让 MLLM 针对自身实际短板生成训练数据自我改进，超越以往偏文本或通用手工变换的自增强。</li>
+        <li><a href="https://arxiv.org/abs/2608.03691" target="_blank" rel="noopener">Pattern over Pixels: Measuring Pattern Completion Bias in Multimodal Code Generation</a> <span class="aid">[2608.03691]</span> — 度量多模态代码生成的模式补全偏置：截图转前端代码时重复 UI 模式会诱导模型输出视觉错误但模式一致的结果，首个该偏置基准。</li>
+        <li><a href="https://arxiv.org/abs/2608.03660" target="_blank" rel="noopener">Taming the Implicit: Dual-Channel Risk-Aware Reinforcement Fine-Tuning for Continual Multimodal Post-Training</a> <span class="aid">[2608.03660]</span> — RAPO：持续多模态后训练的双通道风险感知强化微调，显式治理 RFT 在任务分布剧变下的优化风险，缓解灾难性遗忘。</li>
+        <li><a href="https://arxiv.org/abs/2608.03508" target="_blank" rel="noopener">From Multi-Resolution Cells to Gigapixel Whole Slide Images Foundation Model for Computational Pathology</a> <span class="aid">[2608.03508]</span> — MRPT：从多分辨率细胞到千兆像素全切片的病理基础模型，分层聚合细胞形态/组织结构/全局上下文，跨任意分辨率泛化。</li>
+        <li><a href="https://arxiv.org/abs/2608.03464" target="_blank" rel="noopener">ChartAnno: Evaluating MLLMs for Chart Annotation Generation</a> <span class="aid">[2608.03464]</span> — ChartAnno：评测 MLLM 图表标注生成能力，1200 张真实图表+代码+三级标注指令。</li>
+        <li><a href="https://arxiv.org/abs/2608.03450" target="_blank" rel="noopener">Balancing Efficiency and Efficacy: Training-Free Attention-Guided Switching Between Explicit and Latent Thoughts for MLLMs</a> <span class="aid">[2608.03450]</span> — 训练-free 注意力引导在显式/潜在思维间切换：针对 MLLM 推理既需细粒度视觉感知又需逻辑推导，避免纯文本 CoT 的高成本与幻觉。</li>
+        <li><a href="https://arxiv.org/abs/2608.03358" target="_blank" rel="noopener">ArtECulture: Benchmarking Culture-Conditioned Visual Emotion Understanding in Multimodal Large Language Models</a> <span class="aid">[2608.03358]</span> — ArtECulture：文化条件化的视觉情感理解基准，6792 幅艺术作品带文化特定情感标签，评测 MLLM 的跨文化情感感知。</li>
+        <li><a href="https://arxiv.org/abs/2608.03292" target="_blank" rel="noopener">DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning</a> <span class="aid">[2608.03292]</span> — DocTrace：层级证据图推理的可溯源长文档 VQA，将 LongDocVQA 建模为显式证据图推理以提升准确率与可溯源性。</li>
+        <li><a href="https://arxiv.org/abs/2608.03078" target="_blank" rel="noopener">LDU-Bench: Multimodal LLM Evaluation for Lithography Defect Understanding under Layout-Varying Circuit Backgrounds</a> <span class="aid">[2608.03078]</span> — LDU-Bench：版图变化电路背景下的光刻缺陷理解多模态基准，要求理解缺陷形态/位置/成因而非仅判有无。</li>
+        <li><a href="https://arxiv.org/abs/2608.02833" target="_blank" rel="noopener">CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning</a> <span class="aid">[2608.02833]</span> — CURV：课程式视觉接地推理增强图表理解，培养 MLLM 内在的视觉接地推理能力。</li>
+        <li><a href="https://arxiv.org/abs/2608.02059" target="_blank" rel="noopener">MIEScore: Human-Aligned Evaluation for Multi-Source Image Editing</a> <span class="aid">[2608.02059]</span> — MIEScore：面向多源图像编辑（对象合成/人物背景合成/跨图风格融合）的人类对齐评测，填补多源编辑评测空白。</li>
+        <li><a href="https://arxiv.org/abs/2608.01980" target="_blank" rel="noopener">AdaThinkV: Adaptive Thinking for Token-Efficient Video Reasoning</a> <span class="aid">[2608.01980]</span> — AdaThinkV：token 高效的视频推理自适应思考，无需难度标签/阈值/外部路由即可决定是否显式推理。</li>
+        <li><a href="https://arxiv.org/abs/2608.01979" target="_blank" rel="noopener">ET-Prune: Evidence-Aware Dynamic Budgeting for Visual Token Pruning in Text-Rich MLLMs</a> <span class="aid">[2608.01979]</span> — ET-Prune：文本密集 MLLM 的证据感知动态预算视觉 token 剪枝，把剪枝建模为证据分配，保护文本区避免误删关键小字段。</li>
+        <li><a href="https://arxiv.org/abs/2608.01954" target="_blank" rel="noopener">StyleForge: Indoor Furniture Styling by Counterfactual Reasoning in a Hypergraph Field</a> <span class="aid">[2608.01954]</span> — Fixed-layout indoor furniture styling requires selecting assets that form a coherent room without changing the prescribe</li>
+        <li><a href="https://arxiv.org/abs/2608.01849" target="_blank" rel="noopener">Exploring and Bridging Knowledge Holes in Unlearned Multimodal Large Language Models</a> <span class="aid">[2608.01849]</span> — 探测并弥合被遗忘 MLLM 的知识空洞：现有 unlearning 评测盲区在于对邻近良性输入的严重退化，构建基准捕捉之。</li>
+        <li><a href="https://arxiv.org/abs/2608.01848" target="_blank" rel="noopener">Decoupling semantics from vision: A framework for faithful visual-text compression evaluation</a> <span class="aid">[2608.01848]</span> — 解耦语义与视觉的忠实视觉-文本压缩评测框架：针对 DeepSeek-OCR 类方法，剥离 MLLM 语言先验以准确衡量文本保真。</li>
+        <li><a href="https://arxiv.org/abs/2608.01827" target="_blank" rel="noopener">DeepVoyager-VL: Incentivizing Vision-in-the-Loop Search for Long-Horizon Multimodal Agents</a> <span class="aid">[2608.01827]</span> — DeepVoyager-VL：激励视觉在环搜索的长时程多模态 agent，让视觉参与中间推理而非仅输入/输出阶段。</li>
+        <li><a href="https://arxiv.org/abs/2608.01794" target="_blank" rel="noopener">Illuminating Visual Identity in Universal Multimodal Embeddings</a> <span class="aid">[2608.01794]</span> — UME 中的视觉身份判别：提出统一表述，补齐通用多模态嵌入在实例检索/重识别/身份保持上的短板。</li>
+        <li><a href="https://arxiv.org/abs/2608.01638" target="_blank" rel="noopener">Dynamic Resolution Routing for Efficient Egocentric Grounding</a> <span class="aid">[2608.01638]</span> — SmartRes：像素空间的动态分辨率路由，低分辨率取全局+轻量路由激活高分辨率，实现高效第一视角视觉接地。</li>
+        <li><a href="https://arxiv.org/abs/2608.01635" target="_blank" rel="noopener">Mitigating Visual Degradation in MLLMs via Spatial-Spectral Visual Anchor Learning</a> <span class="aid">[2608.01635]</span> — 空间-谱视觉锚学习缓解 MLLM 视觉退化：发现指令微调后内部表征快速偏离原语义，直接对齐 VFM 不足以抑制偏移。</li>
+        <li><a href="https://arxiv.org/abs/2608.01473" target="_blank" rel="noopener">Slot2Text: Object-Centric Visual Tokenization for Efficient and Spatially Traceable Surgical MLLMs</a> <span class="aid">[2608.01473]</span> — Slot2Text：面向手术场景的物体中心视觉 tokenization，用少量 slot 潜变量替代密集视觉 token，提升效率与空间可溯源性。</li>
+        <li><a href="https://arxiv.org/abs/2608.01437" target="_blank" rel="noopener">Beyond Routing Saturation: A Long-Horizon Class-Incremental Perspective on Expert Routing in Multimodal Continual Instruction Tuning</a> <span class="aid">[2608.01437]</span> — 从长时程类增量视角审视多模态持续指令微调中的专家路由：揭示现有基准上路由已近饱和，文本指纹泄漏任务身份。</li>
+        <li><a href="https://arxiv.org/abs/2608.01354" target="_blank" rel="noopener">PixVL: Self-Supervised Training of Pixel-Level MLLMs via a Unified Mask--Text Consistency Cycle</a> <span class="aid">[2608.01354]</span> — PixVL：统一掩码-文本一致性循环的像素级 MLLM 自监督训练，缓解区域分割与区域理解间的监督格式冲突。</li>
+        <li><a href="https://arxiv.org/abs/2608.01328" target="_blank" rel="noopener">LongChart VQA: A Comprehensive Benchmark for MLLMs with Complex Multi-Chart Reasoning</a> <span class="aid">[2608.01328]</span> — LongChart VQA：面向复杂多图表推理的 MLLM 综合基准，用潜在图支撑的合成流程捕捉多图表复杂度。</li>
+        <li><a href="https://arxiv.org/abs/2608.01314" target="_blank" rel="noopener">Remember-R1: Mitigating Long-Context Visual Forgetting through Reinforcement Learning</a> <span class="aid">[2608.01314]</span> — Remember-R1：用强化学习缓解长上下文视觉遗忘，直接约束推理轨迹中视觉证据的使用与维持。</li>
+        <li><a href="https://arxiv.org/abs/2608.01258" target="_blank" rel="noopener">A Benchmark Dataset for MLLM-Generated Image Detection: GPT Image2 &amp; Nano Banana2</a> <span class="aid">[2608.01258]</span> — MLLM 生成图像检测基准（GPT Image2 &amp; Nano Banana2）：应对新一代 MLLM 高保真+文本渲染带来的检测挑战。</li>
+        <li><a href="https://arxiv.org/abs/2608.01113" target="_blank" rel="noopener">CoT-Edit: Let CoT Guide Instruction Video Editing</a> <span class="aid">[2608.01113]</span> — CoT-Edit：用 CoT 引导指令式视频编辑，MLLM 作为规划器对视频与指令做结构化推理，导出精确的框序列桥接语义意图与空间执行。</li>
+        <li><a href="https://arxiv.org/abs/2608.01055" target="_blank" rel="noopener">Credit the Right Box: Marginal Contribution Assignment for Structured Visual Perception</a> <span class="aid">[2608.01055]</span> — MCR-GRPO：结构化视觉感知的边际贡献信用分配，解决组相对 RL 只有响应级监督、无法区分单个框贡献的粒度错配。</li>
+        <li><a href="https://arxiv.org/abs/2608.01008" target="_blank" rel="noopener">Toward Fine-Grained Forgetting:Attribute Unlearning for Multimodal Large Language Models</a> <span class="aid">[2608.01008]</span> — 属性级 MLLM 遗忘：更细粒度的隐私遗忘任务——对同一身份遗忘指定属性、保留非敏感信息，构建配套基准。</li>
+      </ul></div>
+      <div class="topic"><h3>防抖 | image video stabilization</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>ISP处理 | image signal processor pipeline</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机影像 | mobile computational imaging</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>图片处理 | image processing restoration enhancement</h3>
+      <div class="none">— 无新进展</div></div>
+
+  <h2>🔗 附：全部命中列表</h2>
+    <ul class="hits">
+        <li><a href="https://arxiv.org/abs/2608.04010" target="_blank" rel="noopener">2608.04010</a> ParVL: Parallel Scaling and Expandable Compute Allocation for Multimodal LLMs</li>
+        <li><a href="https://arxiv.org/abs/2608.03991" target="_blank" rel="noopener">2608.03991</a> Perceptual Anchoring: Prototype-Guided Text Calibration for Training-free Open-Vocabulary Semantic Segmentation</li>
+        <li><a href="https://arxiv.org/abs/2608.03979" target="_blank" rel="noopener">2608.03979</a> Video-DeepResearch: Towards the Next-Generation Multimodal Deepresearch Agent</li>
+        <li><a href="https://arxiv.org/abs/2608.03974" target="_blank" rel="noopener">2608.03974</a> JoyAI-Video-Edit: Real-Time Open-Ended Video Editing with Autoregressive Diffusion</li>
+        <li><a href="https://arxiv.org/abs/2608.03971" target="_blank" rel="noopener">2608.03971</a> UniWorld-Design: From Pixel Generation to Layer-Native Design</li>
+        <li><a href="https://arxiv.org/abs/2608.03937" target="_blank" rel="noopener">2608.03937</a> Progressive Learning of a Diffusion-based Inpainting Model for Separating Overlapped Fingerprints</li>
+        <li><a href="https://arxiv.org/abs/2608.03929" target="_blank" rel="noopener">2608.03929</a> Latent Reward Registers for Diffusion Preference Alignment</li>
+        <li><a href="https://arxiv.org/abs/2608.03926" target="_blank" rel="noopener">2608.03926</a> PRISM: Powerful Time Series to Image (TS2I) Representations for Multivariate Anomaly Detection</li>
+        <li><a href="https://arxiv.org/abs/2608.03923" target="_blank" rel="noopener">2608.03923</a> GeoMAR: Unleashing Geometrically Aligned Features for Masked Autoregressive Blind Face Restoration</li>
+        <li><a href="https://arxiv.org/abs/2608.03919" target="_blank" rel="noopener">2608.03919</a> Low-Dimensional High-Leverage Subspace Optimization: Beyond Full-Parameter Coupled Training for Neural Network Quantization</li>
+        <li><a href="https://arxiv.org/abs/2608.03918" target="_blank" rel="noopener">2608.03918</a> When and Where to Look: Adaptive Visual Evidence Scheduling for Efficient Long Video Understanding</li>
+        <li><a href="https://arxiv.org/abs/2608.03912" target="_blank" rel="noopener">2608.03912</a> StreamDAM: Presence-Aware Memory for Real-Time Streaming Video Object Segmentation</li>
+        <li><a href="https://arxiv.org/abs/2608.03911" target="_blank" rel="noopener">2608.03911</a> UniEvo-RS: Omni-Prompt Unified Remote Sensing Segmentation with Representative Exemplar-Driven Prototype Evolution</li>
+        <li><a href="https://arxiv.org/abs/2608.03895" target="_blank" rel="noopener">2608.03895</a> NCGR: Noise-Conditional Gated Rectification for Camera Extrinsic Perturbations in BEV 3D Object Detection</li>
+        <li><a href="https://arxiv.org/abs/2608.03890" target="_blank" rel="noopener">2608.03890</a> CARE-X: Towards Clinically Useful Radiology VLMs with Auxiliary Supervision, Reward-Aligned Learning, and Tool-Augmented Measurement</li>
+        <li><a href="https://arxiv.org/abs/2608.03885" target="_blank" rel="noopener">2608.03885</a> MuRA: Multi-Rank Adaptation for Efficient and Effective Test-Time Vision-Language Generalization</li>
+        <li><a href="https://arxiv.org/abs/2608.03884" target="_blank" rel="noopener">2608.03884</a> BanglaWild: An In-the-Wild Bengali Scene Text Recognition Benchmark for OCR and Vision-Language Models</li>
+        <li><a href="https://arxiv.org/abs/2608.03863" target="_blank" rel="noopener">2608.03863</a> CPrefix: A Combinatorial Tensor Framework for Structured Discrete Color Mappings</li>
+        <li><a href="https://arxiv.org/abs/2608.03851" target="_blank" rel="noopener">2608.03851</a> LiteMVS: Efficient Multi-View Stereo with Foundation Distillation and Expert Aggregation</li>
+        <li><a href="https://arxiv.org/abs/2608.03826" target="_blank" rel="noopener">2608.03826</a> Geo-Embed: Towards Unified Multimodal Embeddings for Urban Understanding</li>
+        <li><a href="https://arxiv.org/abs/2608.03822" target="_blank" rel="noopener">2608.03822</a> FlowForm: Synergizing Fluid Physics with Topological Consistency for Satellite Flood Synthesis</li>
+        <li><a href="https://arxiv.org/abs/2608.03817" target="_blank" rel="noopener">2608.03817</a> UHP Detection: LVLMs have their Unique Hallucination Pattern in the Consistency Space</li>
+        <li><a href="https://arxiv.org/abs/2608.03812" target="_blank" rel="noopener">2608.03812</a> OmniPack: Unified Token Compression for Efficient Omni-modal Large Language Models</li>
+        <li><a href="https://arxiv.org/abs/2608.03779" target="_blank" rel="noopener">2608.03779</a> AgenticVAU: Multi-Agent Explore-Verify Reasoning for Video Anomaly Understanding</li>
+        <li><a href="https://arxiv.org/abs/2608.03763" target="_blank" rel="noopener">2608.03763</a> TDVR: Joint Text Disambiguation and Viewpoint Reasoning for Zero-Shot 3D Visual Grounding</li>
+        <li><a href="https://arxiv.org/abs/2608.03762" target="_blank" rel="noopener">2608.03762</a> Unsupervised Adversarial Domain Adaptation for Uterine layer Segmentation: From Labeled Cine to Unlabeled Dynamic EPI MRI</li>
+        <li><a href="https://arxiv.org/abs/2608.03724" target="_blank" rel="noopener">2608.03724</a> Towards Reliable and Reproducible Fetal Brain Biometry: A Deep Learning Approach Using MRI</li>
+        <li><a href="https://arxiv.org/abs/2608.03711" target="_blank" rel="noopener">2608.03711</a> Attention is Case-Sensitive</li>
+        <li><a href="https://arxiv.org/abs/2608.03708" target="_blank" rel="noopener">2608.03708</a> MultiCompose: Multi-Concept Personalized Composition with Per-Subject Attribute Binding</li>
+        <li><a href="https://arxiv.org/abs/2608.03691" target="_blank" rel="noopener">2608.03691</a> Pattern over Pixels: Measuring Pattern Completion Bias in Multimodal Code Generation</li>
+        <li><a href="https://arxiv.org/abs/2608.03681" target="_blank" rel="noopener">2608.03681</a> Keep the Needle, Prune the Haystack: Defect-Preserving Token Pruning for Efficient Zero-Shot Anomaly Detection</li>
+        <li><a href="https://arxiv.org/abs/2608.03666" target="_blank" rel="noopener">2608.03666</a> XiDepth: a Lightweight and Efficient Network for Self-supervised Monocular Depth Estimation</li>
+        <li><a href="https://arxiv.org/abs/2608.03664" target="_blank" rel="noopener">2608.03664</a> Morphology-Aware Implicit Super-Resolution Network for Pathological Images</li>
+        <li><a href="https://arxiv.org/abs/2608.03649" target="_blank" rel="noopener">2608.03649</a> When Do Fewer Visual Tokens Accelerate Multimodal Inference? A Break-Even Study Across Decision Locations and Hardware</li>
+        <li><a href="https://arxiv.org/abs/2608.03637" target="_blank" rel="noopener">2608.03637</a> Learning Biomechanically Plausible Human Motion from Sparse Radar Point Clouds</li>
+        <li><a href="https://arxiv.org/abs/2608.03631" target="_blank" rel="noopener">2608.03631</a> SEER: A Self-Grounded Evidence Interface for Controlled Spatial Relation Classification</li>
+        <li><a href="https://arxiv.org/abs/2608.03618" target="_blank" rel="noopener">2608.03618</a> Geospatial-Prior Guidance for 3D Semantic Scene Completion</li>
+        <li><a href="https://arxiv.org/abs/2608.03617" target="_blank" rel="noopener">2608.03617</a> A machine-readable catalogue of the Tsiolkovsky papers (fond 555, Archive of the Russian Academy of Sciences), and a way to measure how well its handwriting can be read</li>
+        <li><a href="https://arxiv.org/abs/2608.03612" target="_blank" rel="noopener">2608.03612</a> Predictive Enhancement Calibration for Latent Breast MRI Virtual Contrast Enhancement</li>
+        <li><a href="https://arxiv.org/abs/2608.03580" target="_blank" rel="noopener">2608.03580</a> SlimVLM: Sensitivity-aware Dynamic Structured Pruning with Adaptive Visual Token Selection for Efficient Vision-Language Models</li>
+        <li><a href="https://arxiv.org/abs/2608.03782" target="_blank" rel="noopener">2608.03782</a> KnowHal: A Knowledge-Driven Benchmark for Comprehensive Multimodal Hallucination Evaluation</li>
+        <li><a href="https://arxiv.org/abs/2608.03733" target="_blank" rel="noopener">2608.03733</a> Failure-Informed Image Self-Augmentation for Multimodal Large Language Model Self-Improvement</li>
+        <li><a href="https://arxiv.org/abs/2608.03660" target="_blank" rel="noopener">2608.03660</a> Taming the Implicit: Dual-Channel Risk-Aware Reinforcement Fine-Tuning for Continual Multimodal Post-Training</li>
+        <li><a href="https://arxiv.org/abs/2608.03508" target="_blank" rel="noopener">2608.03508</a> From Multi-Resolution Cells to Gigapixel Whole Slide Images Foundation Model for Computational Pathology</li>
+        <li><a href="https://arxiv.org/abs/2608.03464" target="_blank" rel="noopener">2608.03464</a> ChartAnno: Evaluating MLLMs for Chart Annotation Generation</li>
+        <li><a href="https://arxiv.org/abs/2608.03450" target="_blank" rel="noopener">2608.03450</a> Balancing Efficiency and Efficacy: Training-Free Attention-Guided Switching Between Explicit and Latent Thoughts for MLLMs</li>
+        <li><a href="https://arxiv.org/abs/2608.03358" target="_blank" rel="noopener">2608.03358</a> ArtECulture: Benchmarking Culture-Conditioned Visual Emotion Understanding in Multimodal Large Language Models</li>
+        <li><a href="https://arxiv.org/abs/2608.03292" target="_blank" rel="noopener">2608.03292</a> DocTrace: Towards Traceable Long Document VQA via Hierarchical Evidence Graph Reasoning</li>
+        <li><a href="https://arxiv.org/abs/2608.03078" target="_blank" rel="noopener">2608.03078</a> LDU-Bench: Multimodal LLM Evaluation for Lithography Defect Understanding under Layout-Varying Circuit Backgrounds</li>
+        <li><a href="https://arxiv.org/abs/2608.02833" target="_blank" rel="noopener">2608.02833</a> CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning</li>
+        <li><a href="https://arxiv.org/abs/2608.02059" target="_blank" rel="noopener">2608.02059</a> MIEScore: Human-Aligned Evaluation for Multi-Source Image Editing</li>
+        <li><a href="https://arxiv.org/abs/2608.01980" target="_blank" rel="noopener">2608.01980</a> AdaThinkV: Adaptive Thinking for Token-Efficient Video Reasoning</li>
+        <li><a href="https://arxiv.org/abs/2608.01979" target="_blank" rel="noopener">2608.01979</a> ET-Prune: Evidence-Aware Dynamic Budgeting for Visual Token Pruning in Text-Rich MLLMs</li>
+        <li><a href="https://arxiv.org/abs/2608.01954" target="_blank" rel="noopener">2608.01954</a> StyleForge: Indoor Furniture Styling by Counterfactual Reasoning in a Hypergraph Field</li>
+        <li><a href="https://arxiv.org/abs/2608.01849" target="_blank" rel="noopener">2608.01849</a> Exploring and Bridging Knowledge Holes in Unlearned Multimodal Large Language Models</li>
+        <li><a href="https://arxiv.org/abs/2608.01848" target="_blank" rel="noopener">2608.01848</a> Decoupling semantics from vision: A framework for faithful visual-text compression evaluation</li>
+        <li><a href="https://arxiv.org/abs/2608.01827" target="_blank" rel="noopener">2608.01827</a> DeepVoyager-VL: Incentivizing Vision-in-the-Loop Search for Long-Horizon Multimodal Agents</li>
+        <li><a href="https://arxiv.org/abs/2608.01794" target="_blank" rel="noopener">2608.01794</a> Illuminating Visual Identity in Universal Multimodal Embeddings</li>
+        <li><a href="https://arxiv.org/abs/2608.01638" target="_blank" rel="noopener">2608.01638</a> Dynamic Resolution Routing for Efficient Egocentric Grounding</li>
+        <li><a href="https://arxiv.org/abs/2608.01635" target="_blank" rel="noopener">2608.01635</a> Mitigating Visual Degradation in MLLMs via Spatial-Spectral Visual Anchor Learning</li>
+        <li><a href="https://arxiv.org/abs/2608.01473" target="_blank" rel="noopener">2608.01473</a> Slot2Text: Object-Centric Visual Tokenization for Efficient and Spatially Traceable Surgical MLLMs</li>
+        <li><a href="https://arxiv.org/abs/2608.01437" target="_blank" rel="noopener">2608.01437</a> Beyond Routing Saturation: A Long-Horizon Class-Incremental Perspective on Expert Routing in Multimodal Continual Instruction Tuning</li>
+        <li><a href="https://arxiv.org/abs/2608.01354" target="_blank" rel="noopener">2608.01354</a> PixVL: Self-Supervised Training of Pixel-Level MLLMs via a Unified Mask--Text Consistency Cycle</li>
+        <li><a href="https://arxiv.org/abs/2608.01328" target="_blank" rel="noopener">2608.01328</a> LongChart VQA: A Comprehensive Benchmark for MLLMs with Complex Multi-Chart Reasoning</li>
+        <li><a href="https://arxiv.org/abs/2608.01314" target="_blank" rel="noopener">2608.01314</a> Remember-R1: Mitigating Long-Context Visual Forgetting through Reinforcement Learning</li>
+        <li><a href="https://arxiv.org/abs/2608.01258" target="_blank" rel="noopener">2608.01258</a> A Benchmark Dataset for MLLM-Generated Image Detection: GPT Image2 &amp; Nano Banana2</li>
+        <li><a href="https://arxiv.org/abs/2608.01113" target="_blank" rel="noopener">2608.01113</a> CoT-Edit: Let CoT Guide Instruction Video Editing</li>
+        <li><a href="https://arxiv.org/abs/2608.01055" target="_blank" rel="noopener">2608.01055</a> Credit the Right Box: Marginal Contribution Assignment for Structured Visual Perception</li>
+        <li><a href="https://arxiv.org/abs/2608.01008" target="_blank" rel="noopener">2608.01008</a> Toward Fine-Grained Forgetting:Attribute Unlearning for Multimodal Large Language Models</li>
+    </ul>
+
+  <footer>tech-research-radar · 自动生成于每日检索 · 数据源 arXiv</footer>
+</div>
+</body>
+</html>
