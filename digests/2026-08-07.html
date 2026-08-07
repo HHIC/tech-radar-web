@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术进展雷达 · 2026-08-07</title>
+<style>
+  :root { --bg:#0f1115; --fg:#e6e8ec; --muted:#9aa3b2; --accent:#5b9dff; --accent2:#ffb454; --border:#262b36; --code:#1b1f27; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .wrap { max-width:860px; margin:0 auto; padding:36px 24px 80px; }
+  h1 { font-size:24px; margin:0 0 6px; }
+  .meta { color:var(--muted); font-size:13px; }
+  .note { color:var(--accent2); font-size:13px; margin:6px 0 0; }
+  .back { font-size:13px; margin:10px 0 24px; }
+  h2 { font-size:19px; margin:32px 0 12px; padding-bottom:6px; border-bottom:1px solid var(--border); }
+  .summary { font-size:15.5px; color:#cdd3dd; }
+  ol.rec { padding-left:22px; }
+  ol.rec li { margin-bottom:16px; }
+  .rec-title { font-size:15.5px; }
+  .aid { color:var(--muted); font-size:12.5px; }
+  .hl { color:#cdd3dd; font-size:14.5px; margin-top:3px; }
+  .dim { color:var(--accent2); font-size:13px; margin-top:2px; }
+  .topic { margin-bottom:18px; }
+  .topic h3 { font-size:15.5px; margin:0 0 6px; color:var(--fg); }
+  .topic ul { margin:0; padding-left:20px; }
+  .topic li { margin-bottom:5px; font-size:14.5px; color:#cdd3dd; }
+  .none { color:var(--muted); font-size:14px; padding-left:2px; }
+  ul.hits { padding-left:20px; }
+  ul.hits li { font-size:13.5px; color:var(--muted); margin-bottom:3px; }
+  ul.hits a { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .empty { color:var(--muted); }
+  footer { color:var(--muted); font-size:12px; margin-top:40px; padding-top:16px; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>技术进展雷达 · 2026-08-07</h1>
+  <div class="meta">arXiv (cs.CV / eess.IV / cs.AI / cs.LG / cs.MM) · 窗口 2026-08-04 ~ 2026-08-07 · 命中 49 篇 · S2 未启用</div>
+  <p class="note">当日 arXiv 新列表最新只到 2026-08-05（08-06/08-07 公告尚未上线，属正常发布节奏差）；已跨历史 digest 去重 11 篇。S2 未启用（无 API key）。影像相关主题（HDR/色调映射/多帧融合/RAW 去噪/计算摄影/手机拍照录像/防抖/ISP/手机影像/图片处理/low-level CV/Agent）本窗口无新命中，信号集中在通用计算机视觉与多模态大模型两簇。</p>
+  <div class="back"><a href="../index.html">← 返回索引</a></div>
+
+  <h2>📊 今日概览</h2>
+  <p class="summary">本次扫描 17 个主题，共去重命中 49 篇（全部提交于 2026-08-05，含一篇 08-04）。新进展高度集中于两大簇：通用计算机视觉与多模态大语言模型；而 HDR、色调映射、RAW 去噪、手机 ISP/影像、防抖等影像专项主题本窗口无新论文。最值得关注的两个方向：一是多模态大模型的&quot;机理与可信&quot;研究井喷——统一预训练的机理剖析、像素化指令理解缺陷、空间推理忠实性纠正、拒答校准与文字-视觉冲突仲裁多篇齐出；二是视频生成/编辑走向交互与统一——OmniEdit-Bench、ContextMaster、HelloWorld 分别在评测、多镜头创作与世界模型社交互动上推进。</p>
+
+  <h2>🌟 极大维度推荐</h2>
+    <ol class="rec">
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.05000" target="_blank" rel="noopener">Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes</a></b> <span class="aid">[2608.05000]</span></div>
+        <div class="hl">亮点：在合成与大规模真实数据上做受控实验，系统揭示统一多模态预训练中知识如何流动、模态如何协同，并给出可复用的训练配方。</div>
+        <div class="dim">代表性维度：①突破性——为原生统一多模态预训练提供机理级理解与设计指南</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.04726" target="_blank" rel="noopener">When Prompts Become Pixels: Prompt-Region Grounding for Multimodal Reasoning</a></b> <span class="aid">[2608.04726]</span></div>
+        <div class="hl">亮点：提出 VTS 干预，把问题从文本移入图像像素后，6 个 MLLM 在全部 24 组任务上准确率平均下降 17.8 分，暴露模型对像素化指令的系统性短板。</div>
+        <div class="dim">代表性维度：②影响力——干净的对照实验，直指当前 MLLM 评测的盲区</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.04759" target="_blank" rel="noopener">Trace, Verify, and Correct: A Training-Free Framework for Spatial Reasoning in Multimodal LLMs</a></b> <span class="aid">[2608.04759]</span></div>
+        <div class="hl">亮点：免训练地追踪-验证-纠正 MLLM 空间推理链中与图像不一致的中间判断，阻断错误在推理链上传播。</div>
+        <div class="dim">代表性维度：①突破性——无需训练即改善空间推理忠实度，即插即用</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.05049" target="_blank" rel="noopener">OmniEdit-Bench: A Comprehensive Benchmark for Instruction-based Video Editing</a></b> <span class="aid">[2608.05049]</span></div>
+        <div class="hl">亮点：把指令式视频编辑拆成多个视频专属维度构建综合基准，并修正现有指标被原视频视觉先验&quot;蒙混过关&quot;的问题。</div>
+        <div class="dim">代表性维度：④覆盖面——填补视频编辑评测空白，与视频编辑主题高度相关</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.04956" target="_blank" rel="noopener">ContextMaster: Interactive Multi-Shot Video Creation via Fixed-Budget Sparse Context Routing</a></b> <span class="aid">[2608.04956]</span></div>
+        <div class="hl">亮点：用固定预算稀疏上下文路由，统一文本生成/参考条件/源片段编辑三种操作，支持保留历史的交互式多镜头视频创作。</div>
+        <div class="dim">代表性维度：③相关度——面向真实视频创作流程的统一模型，贴合影像/视频方向</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.04698" target="_blank" rel="noopener">Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO</a></b> <span class="aid">[2608.04698]</span></div>
+        <div class="hl">亮点：用拒答校准的 GRPO 让 MLLM 对不存在的指代对象拒绝输出边界框，显著缓解幻觉式定位。</div>
+        <div class="dim">代表性维度：①突破性——针对 MLLM 定位幻觉给出强化学习式解法</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.04935" target="_blank" rel="noopener">Unleashing the Potential of Vision-Language Models for Generalizable AI-Generated Image Detection</a></b> <span class="aid">[2608.04935]</span></div>
+        <div class="hl">亮点：发现语言对齐的 Perception Encoder 因保留高层溯源语义，在通用 AI 生成图检测上潜力超过主流 DINOv3 基线。</div>
+        <div class="dim">代表性维度：②影响力——挑战 AIGI 检测的既有最强基线</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.04866" target="_blank" rel="noopener">Persistent Object Narratives for Token-Efficient Video Language Models</a></b> <span class="aid">[2608.04866]</span></div>
+        <div class="hl">亮点：SlotNarrative 先把视频聚合成物体槽再跨时关联，用紧凑的物体状态 token 显著降低 Video-LLM 的视觉 token 开销。</div>
+        <div class="dim">代表性维度：③相关度——面向视频理解的高效表征，兼顾效率与结构化</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.05070" target="_blank" rel="noopener">HelloWorld: Enabling Socially Interactive Characters in Video World Models</a></b> <span class="aid">[2608.05070]</span></div>
+        <div class="hl">亮点：让视频世界模型中的角色可被一键触发转向/招手/点头/问候，用自蒸馏管线微调生成模型使互动自然。</div>
+        <div class="dim">代表性维度：①突破性——为视频世界模型补上社交互动这一缺口</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.04244" target="_blank" rel="noopener">SIGNPOST-Bench: Benchmarking Text-Vision Conflict Resolution in Multimodal Large Language Models</a></b> <span class="aid">[2608.04244]</span></div>
+        <div class="hl">亮点：用原图/空白/相似/随机/对抗反事实五元组，配对测量 MLLM 在文字与视觉证据冲突时如何仲裁。</div>
+        <div class="dim">代表性维度：④覆盖面——补齐文字-视觉冲突这一评测维度</div>
+      </li>
+    </ol>
+
+  <h2>📚 分主题进展</h2>
+      <div class="topic"><h3>HDR | high dynamic range imaging</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>tone mapping | tone mapping</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>多帧融合 | multi-frame image fusion burst</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>RAW去噪 | RAW image denoising</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>计算摄影 | computational photography</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机拍照 | smartphone photography on-device ISP</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机录像 | smartphone video capture mobile videography</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>视频处理 | video processing restoration</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>计算机视觉 | computer vision</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2608.05149" target="_blank" rel="noopener">CoCo-IR: Contextual Composed Image Retrieval</a> <span class="aid">[2608.05149]</span> — 提出 CoCo-IR 任务：基于大多模态模型的上下文感知检索器，读取整段交互历史生成可变换图像嵌入，支持多轮渐进式图像检索。</li>
+        <li><a href="https://arxiv.org/abs/2608.05145" target="_blank" rel="noopener">Objects as Audio-Visual Modal Sound Fields</a> <span class="aid">[2608.05145]</span> — 把物体建模为视听模态的声场，实现物体级音视频联合表示。</li>
+        <li><a href="https://arxiv.org/abs/2608.05137" target="_blank" rel="noopener">SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding</a> <span class="aid">[2608.05137]</span> — SmartMage：为 3D 场景理解动态编排各模态输入。</li>
+        <li><a href="https://arxiv.org/abs/2608.05132" target="_blank" rel="noopener">Predicting Brain Morphometry with MT-GNN: Mesh Evolution in Continuous Time with Graph-Based Metric Tensor Embeddings</a> <span class="aid">[2608.05132]</span> — 用 MT-GNN 在连续时间上预测脑形态测量，网格随时间演化并嵌入基于图的度量张量。</li>
+        <li><a href="https://arxiv.org/abs/2608.05131" target="_blank" rel="noopener">OPD-V: Visual On-Policy Self-Distillation with Modality Balance</a> <span class="aid">[2608.05131]</span> — OPD-V：带模态平衡的视觉在策略自蒸馏。</li>
+        <li><a href="https://arxiv.org/abs/2608.05122" target="_blank" rel="noopener">IRIS: A Visual Cortex-Inspired Framework for Analyzing Orientation Selectivity in Vision Transformers</a> <span class="aid">[2608.05122]</span> — IRIS：受视觉皮层启发分析 ViT 的方向选择性。</li>
+        <li><a href="https://arxiv.org/abs/2608.05115" target="_blank" rel="noopener">Robust and Efficient Motion Reasoning for Privacy-Aware Classroom Incident Recognition</a> <span class="aid">[2608.05115]</span> — 面向隐私的课堂事件识别：鲁棒高效的运动推理。</li>
+        <li><a href="https://arxiv.org/abs/2608.05101" target="_blank" rel="noopener">HexMIL: Hierarchical Attention MIL for Ante-Hoc Explainable Detection of AI-Manipulated CT Volumes</a> <span class="aid">[2608.05101]</span> — HexMIL：分层注意力 MIL，事前可解释地检测 AI 篡改的 CT 体数据。</li>
+        <li><a href="https://arxiv.org/abs/2608.05100" target="_blank" rel="noopener">Lesion Detection in CT with Frozen Self-Distilled Features: SALT, a Spatially Adaptive Label-Guided Temperature</a> <span class="aid">[2608.05100]</span> — SALT：用冻结自蒸馏特征做 CT 病灶检测，空间自适应标签引导温度。</li>
+        <li><a href="https://arxiv.org/abs/2608.05074" target="_blank" rel="noopener">Bag-of-Visual-Words for Spatial Mapping of Lung Adenocarcinoma Growth Patterns</a> <span class="aid">[2608.05074]</span> — 用视觉词袋对肺腺癌生长模式做空间制图。</li>
+        <li><a href="https://arxiv.org/abs/2608.05070" target="_blank" rel="noopener">HelloWorld: Enabling Socially Interactive Characters in Video World Models</a> <span class="aid">[2608.05070]</span> — HelloWorld：让视频世界模型中的角色可社交互动，一键触发角色转向/招手/点头/问候，用自蒸馏管线微调生成模型。</li>
+        <li><a href="https://arxiv.org/abs/2608.05069" target="_blank" rel="noopener">VQ-VAD: Vector-quantized Motion Representation Learning for Human-centric Video Anomaly Detection</a> <span class="aid">[2608.05069]</span> — VQ-VAD：向量量化运动表示学习，用于以人为中心的视频异常检测。</li>
+        <li><a href="https://arxiv.org/abs/2608.05066" target="_blank" rel="noopener">Beyond Reprojection Error: Camera Calibration with 3D Targets</a> <span class="aid">[2608.05066]</span> — 超越重投影误差：用 3D 标定物做相机标定。</li>
+        <li><a href="https://arxiv.org/abs/2608.05054" target="_blank" rel="noopener">MarsCast: Transfer Learning of AI Weather Foundation Models to Planetary Atmospheres</a> <span class="aid">[2608.05054]</span> — MarsCast：把 AI 天气基础模型迁移到行星大气预测。</li>
+        <li><a href="https://arxiv.org/abs/2608.05049" target="_blank" rel="noopener">OmniEdit-Bench: A Comprehensive Benchmark for Instruction-based Video Editing</a> <span class="aid">[2608.05049]</span> — OmniEdit-Bench：指令式视频编辑的综合基准，把编辑任务拆成多个视频专属维度，并修正现有指标被原视频视觉先验蒙混的问题。</li>
+        <li><a href="https://arxiv.org/abs/2608.05000" target="_blank" rel="noopener">Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes</a> <span class="aid">[2608.05000]</span> — 系统研究统一多模态预训练的&quot;物理规律&quot;：知识流动、模态协同、早期统一与配方四大洞见。</li>
+        <li><a href="https://arxiv.org/abs/2608.04995" target="_blank" rel="noopener">Promptable Animal Pose Tracking Across Species</a> <span class="aid">[2608.04995]</span> — 跨物种可提示动物姿态跟踪，缓解动物标注稀缺与形态差异问题。</li>
+        <li><a href="https://arxiv.org/abs/2608.04956" target="_blank" rel="noopener">ContextMaster: Interactive Multi-Shot Video Creation via Fixed-Budget Sparse Context Routing</a> <span class="aid">[2608.04956]</span> — ContextMaster：以固定预算稀疏上下文路由实现交互式多镜头视频创作，统一生成/参考/编辑三种操作并保留历史。</li>
+        <li><a href="https://arxiv.org/abs/2608.04955" target="_blank" rel="noopener">Towards Valid B-Rep Generation: Training-Free Wireframe Anomaly Detection and Repair</a> <span class="aid">[2608.04955]</span> — 面向有效 B-Rep 生成：免训练的线框异常检测与修复。</li>
+        <li><a href="https://arxiv.org/abs/2608.04949" target="_blank" rel="noopener">UG-UMRE: Uncertainty-Guided Modality Augmentation and Distributional Calibration for Unified Multimodal Relation Extraction</a> <span class="aid">[2608.04949]</span> — UG-UMRE：不确定性引导的模态增强与分布校准，统一多模态关系抽取。</li>
+        <li><a href="https://arxiv.org/abs/2608.04935" target="_blank" rel="noopener">Unleashing the Potential of Vision-Language Models for Generalizable AI-Generated Image Detection</a> <span class="aid">[2608.04935]</span> — 发现语言对齐的 Perception Encoder 比 DINOv3 更适合通用 AI 生成图检测，因其保留高层溯源语义。</li>
+        <li><a href="https://arxiv.org/abs/2608.04917" target="_blank" rel="noopener">An active-learning framework for real-time depth perception from monocular vision streams</a> <span class="aid">[2608.04917]</span> — 主动学习框架，从单目视频流实时估计深度。</li>
+        <li><a href="https://arxiv.org/abs/2608.04906" target="_blank" rel="noopener">Enhancing Low Back Pain Assessment with Diffusion Models for Lumbar Spine MRI Segmentation</a> <span class="aid">[2608.04906]</span> — 用扩散模型增强腰椎 MRI 分割，辅助下背痛评估。</li>
+        <li><a href="https://arxiv.org/abs/2608.04902" target="_blank" rel="noopener">Visual Representation Matters: Exploiting Temporal Differences in Video-to-Audio Generation</a> <span class="aid">[2608.04902]</span> — 视觉表征很重要：利用时间差分改进视频到音频生成。</li>
+        <li><a href="https://arxiv.org/abs/2608.04896" target="_blank" rel="noopener">When Shared Rollouts Fail in Defensive Driving Evaluation: A NAVSIM Score Basis Audit</a> <span class="aid">[2608.04896]</span> — NAVSIM 分数基础审计：共享 rollout 在防御性驾驶评测中的失效。</li>
+        <li><a href="https://arxiv.org/abs/2608.04887" target="_blank" rel="noopener">STEP-OPD: Rethinking Output Targets and Internal Dynamics in On-Policy Distillation for Diffusion Models</a> <span class="aid">[2608.04887]</span> — STEP-OPD：重思扩散模型在策略蒸馏的输出目标与内部动态。</li>
+        <li><a href="https://arxiv.org/abs/2608.04885" target="_blank" rel="noopener">Evaluating the Diagnostic Robustness of Vision-Language Models Under Visual and Textual Perturbations</a> <span class="aid">[2608.04885]</span> — 评测 VLM 在视觉与文本扰动下的诊断鲁棒性。</li>
+        <li><a href="https://arxiv.org/abs/2608.04879" target="_blank" rel="noopener">Training Crossroads for Recurrent Vision Transformers: Recurrence, Neural ODEs, and Deep Supervision</a> <span class="aid">[2608.04879]</span> — 循环视觉 Transformer 的训练十字路口：循环、神经 ODE 与深监督。</li>
+        <li><a href="https://arxiv.org/abs/2608.04866" target="_blank" rel="noopener">Persistent Object Narratives for Token-Efficient Video Language Models</a> <span class="aid">[2608.04866]</span> — SlotNarrative：用基于槽的持久物体叙事组织视频，先聚合成物体槽再跨时关联，显著降低 Video-LLM 的 token 开销。</li>
+        <li><a href="https://arxiv.org/abs/2608.04865" target="_blank" rel="noopener">Cooking beyond Frames: A Stereo Event Camera Dataset in the Kitchen</a> <span class="aid">[2608.04865]</span> — 厨房里的立体事件相机数据集，超越帧的烹饪场景。</li>
+        <li><a href="https://arxiv.org/abs/2608.04840" target="_blank" rel="noopener">Towards a satellite image manipulation and deepfake localization benchmark dataset</a> <span class="aid">[2608.04840]</span> — 面向卫星图像篡改与 deepfake 定位的基准数据集。</li>
+        <li><a href="https://arxiv.org/abs/2608.04833" target="_blank" rel="noopener">RegisterBridgeMM: A Register-Centric Framework for RGB-Infrared Object Detection</a> <span class="aid">[2608.04833]</span> — RegisterBridgeMM：以 register 为中心的 RGB-红外目标检测框架。</li>
+        <li><a href="https://arxiv.org/abs/2608.04821" target="_blank" rel="noopener">Global Attention-Fused Image Cropping with Attention-Guided and Global-Aligned Crop Evaluator</a> <span class="aid">[2608.04821]</span> — 全局注意力融合的图像裁剪，配注意力引导与全局对齐的裁剪评估器。</li>
+        <li><a href="https://arxiv.org/abs/2608.04820" target="_blank" rel="noopener">When Diffusion Models Forget Who You Are: Identity Preservation in Face Inpainting under Large Occlusions</a> <span class="aid">[2608.04820]</span> — 大遮挡下人脸修复的身份保持：当扩散模型忘记你是谁。</li>
+        <li><a href="https://arxiv.org/abs/2608.04818" target="_blank" rel="noopener">Rethinking Pixel Mean Flows via Interval Denoiser</a> <span class="aid">[2608.04818]</span> — 通过区间去噪器重思像素均值流。</li>
+        <li><a href="https://arxiv.org/abs/2608.04811" target="_blank" rel="noopener">StaticSegFormer: An Efficient High-Performance Semantic Segmentation Based on Static Structured Pruning</a> <span class="aid">[2608.04811]</span> — StaticSegFormer：基于静态结构化剪枝的高效语义分割。</li>
+        <li><a href="https://arxiv.org/abs/2608.04810" target="_blank" rel="noopener">Segmentation Pre-training for Label-Efficient Lumbar Spine Degeneration Grading</a> <span class="aid">[2608.04810]</span> — 分割预训练实现标签高效的腰椎退变分级。</li>
+        <li><a href="https://arxiv.org/abs/2608.04791" target="_blank" rel="noopener">On the Effectiveness of Adaptation Strategies for VLM-Based Federated Learning in Remote Sensing</a> <span class="aid">[2608.04791]</span> — 遥感中基于 VLM 的联邦学习适配策略有效性研究。</li>
+        <li><a href="https://arxiv.org/abs/2608.04768" target="_blank" rel="noopener">Embedding Large Language Models into Flow Controls: An Agentic Framework for Adaptive and Trustworthy Automated Cooking</a> <span class="aid">[2608.04768]</span> — 把 LLM 嵌入流程控制：面向自适应可信自动烹饪的智能体框架。</li>
+        <li><a href="https://arxiv.org/abs/2608.04766" target="_blank" rel="noopener">FUSEP: A Multi-Center Benchmark for Diverse Tasks in Early Pregnancy Fetal Ultrasound Screening</a> <span class="aid">[2608.04766]</span> — FUSEP：早孕胎儿超声筛查多任务多中心基准。</li>
+      </ul></div>
+      <div class="topic"><h3>视频编辑 | video editing generative</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>low-level CV | low-level computer vision</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>Agent | LLM agent autonomous</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>多模态大模型 | multimodal large language model</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2608.05137" target="_blank" rel="noopener">SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding</a> <span class="aid">[2608.05137]</span> — SmartMage：为 3D 场景理解动态编排各模态输入。</li>
+        <li><a href="https://arxiv.org/abs/2608.05131" target="_blank" rel="noopener">OPD-V: Visual On-Policy Self-Distillation with Modality Balance</a> <span class="aid">[2608.05131]</span> — OPD-V：带模态平衡的视觉在策略自蒸馏。</li>
+        <li><a href="https://arxiv.org/abs/2608.04759" target="_blank" rel="noopener">Trace, Verify, and Correct: A Training-Free Framework for Spatial Reasoning in Multimodal LLMs</a> <span class="aid">[2608.04759]</span> — Trace-Verify-Correct：免训练框架，检测并纠正 MLLM 空间推理链中与图像不符的中间判断，防止错误传播。</li>
+        <li><a href="https://arxiv.org/abs/2608.04726" target="_blank" rel="noopener">When Prompts Become Pixels: Prompt-Region Grounding for Multimodal Reasoning</a> <span class="aid">[2608.04726]</span> — 提出 VTS 干预：把问题从文字搬进图像像素，6 个 MLLM 在 24 组任务上准确率平均掉 17.8 分，揭示模型对像素化指令理解薄弱。</li>
+        <li><a href="https://arxiv.org/abs/2608.04698" target="_blank" rel="noopener">Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO</a> <span class="aid">[2608.04698]</span> — 用 Refusal-Calibrated GRPO 教 MLLM 学会&quot;拒答&quot;：对不存在的指代对象拒绝输出边界框，缓解幻觉式定位。</li>
+        <li><a href="https://arxiv.org/abs/2608.04589" target="_blank" rel="noopener">The First EgoCross Challenge at EgoVis 2026: Cross-Domain Egocentric Video Question Answering</a> <span class="aid">[2608.04589]</span> — EgoVis 2026 首届 EgoCross 挑战赛：手术/工业装配/极限运动/动物视角四域第一人称视频问答，测 MLLM 跨域泛化。</li>
+        <li><a href="https://arxiv.org/abs/2608.04586" target="_blank" rel="noopener">Breaking the Curse ofMultilinguality inMany-to-Many Speech-to-Text Translation via a Resource-AwareMixture of Speech Encoders</a> <span class="aid">[2608.04586]</span> — 用资源感知的语音编码器混合，打破多对多语音到文本翻译的多语言诅咒。</li>
+        <li><a href="https://arxiv.org/abs/2608.04548" target="_blank" rel="noopener">A Model Merging Approach for Continual MLLM Unlearning</a> <span class="aid">[2608.04548]</span> — MCU：通过合并多个一次性遗忘适配器，解决 MLLM 持续遗忘中的效用退化与遗忘反弹。</li>
+        <li><a href="https://arxiv.org/abs/2608.04533" target="_blank" rel="noopener">EgoAfford: Task-Oriented Affordance Grounding via Egocentric Referring Segmentation</a> <span class="aid">[2608.04533]</span> — EgoAfford：面向任务的可供性定位基准，需生成剩余步骤规划并分割下一动作的直接对象/工具/受体功能区域。</li>
+        <li><a href="https://arxiv.org/abs/2608.04452" target="_blank" rel="noopener">Q-CueGraph: Query-Conditioned Visual Evidence Graphs for Multimodal Reasoning</a> <span class="aid">[2608.04452]</span> — Q-CueGraph：查询条件化的视觉证据图，为冻结阅读器提供&quot;看哪里&quot;的预算化坐标级观察策略。</li>
+        <li><a href="https://arxiv.org/abs/2608.04244" target="_blank" rel="noopener">SIGNPOST-Bench: Benchmarking Text-Vision Conflict Resolution in Multimodal Large Language Models</a> <span class="aid">[2608.04244]</span> — SIGNPOST-Bench：反事实基准，通过原图/空白/相似/随机/对抗五元组评测 MLLM 在文字-视觉证据冲突时如何仲裁。</li>
+      </ul></div>
+      <div class="topic"><h3>防抖 | image video stabilization</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>ISP处理 | image signal processor pipeline</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机影像 | mobile computational imaging</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>图片处理 | image processing restoration enhancement</h3>
+      <div class="none">— 无新进展</div></div>
+
+  <h2>🔗 附：全部命中列表</h2>
+    <ul class="hits">
+        <li><a href="https://arxiv.org/abs/2608.05149" target="_blank" rel="noopener">2608.05149</a> CoCo-IR: Contextual Composed Image Retrieval</li>
+        <li><a href="https://arxiv.org/abs/2608.05145" target="_blank" rel="noopener">2608.05145</a> Objects as Audio-Visual Modal Sound Fields</li>
+        <li><a href="https://arxiv.org/abs/2608.05137" target="_blank" rel="noopener">2608.05137</a> SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding</li>
+        <li><a href="https://arxiv.org/abs/2608.05132" target="_blank" rel="noopener">2608.05132</a> Predicting Brain Morphometry with MT-GNN: Mesh Evolution in Continuous Time with Graph-Based Metric Tensor Embeddings</li>
+        <li><a href="https://arxiv.org/abs/2608.05131" target="_blank" rel="noopener">2608.05131</a> OPD-V: Visual On-Policy Self-Distillation with Modality Balance</li>
+        <li><a href="https://arxiv.org/abs/2608.05122" target="_blank" rel="noopener">2608.05122</a> IRIS: A Visual Cortex-Inspired Framework for Analyzing Orientation Selectivity in Vision Transformers</li>
+        <li><a href="https://arxiv.org/abs/2608.05115" target="_blank" rel="noopener">2608.05115</a> Robust and Efficient Motion Reasoning for Privacy-Aware Classroom Incident Recognition</li>
+        <li><a href="https://arxiv.org/abs/2608.05101" target="_blank" rel="noopener">2608.05101</a> HexMIL: Hierarchical Attention MIL for Ante-Hoc Explainable Detection of AI-Manipulated CT Volumes</li>
+        <li><a href="https://arxiv.org/abs/2608.05100" target="_blank" rel="noopener">2608.05100</a> Lesion Detection in CT with Frozen Self-Distilled Features: SALT, a Spatially Adaptive Label-Guided Temperature</li>
+        <li><a href="https://arxiv.org/abs/2608.05074" target="_blank" rel="noopener">2608.05074</a> Bag-of-Visual-Words for Spatial Mapping of Lung Adenocarcinoma Growth Patterns</li>
+        <li><a href="https://arxiv.org/abs/2608.05070" target="_blank" rel="noopener">2608.05070</a> HelloWorld: Enabling Socially Interactive Characters in Video World Models</li>
+        <li><a href="https://arxiv.org/abs/2608.05069" target="_blank" rel="noopener">2608.05069</a> VQ-VAD: Vector-quantized Motion Representation Learning for Human-centric Video Anomaly Detection</li>
+        <li><a href="https://arxiv.org/abs/2608.05066" target="_blank" rel="noopener">2608.05066</a> Beyond Reprojection Error: Camera Calibration with 3D Targets</li>
+        <li><a href="https://arxiv.org/abs/2608.05054" target="_blank" rel="noopener">2608.05054</a> MarsCast: Transfer Learning of AI Weather Foundation Models to Planetary Atmospheres</li>
+        <li><a href="https://arxiv.org/abs/2608.05049" target="_blank" rel="noopener">2608.05049</a> OmniEdit-Bench: A Comprehensive Benchmark for Instruction-based Video Editing</li>
+        <li><a href="https://arxiv.org/abs/2608.05000" target="_blank" rel="noopener">2608.05000</a> Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes</li>
+        <li><a href="https://arxiv.org/abs/2608.04995" target="_blank" rel="noopener">2608.04995</a> Promptable Animal Pose Tracking Across Species</li>
+        <li><a href="https://arxiv.org/abs/2608.04956" target="_blank" rel="noopener">2608.04956</a> ContextMaster: Interactive Multi-Shot Video Creation via Fixed-Budget Sparse Context Routing</li>
+        <li><a href="https://arxiv.org/abs/2608.04955" target="_blank" rel="noopener">2608.04955</a> Towards Valid B-Rep Generation: Training-Free Wireframe Anomaly Detection and Repair</li>
+        <li><a href="https://arxiv.org/abs/2608.04949" target="_blank" rel="noopener">2608.04949</a> UG-UMRE: Uncertainty-Guided Modality Augmentation and Distributional Calibration for Unified Multimodal Relation Extraction</li>
+        <li><a href="https://arxiv.org/abs/2608.04935" target="_blank" rel="noopener">2608.04935</a> Unleashing the Potential of Vision-Language Models for Generalizable AI-Generated Image Detection</li>
+        <li><a href="https://arxiv.org/abs/2608.04917" target="_blank" rel="noopener">2608.04917</a> An active-learning framework for real-time depth perception from monocular vision streams</li>
+        <li><a href="https://arxiv.org/abs/2608.04906" target="_blank" rel="noopener">2608.04906</a> Enhancing Low Back Pain Assessment with Diffusion Models for Lumbar Spine MRI Segmentation</li>
+        <li><a href="https://arxiv.org/abs/2608.04902" target="_blank" rel="noopener">2608.04902</a> Visual Representation Matters: Exploiting Temporal Differences in Video-to-Audio Generation</li>
+        <li><a href="https://arxiv.org/abs/2608.04896" target="_blank" rel="noopener">2608.04896</a> When Shared Rollouts Fail in Defensive Driving Evaluation: A NAVSIM Score Basis Audit</li>
+        <li><a href="https://arxiv.org/abs/2608.04887" target="_blank" rel="noopener">2608.04887</a> STEP-OPD: Rethinking Output Targets and Internal Dynamics in On-Policy Distillation for Diffusion Models</li>
+        <li><a href="https://arxiv.org/abs/2608.04885" target="_blank" rel="noopener">2608.04885</a> Evaluating the Diagnostic Robustness of Vision-Language Models Under Visual and Textual Perturbations</li>
+        <li><a href="https://arxiv.org/abs/2608.04879" target="_blank" rel="noopener">2608.04879</a> Training Crossroads for Recurrent Vision Transformers: Recurrence, Neural ODEs, and Deep Supervision</li>
+        <li><a href="https://arxiv.org/abs/2608.04866" target="_blank" rel="noopener">2608.04866</a> Persistent Object Narratives for Token-Efficient Video Language Models</li>
+        <li><a href="https://arxiv.org/abs/2608.04865" target="_blank" rel="noopener">2608.04865</a> Cooking beyond Frames: A Stereo Event Camera Dataset in the Kitchen</li>
+        <li><a href="https://arxiv.org/abs/2608.04840" target="_blank" rel="noopener">2608.04840</a> Towards a satellite image manipulation and deepfake localization benchmark dataset</li>
+        <li><a href="https://arxiv.org/abs/2608.04833" target="_blank" rel="noopener">2608.04833</a> RegisterBridgeMM: A Register-Centric Framework for RGB-Infrared Object Detection</li>
+        <li><a href="https://arxiv.org/abs/2608.04821" target="_blank" rel="noopener">2608.04821</a> Global Attention-Fused Image Cropping with Attention-Guided and Global-Aligned Crop Evaluator</li>
+        <li><a href="https://arxiv.org/abs/2608.04820" target="_blank" rel="noopener">2608.04820</a> When Diffusion Models Forget Who You Are: Identity Preservation in Face Inpainting under Large Occlusions</li>
+        <li><a href="https://arxiv.org/abs/2608.04818" target="_blank" rel="noopener">2608.04818</a> Rethinking Pixel Mean Flows via Interval Denoiser</li>
+        <li><a href="https://arxiv.org/abs/2608.04811" target="_blank" rel="noopener">2608.04811</a> StaticSegFormer: An Efficient High-Performance Semantic Segmentation Based on Static Structured Pruning</li>
+        <li><a href="https://arxiv.org/abs/2608.04810" target="_blank" rel="noopener">2608.04810</a> Segmentation Pre-training for Label-Efficient Lumbar Spine Degeneration Grading</li>
+        <li><a href="https://arxiv.org/abs/2608.04791" target="_blank" rel="noopener">2608.04791</a> On the Effectiveness of Adaptation Strategies for VLM-Based Federated Learning in Remote Sensing</li>
+        <li><a href="https://arxiv.org/abs/2608.04768" target="_blank" rel="noopener">2608.04768</a> Embedding Large Language Models into Flow Controls: An Agentic Framework for Adaptive and Trustworthy Automated Cooking</li>
+        <li><a href="https://arxiv.org/abs/2608.04766" target="_blank" rel="noopener">2608.04766</a> FUSEP: A Multi-Center Benchmark for Diverse Tasks in Early Pregnancy Fetal Ultrasound Screening</li>
+        <li><a href="https://arxiv.org/abs/2608.04759" target="_blank" rel="noopener">2608.04759</a> Trace, Verify, and Correct: A Training-Free Framework for Spatial Reasoning in Multimodal LLMs</li>
+        <li><a href="https://arxiv.org/abs/2608.04726" target="_blank" rel="noopener">2608.04726</a> When Prompts Become Pixels: Prompt-Region Grounding for Multimodal Reasoning</li>
+        <li><a href="https://arxiv.org/abs/2608.04698" target="_blank" rel="noopener">2608.04698</a> Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO</li>
+        <li><a href="https://arxiv.org/abs/2608.04589" target="_blank" rel="noopener">2608.04589</a> The First EgoCross Challenge at EgoVis 2026: Cross-Domain Egocentric Video Question Answering</li>
+        <li><a href="https://arxiv.org/abs/2608.04586" target="_blank" rel="noopener">2608.04586</a> Breaking the Curse ofMultilinguality inMany-to-Many Speech-to-Text Translation via a Resource-AwareMixture of Speech Encoders</li>
+        <li><a href="https://arxiv.org/abs/2608.04548" target="_blank" rel="noopener">2608.04548</a> A Model Merging Approach for Continual MLLM Unlearning</li>
+        <li><a href="https://arxiv.org/abs/2608.04533" target="_blank" rel="noopener">2608.04533</a> EgoAfford: Task-Oriented Affordance Grounding via Egocentric Referring Segmentation</li>
+        <li><a href="https://arxiv.org/abs/2608.04452" target="_blank" rel="noopener">2608.04452</a> Q-CueGraph: Query-Conditioned Visual Evidence Graphs for Multimodal Reasoning</li>
+        <li><a href="https://arxiv.org/abs/2608.04244" target="_blank" rel="noopener">2608.04244</a> SIGNPOST-Bench: Benchmarking Text-Vision Conflict Resolution in Multimodal Large Language Models</li>
+    </ul>
+
+  <footer>tech-research-radar · 自动生成于每日检索 · 数据源 arXiv</footer>
+</div>
+</body>
+</html>
