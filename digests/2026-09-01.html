@@ -39,21 +39,230 @@
 <body>
 <div class="wrap">
   <h1>技术进展雷达 · 2026-09-01</h1>
-  <div class="meta">命中 0 篇 · S2 未启用</div>
-  <p class="note">⚠️ 本日自动生成未成功 (claude exit=0)，将于后续触发重试。详见 logs/run_2026-09-01.log</p>
+  <div class="meta">arXiv (cs.CV / eess.IV / cs.AI / cs.LG / cs.MM) · 窗口 2026-08-29 ~ 2026-09-01 · 命中 61 篇 · S2 未启用</div>
+  <p class="note">核心影像主线（计算摄影/手机影像/手机ISP/HDR/RAW去噪/防抖/多帧融合/low-level 等）当天仅 tone mapping 命中 1 篇，其余主线 0 命中——处于周末（08-29 六、08-30 日）叠加月初的 arXiv 公告空档，已逐一短语查询并对宽域 CV 批次做 ISP/HDR/去噪/相机等关键词二次核验，确认为真实无新提交而非故障。推荐 7 篇：1 篇主线 + 6 篇与视频/影像处理最贴近的泛领域工作。S2 未启用（无 SEMANTIC_SCHOLAR_API_KEY）。</p>
   <div class="back"><a href="../index.html">← 返回索引</a></div>
 
   <h2>📊 今日概览</h2>
-  <p class="summary">本日自动生成未成功，等待重试。</p>
+  <p class="summary">今日（提交窗口 2026-08-29 ~ 09-01）扫描 23 个主题，去重后共 61 篇新论文，但核心影像主线几乎空档：18 个主线主题中仅『tone mapping』命中 1 篇——一篇面向自动驾驶 HDR 目标检测的实时场景自适应色调映射（以神经光度标定 + 尺度不变局部 TMO 替代传统 ISP、端到端联合下游检测优化，Jetson 上实时处理 4K 高位深 HDR RAW），是当天与计算摄影/端侧 ISP 链路最相关的工作，已置顶推荐。计算摄影/手机影像/RAW 去噪/防抖/多帧融合/low-level 等其余主线均无新提交（周末+月初公告空档，已用短语查询逐一检索确认，非检索故障）。泛领域信号集中在视频生成（原生音视频联合生成 DreamX-Creator 2K、实时交互世界模型 Matrix-Game 3.5、物理一致性精修 Off-Manifold Refinement、测试时噪声优化 NoisEasier）与多模态大模型（智能体式文档图像修复 DocIntent、单次可解释视觉搜索 VisLens），其余多为医学影像/3DGS/遥感等无关命中。推荐位主线仅 1 篇，其余取与视频/影像处理最贴近的泛领域工作补足；S2 未启用。</p>
 
   <h2>🌟 极大维度推荐</h2>
-    <p class="empty">今日无推荐。</p>
+    <ol class="rec">
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.30400" target="_blank" rel="noopener">Real-Time Scene-Adaptive Tone Mapping for High-Dynamic Range Object Detection</a></b> <span class="aid">[2608.30400]</span></div>
+        <div class="hl">亮点：用神经光度标定 + 尺度不变局部色调映射替代传统 ISP，端到端联合下游检测优化，把 HDR RAW 桥接到检测网络所需的 LDR sRGB；支持性能迁移微调，在 Jetson 上实时处理 4K 高位深 HDR，优于传统 TMO 与先进 AI-ISP。</div>
+        <div class="dim">代表性维度：①突破性/③相关度：当天唯一命中的核心影像主线工作，直击端侧 ISP/HDR/色调映射与下游任务联合优化，与计算摄影链路高度相关。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.31106" target="_blank" rel="noopener">DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution</a></b> <span class="aid">[2608.31106]</span></div>
+        <div class="hl">亮点：7B 原生音视频联合生成：首帧+文本条件下同时去噪音频与视频流，前半独立处理、后半以门控跨模态注意力耦合，直出 2K 分辨率，改善视觉动态与声学事件的互建模。</div>
+        <div class="dim">代表性维度：②影响力/③相关度：紧凑参数下的高分辨率原生音视频联合生成，贴近视频拍摄/制作链路。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.29910" target="_blank" rel="noopener">Matrix-Game 3.5: Enhancing Real-Time Streaming Interactive World Models with Patch Memory</a></b> <span class="aid">[2608.29910]</span></div>
+        <div class="hl">亮点：以 Patch Memory 支撑实时流式交互世界模型，长时程自回归生成中同时保持场景几何、动态一致性与相机控制，面向游戏/机器人/具身/XR 的持续可交互模拟。</div>
+        <div class="dim">代表性维度：①突破性/③相关度：实时自回归视频生成与相机控制，与端侧实时视频处理诉求相通。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.29904" target="_blank" rel="noopener">Off-Manifold Refinement: Guiding Video Generators with a Frozen World Model</a></b> <span class="aid">[2608.29904]</span></div>
+        <div class="hl">亮点：用冻结世界模型引导视频生成器、显式惩罚物理违例（漂浮/穿模/接触消失），相比候选筛选与梯度式世界模型引导更省推理与训练开销。</div>
+        <div class="dim">代表性维度：①突破性：以低成本方式注入物理一致性约束，改进视频生成的动力学真实度。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.29037" target="_blank" rel="noopener">DocIntent: Answerability-Guided Agentic Restoration for Real-World Document Visual Question Answering</a></b> <span class="aid">[2608.29037]</span></div>
+        <div class="hl">亮点：免训练、可答性引导的智能体式图像修复：针对模糊/阴影/畸变/摩尔纹选择性调用修复工具，比较式回滚校验每步，令修复服务下游文档 VQA 而非通用画质指标。</div>
+        <div class="dim">代表性维度：③相关度/④覆盖面：把图像修复置于任务导向的智能体框架，是 low-level 修复与上层任务耦合的代表思路。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.30194" target="_blank" rel="noopener">NoisEasier: Test-Time Noise Optimization for Text-to-Video Generation</a></b> <span class="aid">[2608.30194]</span></div>
+        <div class="hl">亮点：文本到视频的测试时缩放框架，用可微奖励引导优化初始噪声、无需改动生成模型，提升属性绑定/空间关系/物体交互等细粒度对齐并规避奖励攻击。</div>
+        <div class="dim">代表性维度：①突破性/③相关度：推理期噪声优化的即插即用对齐方案，对视频生成质量提升有普适价值。</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2608.31033" target="_blank" rel="noopener">FaceSnap: Real-Time Personalized Lightstage Facial Performance Capture</a></b> <span class="aid">[2608.31033]</span></div>
+        <div class="hl">亮点：两阶段面部捕捉：先一次性多视图优化构建含几何与表情相关外观的个性化模型，再实现轻量实时捕捉，缓解 Lightstage 多相机、算力与存储瓶颈。</div>
+        <div class="dim">代表性维度：③相关度/④覆盖面：面向生产级数字人的实时化影像捕捉，属计算摄影/多视图成像外延。</div>
+      </li>
+    </ol>
 
   <h2>📚 分主题进展</h2>
-<p class="empty">无主题数据。</p>
+      <div class="topic"><h3>计算摄影 | computational photography</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机影像 | mobile computational imaging</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机拍照 | smartphone photography on-device ISP</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机录像 | smartphone video capture mobile videography</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>端侧神经ISP | on-device neural ISP learned camera pipeline</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>神经网络ISP | deep learning ISP RAW-to-RGB reconstruction</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>端芯云协同 | edge cloud collaborative mobile video processing</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机视频增强 | mobile video enhancement restoration on-device</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>HDR | high dynamic range imaging</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>tone mapping | tone mapping</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2608.30400" target="_blank" rel="noopener">Real-Time Scene-Adaptive Tone Mapping for High-Dynamic Range Object Detection</a> <span class="aid">[2608.30400]</span> — 面向自动驾驶 HDR 目标检测的实时场景自适应色调映射：以神经光度标定规整动态范围、尺度不变局部 TMO 保细节，端到端联合下游检测优化，替代传统 ISP，在 Jetson 上实时处理 4K 高位深 HDR RAW，优于传统 TMO 与先进 AI-ISP。</li>
+      </ul></div>
+      <div class="topic"><h3>多帧融合 | multi-frame image fusion burst</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>RAW去噪 | RAW image denoising</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>防抖 | image video stabilization</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>ISP处理 | image signal processor pipeline</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>low-level CV | low-level computer vision</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>图片处理 | image processing restoration enhancement</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>视频处理 | video processing restoration</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>视频生成与修复 | Video Generation and Restoration</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>计算机视觉 | computer vision</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2608.31159" target="_blank" rel="noopener">BRF-GS: Hyperspectral Bidirectional Reflectance Factor Modeling and Image Generation Based on 3D Gaussian Splatting</a> <span class="aid">[2608.31159]</span> — BRF-GS：基于 3D 高斯溅射的高光谱双向反射因子建模与图像生成。</li>
+        <li><a href="https://arxiv.org/abs/2608.31113" target="_blank" rel="noopener">BLARM: Animating 3D Objects from Video via Blending Latent Rigid Motion Primitives</a> <span class="aid">[2608.31113]</span> — BLARM：通过混合潜在刚体运动基元，从视频驱动 3D 物体动画。</li>
+        <li><a href="https://arxiv.org/abs/2608.31107" target="_blank" rel="noopener">VeriCam: A Verification Baseline for the Classification of Unknown Data</a> <span class="aid">[2608.31107]</span> — VeriCam：面向未知数据分类的验证基线。</li>
+        <li><a href="https://arxiv.org/abs/2608.31106" target="_blank" rel="noopener">DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution</a> <span class="aid">[2608.31106]</span> — DreamX-Creator 1.0：7B 原生音视频联合生成系统，首帧+文本条件下同时去噪音频与视频流，后半段以门控跨模态注意力耦合，输出 2K 分辨率。</li>
+        <li><a href="https://arxiv.org/abs/2608.31096" target="_blank" rel="noopener">One Adapter, Many Tasks: Task-Conditioned Feature Transformations for Continual Learning</a> <span class="aid">[2608.31096]</span> — One Adapter, Many Tasks：任务条件化特征变换的持续学习方法。</li>
+        <li><a href="https://arxiv.org/abs/2608.31094" target="_blank" rel="noopener">Robust retinal biometrics for patient identity verification and retrieval across age and imaging devices</a> <span class="aid">[2608.31094]</span> — 跨年龄、跨成像设备的鲁棒视网膜生物特征身份核验与检索。</li>
+        <li><a href="https://arxiv.org/abs/2608.31074" target="_blank" rel="noopener">Real-Time Video Anomaly Detection Using YOLO Pose Estimation and CLIP-Based Semantic Scoring</a> <span class="aid">[2608.31074]</span> — 结合 YOLO 姿态估计与 CLIP 语义打分的实时视频异常检测。</li>
+        <li><a href="https://arxiv.org/abs/2608.31073" target="_blank" rel="noopener">LISynSeg: Data-Centric Label-to-Image Synthesis for Cross-Modality Whole-Heart Segmentation</a> <span class="aid">[2608.31073]</span> — LISynSeg：数据驱动的标签到图像合成，用于跨模态全心脏分割。</li>
+        <li><a href="https://arxiv.org/abs/2608.31065" target="_blank" rel="noopener">Multimodal Shared Latent Representation of Narration, Microscope and iOCT Images for Phase Recognition in Vitreoretinal Surgery</a> <span class="aid">[2608.31065]</span> — 融合旁白、显微镜与 iOCT 图像的多模态共享潜表示，用于玻璃体视网膜手术阶段识别。</li>
+        <li><a href="https://arxiv.org/abs/2608.31053" target="_blank" rel="noopener">Identity-Conditioned Latent Consistency Distillation for Face Synthesis</a> <span class="aid">[2608.31053]</span> — 身份条件化潜一致性蒸馏，用于人脸合成。</li>
+        <li><a href="https://arxiv.org/abs/2608.31052" target="_blank" rel="noopener">Segmentation of Bovid Dentition Under Imperfect Annotations: A Comparative Study of Convolutional and Attention Models</a> <span class="aid">[2608.31052]</span> — 不完美标注下的牛科动物牙列分割：卷积与注意力模型对比研究。</li>
+        <li><a href="https://arxiv.org/abs/2608.31045" target="_blank" rel="noopener">Rotational Equivariance in Machine Learning: A Comprehensive Tutorial</a> <span class="aid">[2608.31045]</span> — 机器学习中的旋转等变性综合教程。</li>
+        <li><a href="https://arxiv.org/abs/2608.31033" target="_blank" rel="noopener">FaceSnap: Real-Time Personalized Lightstage Facial Performance Capture</a> <span class="aid">[2608.31033]</span> — FaceSnap：实时个性化 Lightstage 面部表演捕捉，先一次性多视图优化建个性化几何+表情外观模型，再实现轻量实时捕捉，缓解多相机、算力与存储瓶颈。</li>
+        <li><a href="https://arxiv.org/abs/2608.31029" target="_blank" rel="noopener">Driving on Memory</a> <span class="aid">[2608.31029]</span> — Driving on Memory：面向驾驶场景的记忆机制研究。</li>
+        <li><a href="https://arxiv.org/abs/2608.31025" target="_blank" rel="noopener">Analytic Dynamics: Learning Physics-Grounded Representation for Fast Intrinsic Dynamics Inference from Monocular Videos</a> <span class="aid">[2608.31025]</span> — Analytic Dynamics：学习物理接地的表示，从单目视频快速推断物体内在动力学，避免逐场景优化与外观/几何捷径。</li>
+        <li><a href="https://arxiv.org/abs/2608.31023" target="_blank" rel="noopener">SMG: Semantic Motion Graph for Monocular Dynamic Gaussian Splatting</a> <span class="aid">[2608.31023]</span> — SMG：语义运动图，用于单目动态高斯溅射。</li>
+        <li><a href="https://arxiv.org/abs/2608.31022" target="_blank" rel="noopener">MNIST-PRO: MNIST is Back as a Partially Observable World for AI Agents</a> <span class="aid">[2608.31022]</span> — MNIST-PRO：把 MNIST 改造成面向 AI 智能体的部分可观测世界。</li>
+        <li><a href="https://arxiv.org/abs/2608.31013" target="_blank" rel="noopener">TSPFN: A Temporal Tabular Foundation Model for Physiological Time Series Classification</a> <span class="aid">[2608.31013]</span> — TSPFN：面向生理时间序列分类的时序表格基础模型。</li>
+        <li><a href="https://arxiv.org/abs/2608.31005" target="_blank" rel="noopener">From Intent to Evidence: Policy-Steered Multi-Strategy Retrieval for Long-Video Agents</a> <span class="aid">[2608.31005]</span> — From Intent to Evidence：策略引导的多策略检索，用于长视频智能体。</li>
+        <li><a href="https://arxiv.org/abs/2608.31002" target="_blank" rel="noopener">DARP: A Calibrated Dual-Arm RGB-D-IR Dataset for Multi-View Robotic Perception</a> <span class="aid">[2608.31002]</span> — DARP：标定良好的双臂 RGB-D-IR 数据集，用于多视角机器人感知。</li>
+        <li><a href="https://arxiv.org/abs/2608.30997" target="_blank" rel="noopener">Multi-View Reflective Surface Inspection via Semantic-Saliency Cross-Verification</a> <span class="aid">[2608.30997]</span> — 语义-显著性交叉验证的多视角反光表面缺陷检测。</li>
+        <li><a href="https://arxiv.org/abs/2608.30975" target="_blank" rel="noopener">MR-JEPA: A General Purpose Video Foundation Model for Cardiac MRI</a> <span class="aid">[2608.30975]</span> — MR-JEPA：面向心脏 MRI 的通用视频基础模型。</li>
+        <li><a href="https://arxiv.org/abs/2608.30964" target="_blank" rel="noopener">Vision Models Predict Urban Scene Appraisal with Limited Neural Alignment</a> <span class="aid">[2608.30964]</span> — 视觉模型预测城市场景评价，但与神经对齐有限。</li>
+        <li><a href="https://arxiv.org/abs/2608.30959" target="_blank" rel="noopener">LOCI: A Locator-Critic with Refinement Loop</a> <span class="aid">[2608.30959]</span> — LOCI：带精修循环的定位-评判器。</li>
+        <li><a href="https://arxiv.org/abs/2608.30951" target="_blank" rel="noopener">Audio-Driven Adversarial Defense for 3D Talking Face Generation with totally Visual Fidelity Preservation</a> <span class="aid">[2608.30951]</span> — 音频驱动、完全保真视觉的 3D 说话人脸生成对抗防御。</li>
+        <li><a href="https://arxiv.org/abs/2608.30899" target="_blank" rel="noopener">Uncertainty-Aware Trajectory Forecasting from Imperfect Tracking</a> <span class="aid">[2608.30899]</span> — 从不完美跟踪出发的不确定性感知轨迹预测。</li>
+        <li><a href="https://arxiv.org/abs/2608.30896" target="_blank" rel="noopener">Rad-R: A Raw-ADC Radar Dataset and Capture-Invariant SSM for Hardware-Fault Diagnosis</a> <span class="aid">[2608.30896]</span> — Rad-R：原始 ADC 雷达数据集与捕获不变 SSM，用于硬件故障诊断。</li>
+        <li><a href="https://arxiv.org/abs/2608.30895" target="_blank" rel="noopener">A Controlled Evaluation of Model Rankings and Input Reliance in Surface Water Segmentation</a> <span class="aid">[2608.30895]</span> — 水面分割中模型排名与输入依赖的受控评测。</li>
+        <li><a href="https://arxiv.org/abs/2608.30872" target="_blank" rel="noopener">SurgSkill-Bench: A Benchmark for Multimodal Surgical Skill Assessment</a> <span class="aid">[2608.30872]</span> — SurgSkill-Bench：多模态外科手术技能评估基准。</li>
+        <li><a href="https://arxiv.org/abs/2608.30870" target="_blank" rel="noopener">VCAR: Training-Free 3DGS Segmentation via View Completeness and Axis-Aware Boundary Refinement</a> <span class="aid">[2608.30870]</span> — VCAR：基于视图完整性与轴向边界精修的免训练 3DGS 分割。</li>
+        <li><a href="https://arxiv.org/abs/2608.30858" target="_blank" rel="noopener">GAFT: Geo-Anchored Fine-Tuning for Hazard Identification from Rare Failures</a> <span class="aid">[2608.30858]</span> — GAFT：地理锚定微调，从罕见失效中识别灾害。</li>
+        <li><a href="https://arxiv.org/abs/2608.30857" target="_blank" rel="noopener">TAMI: Temporally Aligned, Missingness-Aware, and Interpretable Multimodal Fusion for Mental Health Assessment in Older Adults with Mild Cognitive Impairment</a> <span class="aid">[2608.30857]</span> — TAMI：时间对齐、缺失感知、可解释的多模态融合，用于轻度认知障碍老年人心理健康评估。</li>
+        <li><a href="https://arxiv.org/abs/2608.30844" target="_blank" rel="noopener">Pretrained, Curriculum-Tuned, and Ensembled: A Tracer-Aware Interactive Segmentation Pipeline for AutoPET V</a> <span class="aid">[2608.30844]</span> — 预训练+课程微调+集成的示踪剂感知交互式分割流程（AutoPET V）。</li>
+        <li><a href="https://arxiv.org/abs/2608.30839" target="_blank" rel="noopener">Physical Adversarial Examples for Person Detectors in Thermal Images Based on 3D Modeling</a> <span class="aid">[2608.30839]</span> — 基于 3D 建模的热成像行人检测器物理对抗样本。</li>
+        <li><a href="https://arxiv.org/abs/2608.30835" target="_blank" rel="noopener">Reliable Benchmarking of Artifact Detection in Computational Pathology: A Reproducibility and Uncertainty Analysis</a> <span class="aid">[2608.30835]</span> — 计算病理中伪影检测的可复现性与不确定性分析基准。</li>
+        <li><a href="https://arxiv.org/abs/2608.30824" target="_blank" rel="noopener">Whole-Body MRI Classification via Prompt-Based Clinical Conditioning</a> <span class="aid">[2608.30824]</span> — 基于提示的临床条件化全身 MRI 分类。</li>
+        <li><a href="https://arxiv.org/abs/2608.30821" target="_blank" rel="noopener">Lucida: Parse, Generate, and Place for Composable Real-to-Sim Scene Modeling</a> <span class="aid">[2608.30821]</span> — Lucida：解析-生成-放置的可组合真实到仿真场景建模。</li>
+        <li><a href="https://arxiv.org/abs/2608.30820" target="_blank" rel="noopener">RealOOB: A Definition-Consistent Real-World Oriented Occlusion Boundary Benchmark</a> <span class="aid">[2608.30820]</span> — RealOOB：定义一致的真实世界定向遮挡边界基准。</li>
+        <li><a href="https://arxiv.org/abs/2608.30817" target="_blank" rel="noopener">A Composition-Aware Pretraining Framework for Geospatial Foundation Models</a> <span class="aid">[2608.30817]</span> — 面向地理空间基础模型的构图感知预训练框架。</li>
+        <li><a href="https://arxiv.org/abs/2608.30789" target="_blank" rel="noopener">Camera trap classification with deep learning under ground truth uncertainty</a> <span class="aid">[2608.30789]</span> — 真值不确定条件下的相机陷阱（camera trap）深度学习分类。</li>
+      </ul></div>
+      <div class="topic"><h3>视频编辑 | video editing generative</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>视频生成 | Video Generation</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2608.31106" target="_blank" rel="noopener">DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution</a> <span class="aid">[2608.31106]</span> — DreamX-Creator 1.0：7B 原生音视频联合生成系统，首帧+文本条件下同时去噪音频与视频流，后半段以门控跨模态注意力耦合，输出 2K 分辨率。</li>
+        <li><a href="https://arxiv.org/abs/2608.30897" target="_blank" rel="noopener">CAER: Causal Action Effect Reweighting for World Model Training</a> <span class="aid">[2608.30897]</span> — CAER：因果动作效应重加权，用于世界模型训练。</li>
+        <li><a href="https://arxiv.org/abs/2608.30194" target="_blank" rel="noopener">NoisEasier: Test-Time Noise Optimization for Text-to-Video Generation</a> <span class="aid">[2608.30194]</span> — NoisEasier：文本到视频的测试时噪声优化，用可微奖励引导噪声、无需改动生成模型，缓解属性绑定/空间关系/物体交互等细粒度对齐问题并规避奖励攻击。</li>
+        <li><a href="https://arxiv.org/abs/2608.29910" target="_blank" rel="noopener">Matrix-Game 3.5: Enhancing Real-Time Streaming Interactive World Models with Patch Memory</a> <span class="aid">[2608.29910]</span> — Matrix-Game 3.5：以 Patch Memory 增强的实时流式交互世界模型，长时程自回归生成中同时保持场景几何、动态一致性与相机控制，面向游戏/机器人/具身/XR。</li>
+        <li><a href="https://arxiv.org/abs/2608.29904" target="_blank" rel="noopener">Off-Manifold Refinement: Guiding Video Generators with a Frozen World Model</a> <span class="aid">[2608.29904]</span> — Off-Manifold Refinement：用冻结世界模型引导视频生成器，显式惩罚物理违例（漂浮/穿模/接触消失），相较候选筛选与梯度引导更省推理/训练开销。</li>
+        <li><a href="https://arxiv.org/abs/2608.29814" target="_blank" rel="noopener">FRAMEWORKERS: A Dynamic Multi-Agent Framework for AI-Generated Video Production</a> <span class="aid">[2608.29814]</span> — FRAMEWORKERS：面向 AI 生成视频制作的动态多智能体框架。</li>
+        <li><a href="https://arxiv.org/abs/2608.29621" target="_blank" rel="noopener">CineForge: Self-Improving Agents for Long-Horizon Video Generation</a> <span class="aid">[2608.29621]</span> — CineForge：自我进化的长时程叙事视频制作智能体，协调叙事分解、状态跟踪、分镜、提示构造、渲染与修订，把重复性制作失败沉淀为阶段性改进。</li>
+        <li><a href="https://arxiv.org/abs/2608.29598" target="_blank" rel="noopener">On the Resilience of Text-to-Video Diffusion Models to Hardware Faults</a> <span class="aid">[2608.29598]</span> — 研究文本到视频扩散模型对硬件故障的韧性。</li>
+        <li><a href="https://arxiv.org/abs/2608.29123" target="_blank" rel="noopener">Dancing Stick Figures: An Introductory Dataset for Training Video Generation Models</a> <span class="aid">[2608.29123]</span> — Dancing Stick Figures：训练视频生成模型的入门级火柴人数据集。</li>
+      </ul></div>
+      <div class="topic"><h3>Agent | LLM agent autonomous</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>多模态大模型 | multimodal large language model</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2608.30760" target="_blank" rel="noopener">PRACTICE: From Experience to Expertise in Self-Evolving Embodied Agents</a> <span class="aid">[2608.30760]</span> — PRACTICE：从经验到专长的自进化具身智能体。</li>
+        <li><a href="https://arxiv.org/abs/2608.30705" target="_blank" rel="noopener">VisLens: Single-Pass Interpretable Visual Search for Multimodal LLMs</a> <span class="aid">[2608.30705]</span> — VisLens：面向多模态大模型的单次可解释视觉搜索，兼顾免训练方法的准确与 RL 工具调用的速度，同时提升可解释性。</li>
+        <li><a href="https://arxiv.org/abs/2608.30653" target="_blank" rel="noopener">Fine-Grained Multi Image Object Hallucination Benchmark</a> <span class="aid">[2608.30653]</span> — 细粒度多图物体幻觉基准，系统诊断视觉复杂度与推理需求如何触发幻觉。</li>
+        <li><a href="https://arxiv.org/abs/2608.30649" target="_blank" rel="noopener">Where Identity Lives: Localized, Retain-Free Identity Unlearning in Multimodal Large Language Models</a> <span class="aid">[2608.30649]</span> — MLLM 中定位化、免保留数据的身份遗忘（identity unlearning）。</li>
+        <li><a href="https://arxiv.org/abs/2608.30498" target="_blank" rel="noopener">CM2: Multimodal Cultural Reasoning via an Integrated Multi-Agent Framework</a> <span class="aid">[2608.30498]</span> — CM2：面向多模态文化推理的一体化多智能体框架。</li>
+        <li><a href="https://arxiv.org/abs/2608.30068" target="_blank" rel="noopener">TAKE 85: Testing Audiovisual filmmaKer&#x27;s intEnt across 85 Hours of Film</a> <span class="aid">[2608.30068]</span> — TAKE 85：跨 85 小时影片测试影视创作者意图的音视频基准。</li>
+        <li><a href="https://arxiv.org/abs/2608.29802" target="_blank" rel="noopener">Foundation and Multimodal Large Language Models for Face Presentation and Morph Attack Detection</a> <span class="aid">[2608.29802]</span> — 用基础模型与 MLLM 做人脸呈现攻击与换脸/变形攻击检测。</li>
+        <li><a href="https://arxiv.org/abs/2608.29489" target="_blank" rel="noopener">SpatialTrust: A Benchmark for Environmental Risk Recognition in Secure Authentication</a> <span class="aid">[2608.29489]</span> — SpatialTrust：安全认证中环境风险识别基准。</li>
+        <li><a href="https://arxiv.org/abs/2608.29374" target="_blank" rel="noopener">Think, Look, and Revise: Inconsistency-Aware Visual Self-Correction in MLLMs</a> <span class="aid">[2608.29374]</span> — ReVISE：为工具增强的多模态推理引入对工具输出的验证与动态纠错，检测并从工具失败中恢复。</li>
+        <li><a href="https://arxiv.org/abs/2608.29286" target="_blank" rel="noopener">MMPCBench: Benchmarking Multimodal Large Language Models on Proactive Critique of Flawed Inputs</a> <span class="aid">[2608.29286]</span> — MMPCBench：评测多模态大模型对缺陷输入的主动批判能力。</li>
+        <li><a href="https://arxiv.org/abs/2608.29193" target="_blank" rel="noopener">HalluPrism: When Multimodal Uncertainty Should Diagnose, Not Decide</a> <span class="aid">[2608.29193]</span> — HalluPrism：通过视觉扰动/空图替换/接地检查刻画多模态不确定性的失败结构，主张先诊断失败再决定弃答。</li>
+        <li><a href="https://arxiv.org/abs/2608.29037" target="_blank" rel="noopener">DocIntent: Answerability-Guided Agentic Restoration for Real-World Document Visual Question Answering</a> <span class="aid">[2608.29037]</span> — DocIntent：免训练、可答性引导的智能体式文档图像修复框架，针对模糊/阴影/畸变/摩尔纹选择性调用修复工具并可回滚，服务下游文档 VQA 而非通用画质指标。</li>
+      </ul></div>
 
   <h2>🔗 附：全部命中列表</h2>
-    <p class="empty">—</p>
+    <ul class="hits">
+        <li><a href="https://arxiv.org/abs/2608.30400" target="_blank" rel="noopener">2608.30400</a> Real-Time Scene-Adaptive Tone Mapping for High-Dynamic Range Object Detection</li>
+        <li><a href="https://arxiv.org/abs/2608.31159" target="_blank" rel="noopener">2608.31159</a> BRF-GS: Hyperspectral Bidirectional Reflectance Factor Modeling and Image Generation Based on 3D Gaussian Splatting</li>
+        <li><a href="https://arxiv.org/abs/2608.31113" target="_blank" rel="noopener">2608.31113</a> BLARM: Animating 3D Objects from Video via Blending Latent Rigid Motion Primitives</li>
+        <li><a href="https://arxiv.org/abs/2608.31107" target="_blank" rel="noopener">2608.31107</a> VeriCam: A Verification Baseline for the Classification of Unknown Data</li>
+        <li><a href="https://arxiv.org/abs/2608.31106" target="_blank" rel="noopener">2608.31106</a> DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution</li>
+        <li><a href="https://arxiv.org/abs/2608.31096" target="_blank" rel="noopener">2608.31096</a> One Adapter, Many Tasks: Task-Conditioned Feature Transformations for Continual Learning</li>
+        <li><a href="https://arxiv.org/abs/2608.31094" target="_blank" rel="noopener">2608.31094</a> Robust retinal biometrics for patient identity verification and retrieval across age and imaging devices</li>
+        <li><a href="https://arxiv.org/abs/2608.31074" target="_blank" rel="noopener">2608.31074</a> Real-Time Video Anomaly Detection Using YOLO Pose Estimation and CLIP-Based Semantic Scoring</li>
+        <li><a href="https://arxiv.org/abs/2608.31073" target="_blank" rel="noopener">2608.31073</a> LISynSeg: Data-Centric Label-to-Image Synthesis for Cross-Modality Whole-Heart Segmentation</li>
+        <li><a href="https://arxiv.org/abs/2608.31065" target="_blank" rel="noopener">2608.31065</a> Multimodal Shared Latent Representation of Narration, Microscope and iOCT Images for Phase Recognition in Vitreoretinal Surgery</li>
+        <li><a href="https://arxiv.org/abs/2608.31053" target="_blank" rel="noopener">2608.31053</a> Identity-Conditioned Latent Consistency Distillation for Face Synthesis</li>
+        <li><a href="https://arxiv.org/abs/2608.31052" target="_blank" rel="noopener">2608.31052</a> Segmentation of Bovid Dentition Under Imperfect Annotations: A Comparative Study of Convolutional and Attention Models</li>
+        <li><a href="https://arxiv.org/abs/2608.31045" target="_blank" rel="noopener">2608.31045</a> Rotational Equivariance in Machine Learning: A Comprehensive Tutorial</li>
+        <li><a href="https://arxiv.org/abs/2608.31033" target="_blank" rel="noopener">2608.31033</a> FaceSnap: Real-Time Personalized Lightstage Facial Performance Capture</li>
+        <li><a href="https://arxiv.org/abs/2608.31029" target="_blank" rel="noopener">2608.31029</a> Driving on Memory</li>
+        <li><a href="https://arxiv.org/abs/2608.31025" target="_blank" rel="noopener">2608.31025</a> Analytic Dynamics: Learning Physics-Grounded Representation for Fast Intrinsic Dynamics Inference from Monocular Videos</li>
+        <li><a href="https://arxiv.org/abs/2608.31023" target="_blank" rel="noopener">2608.31023</a> SMG: Semantic Motion Graph for Monocular Dynamic Gaussian Splatting</li>
+        <li><a href="https://arxiv.org/abs/2608.31022" target="_blank" rel="noopener">2608.31022</a> MNIST-PRO: MNIST is Back as a Partially Observable World for AI Agents</li>
+        <li><a href="https://arxiv.org/abs/2608.31013" target="_blank" rel="noopener">2608.31013</a> TSPFN: A Temporal Tabular Foundation Model for Physiological Time Series Classification</li>
+        <li><a href="https://arxiv.org/abs/2608.31005" target="_blank" rel="noopener">2608.31005</a> From Intent to Evidence: Policy-Steered Multi-Strategy Retrieval for Long-Video Agents</li>
+        <li><a href="https://arxiv.org/abs/2608.31002" target="_blank" rel="noopener">2608.31002</a> DARP: A Calibrated Dual-Arm RGB-D-IR Dataset for Multi-View Robotic Perception</li>
+        <li><a href="https://arxiv.org/abs/2608.30997" target="_blank" rel="noopener">2608.30997</a> Multi-View Reflective Surface Inspection via Semantic-Saliency Cross-Verification</li>
+        <li><a href="https://arxiv.org/abs/2608.30975" target="_blank" rel="noopener">2608.30975</a> MR-JEPA: A General Purpose Video Foundation Model for Cardiac MRI</li>
+        <li><a href="https://arxiv.org/abs/2608.30964" target="_blank" rel="noopener">2608.30964</a> Vision Models Predict Urban Scene Appraisal with Limited Neural Alignment</li>
+        <li><a href="https://arxiv.org/abs/2608.30959" target="_blank" rel="noopener">2608.30959</a> LOCI: A Locator-Critic with Refinement Loop</li>
+        <li><a href="https://arxiv.org/abs/2608.30951" target="_blank" rel="noopener">2608.30951</a> Audio-Driven Adversarial Defense for 3D Talking Face Generation with totally Visual Fidelity Preservation</li>
+        <li><a href="https://arxiv.org/abs/2608.30899" target="_blank" rel="noopener">2608.30899</a> Uncertainty-Aware Trajectory Forecasting from Imperfect Tracking</li>
+        <li><a href="https://arxiv.org/abs/2608.30896" target="_blank" rel="noopener">2608.30896</a> Rad-R: A Raw-ADC Radar Dataset and Capture-Invariant SSM for Hardware-Fault Diagnosis</li>
+        <li><a href="https://arxiv.org/abs/2608.30895" target="_blank" rel="noopener">2608.30895</a> A Controlled Evaluation of Model Rankings and Input Reliance in Surface Water Segmentation</li>
+        <li><a href="https://arxiv.org/abs/2608.30872" target="_blank" rel="noopener">2608.30872</a> SurgSkill-Bench: A Benchmark for Multimodal Surgical Skill Assessment</li>
+        <li><a href="https://arxiv.org/abs/2608.30870" target="_blank" rel="noopener">2608.30870</a> VCAR: Training-Free 3DGS Segmentation via View Completeness and Axis-Aware Boundary Refinement</li>
+        <li><a href="https://arxiv.org/abs/2608.30858" target="_blank" rel="noopener">2608.30858</a> GAFT: Geo-Anchored Fine-Tuning for Hazard Identification from Rare Failures</li>
+        <li><a href="https://arxiv.org/abs/2608.30857" target="_blank" rel="noopener">2608.30857</a> TAMI: Temporally Aligned, Missingness-Aware, and Interpretable Multimodal Fusion for Mental Health Assessment in Older Adults with Mild Cognitive Impairment</li>
+        <li><a href="https://arxiv.org/abs/2608.30844" target="_blank" rel="noopener">2608.30844</a> Pretrained, Curriculum-Tuned, and Ensembled: A Tracer-Aware Interactive Segmentation Pipeline for AutoPET V</li>
+        <li><a href="https://arxiv.org/abs/2608.30839" target="_blank" rel="noopener">2608.30839</a> Physical Adversarial Examples for Person Detectors in Thermal Images Based on 3D Modeling</li>
+        <li><a href="https://arxiv.org/abs/2608.30835" target="_blank" rel="noopener">2608.30835</a> Reliable Benchmarking of Artifact Detection in Computational Pathology: A Reproducibility and Uncertainty Analysis</li>
+        <li><a href="https://arxiv.org/abs/2608.30824" target="_blank" rel="noopener">2608.30824</a> Whole-Body MRI Classification via Prompt-Based Clinical Conditioning</li>
+        <li><a href="https://arxiv.org/abs/2608.30821" target="_blank" rel="noopener">2608.30821</a> Lucida: Parse, Generate, and Place for Composable Real-to-Sim Scene Modeling</li>
+        <li><a href="https://arxiv.org/abs/2608.30820" target="_blank" rel="noopener">2608.30820</a> RealOOB: A Definition-Consistent Real-World Oriented Occlusion Boundary Benchmark</li>
+        <li><a href="https://arxiv.org/abs/2608.30817" target="_blank" rel="noopener">2608.30817</a> A Composition-Aware Pretraining Framework for Geospatial Foundation Models</li>
+        <li><a href="https://arxiv.org/abs/2608.30789" target="_blank" rel="noopener">2608.30789</a> Camera trap classification with deep learning under ground truth uncertainty</li>
+        <li><a href="https://arxiv.org/abs/2608.30897" target="_blank" rel="noopener">2608.30897</a> CAER: Causal Action Effect Reweighting for World Model Training</li>
+        <li><a href="https://arxiv.org/abs/2608.30194" target="_blank" rel="noopener">2608.30194</a> NoisEasier: Test-Time Noise Optimization for Text-to-Video Generation</li>
+        <li><a href="https://arxiv.org/abs/2608.29910" target="_blank" rel="noopener">2608.29910</a> Matrix-Game 3.5: Enhancing Real-Time Streaming Interactive World Models with Patch Memory</li>
+        <li><a href="https://arxiv.org/abs/2608.29904" target="_blank" rel="noopener">2608.29904</a> Off-Manifold Refinement: Guiding Video Generators with a Frozen World Model</li>
+        <li><a href="https://arxiv.org/abs/2608.29814" target="_blank" rel="noopener">2608.29814</a> FRAMEWORKERS: A Dynamic Multi-Agent Framework for AI-Generated Video Production</li>
+        <li><a href="https://arxiv.org/abs/2608.29621" target="_blank" rel="noopener">2608.29621</a> CineForge: Self-Improving Agents for Long-Horizon Video Generation</li>
+        <li><a href="https://arxiv.org/abs/2608.29598" target="_blank" rel="noopener">2608.29598</a> On the Resilience of Text-to-Video Diffusion Models to Hardware Faults</li>
+        <li><a href="https://arxiv.org/abs/2608.29123" target="_blank" rel="noopener">2608.29123</a> Dancing Stick Figures: An Introductory Dataset for Training Video Generation Models</li>
+        <li><a href="https://arxiv.org/abs/2608.30760" target="_blank" rel="noopener">2608.30760</a> PRACTICE: From Experience to Expertise in Self-Evolving Embodied Agents</li>
+        <li><a href="https://arxiv.org/abs/2608.30705" target="_blank" rel="noopener">2608.30705</a> VisLens: Single-Pass Interpretable Visual Search for Multimodal LLMs</li>
+        <li><a href="https://arxiv.org/abs/2608.30653" target="_blank" rel="noopener">2608.30653</a> Fine-Grained Multi Image Object Hallucination Benchmark</li>
+        <li><a href="https://arxiv.org/abs/2608.30649" target="_blank" rel="noopener">2608.30649</a> Where Identity Lives: Localized, Retain-Free Identity Unlearning in Multimodal Large Language Models</li>
+        <li><a href="https://arxiv.org/abs/2608.30498" target="_blank" rel="noopener">2608.30498</a> CM2: Multimodal Cultural Reasoning via an Integrated Multi-Agent Framework</li>
+        <li><a href="https://arxiv.org/abs/2608.30068" target="_blank" rel="noopener">2608.30068</a> TAKE 85: Testing Audiovisual filmmaKer&#x27;s intEnt across 85 Hours of Film</li>
+        <li><a href="https://arxiv.org/abs/2608.29802" target="_blank" rel="noopener">2608.29802</a> Foundation and Multimodal Large Language Models for Face Presentation and Morph Attack Detection</li>
+        <li><a href="https://arxiv.org/abs/2608.29489" target="_blank" rel="noopener">2608.29489</a> SpatialTrust: A Benchmark for Environmental Risk Recognition in Secure Authentication</li>
+        <li><a href="https://arxiv.org/abs/2608.29374" target="_blank" rel="noopener">2608.29374</a> Think, Look, and Revise: Inconsistency-Aware Visual Self-Correction in MLLMs</li>
+        <li><a href="https://arxiv.org/abs/2608.29286" target="_blank" rel="noopener">2608.29286</a> MMPCBench: Benchmarking Multimodal Large Language Models on Proactive Critique of Flawed Inputs</li>
+        <li><a href="https://arxiv.org/abs/2608.29193" target="_blank" rel="noopener">2608.29193</a> HalluPrism: When Multimodal Uncertainty Should Diagnose, Not Decide</li>
+        <li><a href="https://arxiv.org/abs/2608.29037" target="_blank" rel="noopener">2608.29037</a> DocIntent: Answerability-Guided Agentic Restoration for Real-World Document Visual Question Answering</li>
+    </ul>
 
   <footer>tech-research-radar · 自动生成于每日检索 · 数据源 arXiv</footer>
 </div>
