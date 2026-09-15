@@ -39,21 +39,173 @@
 <body>
 <div class="wrap">
   <h1>技术进展雷达 · 2026-09-15</h1>
-  <div class="meta">命中 0 篇 · S2 未启用</div>
-  <p class="note">⚠️ 本日自动生成未成功 (claude exit=0)，将于后续触发重试。详见 logs/run_2026-09-15.log</p>
+  <div class="meta">arXiv (cs.CV / eess.IV / cs.AI / cs.LG / cs.MM) — via arxiv.org 搜索/列表页 · 窗口 2026-09-12 ~ 2026-09-15 · 命中 28 篇 · S2 未启用</div>
+  <p class="note">arXiv export API (export.arxiv.org) 全天返回 429 Rate exceeded：本机 IP 与 WebFetch 出口 IP 均被限流，radar_search.py 三次批量检索(含 6 分钟静默冷却)均 0 命中皆因限流而非真无稿。改走 arxiv.org 主站搜索/列表页(与 export 分属不同基础设施、未被限流)抓取，按主题 OR 分簇检索并按 Submitted 日期过滤。窗口含周末(9-12 周六、9-13 周日)——核心主线(计算摄影/ISP/HDR/去噪/防抖等)本窗口确实偏冷，纯摄影/ISP/RAW 类无新稿。eess.IV 列表页项(OASIS 15749、Deformable-GS 14129、Recurrent DR Extension 13135)日期按公告/ID 推断，13135 约 9-12 处窗口边界。S2 无 API key，未启用。</p>
   <div class="back"><a href="../index.html">← 返回索引</a></div>
 
   <h2>📊 今日概览</h2>
-  <p class="summary">本日自动生成未成功，等待重试。</p>
+  <p class="summary">今日(9-12~9-15，跨周末)核心主线偏冷：纯计算摄影/手机ISP/RAW去噪/防抖/多帧融合等本窗口无新稿；真正落到核心的是几篇 low-level 与视频链路工作——DNF-SR 做真实世界图像超分、LIMODENet 面向星上(端侧)图像复原、以及一篇 HDR 动态范围扩展(Recurrent Dynamic Range Extension)，视频处理侧有 OASIS 闭环反馈的在线自适应视频压缩与 4K 视频压缩的可变形 2D 高斯泼溅。泛领域明显更热:视频生成/编辑与多模态·Agent 大量新稿(LynnReal-Omni 原生多模态视频生成、VideoScout 智能体式长视频理解、多篇 VLM 评测与隐私/校准工作)，但按主线优先规则仅择其突破性者进推荐。注:arXiv 官方 API 全天被限流，数据经主站搜索页抓取，命中数偏保守。</p>
 
   <h2>🌟 极大维度推荐</h2>
-    <p class="empty">今日无推荐。</p>
+    <ol class="rec">
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2609.15120" target="_blank" rel="noopener">DNF-SR: Dual-Input and Negative-Aware Feature Fine-Tuning for Real-World Image Super-Resolution</a></b> <span class="aid">[2609.15120]</span></div>
+        <div class="hl">亮点：面向真实世界退化的图像超分：双输入 + 负样本感知的特征微调，缓解合成退化与真实退化的域差，属可直接服务手机影像后处理的 low-level 方向。</div>
+        <div class="dim">代表性维度：③相关度：真实世界图像超分是移动影像画质增强的核心 low-level 任务</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2609.14690" target="_blank" rel="noopener">LIMODENet: Attention-Free Compact Encoders for Information-Preserving Onboard Satellite Image Restoration</a></b> <span class="aid">[2609.14690]</span></div>
+        <div class="hl">亮点：为星上(资源受限端侧)设计的无注意力紧凑编码器做图像复原，强调信息保真与轻量——其端侧/算力受限下的复原思路对手机端 ISP·复原链路有迁移价值。</div>
+        <div class="dim">代表性维度：③相关度 + ①方法：端侧受限算力下的高保真复原，契合端·芯·云链路</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2609.13135" target="_blank" rel="noopener">Recurrent Dynamic Range Extension</a></b> <span class="aid">[2609.13135]</span></div>
+        <div class="hl">亮点：以循环结构做动态范围扩展(HDR 方向)，直击核心主线的 HDR 成像议题；本窗口少见的纯 HDR 相关工作。</div>
+        <div class="dim">代表性维度：③相关度：HDR/动态范围是移动影像核心课题</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2609.15749" target="_blank" rel="noopener">OASIS: Online Adaptive Video Compression via Closed-loop Feedback Control</a></b> <span class="aid">[2609.15749]</span></div>
+        <div class="hl">亮点：用闭环反馈控制做在线自适应视频压缩，运行时按反馈调整码率/质量——对端·芯·云视频拍照处理与传输链路的实时性有直接意义。</div>
+        <div class="dim">代表性维度：③相关度 + ①方法：在线自适应 + 闭环控制，面向实时视频链路</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2609.14129" target="_blank" rel="noopener">Deformable 2D Gaussian Splatting for Efficient 4K Video Compression</a></b> <span class="aid">[2609.14129]</span></div>
+        <div class="hl">亮点：把可变形 2D 高斯泼溅用于高效 4K 视频压缩，为高分辨率视频的紧凑表示提供新范式，关联端侧存储/传输开销。</div>
+        <div class="dim">代表性维度：④覆盖面 + ①突破性：新表示用于 4K 视频压缩</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2609.14307" target="_blank" rel="noopener">Robust low-rank tensor completion via factorized weighted tensor schatten-p norm minimization</a></b> <span class="aid">[2609.14307]</span></div>
+        <div class="hl">亮点：加权 Schatten-p 范数的分解式低秩张量补全，鲁棒复原缺失/退化数据，属图像/视频复原的经典低秩路线的新进展。</div>
+        <div class="dim">代表性维度：④覆盖面：low-level 复原的模型驱动方法补充</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2609.15606" target="_blank" rel="noopener">VideoScout: Learning Agentic Active Exploration with Adaptive Reasoning Pacing for Long Video Understanding</a></b> <span class="aid">[2609.15606]</span></div>
+        <div class="hl">亮点：智能体式主动探索 + 自适应推理节奏做长视频理解，把 Agent 范式引入视频内容分析,对视频拍照后的智能理解/检索有想象空间。</div>
+        <div class="dim">代表性维度：①突破性(泛领域)：Agent × 长视频理解的代表性新工作</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2609.15863" target="_blank" rel="noopener">LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows</a></b> <span class="aid">[2609.15863]</span></div>
+        <div class="hl">亮点：原生多模态的视频生成框架，面向智能体式视觉工作流,把生成能力嵌入 Agent 流程——泛领域生成式视频的代表性系统工作。</div>
+        <div class="dim">代表性维度：①突破性(泛领域)：原生多模态视频生成 + Agent 工作流</div>
+      </li>
+    </ol>
 
   <h2>📚 分主题进展</h2>
-<p class="empty">无主题数据。</p>
+      <div class="topic"><h3>计算摄影 | computational photography</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机影像 | mobile computational imaging</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机拍照 | smartphone photography on-device ISP</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机录像 | smartphone video capture mobile videography</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>端侧神经ISP | on-device neural ISP learned camera pipeline</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>神经网络ISP | deep learning ISP RAW-to-RGB reconstruction</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>端芯云协同 | edge cloud collaborative mobile video processing</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机视频增强 | mobile video enhancement restoration on-device</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>HDR | high dynamic range imaging</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2609.13135" target="_blank" rel="noopener">Recurrent Dynamic Range Extension</a> <span class="aid">[2609.13135]</span> — 以循环结构做动态范围扩展,本窗口少见的纯 HDR 方向工作。</li>
+      </ul></div>
+      <div class="topic"><h3>tone mapping | tone mapping</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>多帧融合 | multi-frame image fusion burst</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>RAW去噪 | RAW image denoising</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>防抖 | image video stabilization</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>ISP处理 | image signal processor pipeline</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>low-level CV | low-level computer vision</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2609.15120" target="_blank" rel="noopener">DNF-SR: Dual-Input and Negative-Aware Feature Fine-Tuning for Real-World Image Super-Resolution</a> <span class="aid">[2609.15120]</span> — 双输入+负样本感知微调的真实世界图像超分,缓解合成/真实退化域差。</li>
+      </ul></div>
+      <div class="topic"><h3>图片处理 | image processing restoration enhancement</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2609.14690" target="_blank" rel="noopener">LIMODENet: Attention-Free Compact Encoders for Information-Preserving Onboard Satellite Image Restoration</a> <span class="aid">[2609.14690]</span> — 面向星上端侧的无注意力紧凑编码器图像复原,轻量且高保真。</li>
+        <li><a href="https://arxiv.org/abs/2609.14307" target="_blank" rel="noopener">Robust low-rank tensor completion via factorized weighted tensor schatten-p norm minimization</a> <span class="aid">[2609.14307]</span> — 加权 Schatten-p 范数分解式低秩张量补全,鲁棒复原退化数据。</li>
+      </ul></div>
+      <div class="topic"><h3>视频处理 | video processing restoration</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2609.15749" target="_blank" rel="noopener">OASIS: Online Adaptive Video Compression via Closed-loop Feedback Control</a> <span class="aid">[2609.15749]</span> — 闭环反馈控制的在线自适应视频压缩,运行时按反馈调码率/质量。</li>
+        <li><a href="https://arxiv.org/abs/2609.14129" target="_blank" rel="noopener">Deformable 2D Gaussian Splatting for Efficient 4K Video Compression</a> <span class="aid">[2609.14129]</span> — 可变形 2D 高斯泼溅做高效 4K 视频压缩的新表示。</li>
+      </ul></div>
+      <div class="topic"><h3>视频生成与修复 | Video Generation and Restoration</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2609.14985" target="_blank" rel="noopener">Converting Sequenced Fuzzy Cognitive Maps to Causal Virtual Worlds with Large Video Generators</a> <span class="aid">[2609.14985]</span> — 用大视频生成器把序列模糊认知图转成可因果操控的虚拟世界。</li>
+        <li><a href="https://arxiv.org/abs/2609.14725" target="_blank" rel="noopener">CrossDistill: Balancing Quality and Diversity via Trajectory-Level Hybrid Few-Step Distillation</a> <span class="aid">[2609.14725]</span> — 轨迹级混合少步蒸馏,兼顾生成质量与多样性的加速方案。</li>
+      </ul></div>
+      <div class="topic"><h3>计算机视觉 | computer vision</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2609.15032" target="_blank" rel="noopener">Tele360: Real-Time Feed-Forward Human Reconstruction from Sparse Unposed Cameras</a> <span class="aid">[2609.15032]</span> — 稀疏无位姿相机下的实时前馈人体重建。</li>
+        <li><a href="https://arxiv.org/abs/2609.15833" target="_blank" rel="noopener">Integrating Multi-view Multi-light Surface Reconstruction into Cultural Heritage Workflows</a> <span class="aid">[2609.15833]</span> — 多视角多光照表面重建落地文化遗产数字化流程。</li>
+      </ul></div>
+      <div class="topic"><h3>视频编辑 | video editing generative</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2609.08275" target="_blank" rel="noopener">Beyond Coherence: Benchmarking Professional Editing-Technique Execution in Multi-Shot Audio-Video Generation</a> <span class="aid">[2609.08275]</span> — 针对多镜头音视频生成的专业剪辑手法执行能力评测基准(9-14 修订)。</li>
+      </ul></div>
+      <div class="topic"><h3>视频生成 | Video Generation</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2609.15863" target="_blank" rel="noopener">LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows</a> <span class="aid">[2609.15863]</span> — 面向智能体视觉工作流的原生多模态视频生成框架。</li>
+        <li><a href="https://arxiv.org/abs/2609.15570" target="_blank" rel="noopener">DIDO: Distilling Interaction-Centric Dynamics into One-Step Denoising for World Action Models</a> <span class="aid">[2609.15570]</span> — 把交互中心动力学蒸馏为单步去噪,服务世界/动作模型。</li>
+        <li><a href="https://arxiv.org/abs/2609.15562" target="_blank" rel="noopener">PIVOT: Physics-Grounded Verification for AI-Generated Audio-Video Detection</a> <span class="aid">[2609.15562]</span> — 基于物理约束验证的 AI 生成音视频检测。</li>
+        <li><a href="https://arxiv.org/abs/2609.14408" target="_blank" rel="noopener">Dynamic Learning Solutions: A System for Personalized Educational Video Generation</a> <span class="aid">[2609.14408]</span> — 个性化教育视频生成系统。</li>
+      </ul></div>
+      <div class="topic"><h3>Agent | LLM agent autonomous</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2609.15606" target="_blank" rel="noopener">VideoScout: Learning Agentic Active Exploration with Adaptive Reasoning Pacing for Long Video Understanding</a> <span class="aid">[2609.15606]</span> — 智能体式主动探索+自适应推理节奏的长视频理解。</li>
+        <li><a href="https://arxiv.org/abs/2609.15938" target="_blank" rel="noopener">HypoEvolve: Genetic Algorithms Enable Multi-Agent LLMs to Discover Scientific Hypotheses</a> <span class="aid">[2609.15938]</span> — 遗传算法驱动多智能体 LLM 发现科学假设。</li>
+        <li><a href="https://arxiv.org/abs/2609.15721" target="_blank" rel="noopener">Assembling the CREW: A Collaborative Multi-agent RL Framework for Automated Related Work Generation</a> <span class="aid">[2609.15721]</span> — 协作多智能体 RL 自动生成相关工作综述。</li>
+        <li><a href="https://arxiv.org/abs/2609.15457" target="_blank" rel="noopener">AnchorGUI: Asymmetric Memory for Dual-Scale Learning in GUI Navigation</a> <span class="aid">[2609.15457]</span> — 非对称记忆做双尺度 GUI 导航学习。</li>
+        <li><a href="https://arxiv.org/abs/2609.15683" target="_blank" rel="noopener">V-ICAL Bench: Evaluating Video In-Context Learning for Multimodal Agents in Interactive Environments</a> <span class="aid">[2609.15683]</span> — 交互环境中多模态智能体视频上下文学习评测。</li>
+        <li><a href="https://arxiv.org/abs/2609.15478" target="_blank" rel="noopener">BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender</a> <span class="aid">[2609.15478]</span> — 用 Blender 程序化重建评测智能体式视频理解。</li>
+      </ul></div>
+      <div class="topic"><h3>多模态大模型 | multimodal large language model</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2609.15706" target="_blank" rel="noopener">Beyond Accuracy: Robustness, Cost, and Governance Trade-offs for Vision-Language Models in Templated Document Extraction</a> <span class="aid">[2609.15706]</span> — 模板化文档抽取中 VLM 的鲁棒性/成本/治理权衡。</li>
+        <li><a href="https://arxiv.org/abs/2609.15695" target="_blank" rel="noopener">NoteVQA: Benchmarking VLMs on Real-Life Questions from Human Communities</a> <span class="aid">[2609.15695]</span> — 面向真实社区问题的 VLM 评测基准。</li>
+        <li><a href="https://arxiv.org/abs/2609.15671" target="_blank" rel="noopener">Don&#x27;t Send What You Don&#x27;t Need: Question-Guided Token Pruning as a Privacy Defense for VLMs</a> <span class="aid">[2609.15671]</span> — 问题引导的 token 剪枝作为 VLM 隐私防护。</li>
+        <li><a href="https://arxiv.org/abs/2609.15640" target="_blank" rel="noopener">Human-Grounded Calibration for Long-Text Image-Text Congruence in Vision-Language Models</a> <span class="aid">[2609.15640]</span> — 长文本图文一致性的人本校准。</li>
+        <li><a href="https://arxiv.org/abs/2609.15635" target="_blank" rel="noopener">ModaLens: Measuring Image Sensitivity in Report-Conditioned Medical VLMs</a> <span class="aid">[2609.15635]</span> — 衡量报告条件下医学 VLM 的图像敏感度。</li>
+        <li><a href="https://arxiv.org/abs/2609.15603" target="_blank" rel="noopener">A Unified Vision-Language Model for PSMA PET/CT Report Generation, VQA, and Lesion Segmentation</a> <span class="aid">[2609.15603]</span> — 统一 VLM 做 PSMA PET/CT 报告生成/VQA/病灶分割。</li>
+      </ul></div>
 
   <h2>🔗 附：全部命中列表</h2>
-    <p class="empty">—</p>
+    <ul class="hits">
+        <li><a href="https://arxiv.org/abs/2609.15120" target="_blank" rel="noopener">2609.15120</a> DNF-SR: Dual-Input and Negative-Aware Feature Fine-Tuning for Real-World Image Super-Resolution</li>
+        <li><a href="https://arxiv.org/abs/2609.14690" target="_blank" rel="noopener">2609.14690</a> LIMODENet: Attention-Free Compact Encoders for Information-Preserving Onboard Satellite Image Restoration</li>
+        <li><a href="https://arxiv.org/abs/2609.14307" target="_blank" rel="noopener">2609.14307</a> Robust low-rank tensor completion via factorized weighted tensor schatten-p norm minimization</li>
+        <li><a href="https://arxiv.org/abs/2609.13135" target="_blank" rel="noopener">2609.13135</a> Recurrent Dynamic Range Extension</li>
+        <li><a href="https://arxiv.org/abs/2609.15749" target="_blank" rel="noopener">2609.15749</a> OASIS: Online Adaptive Video Compression via Closed-loop Feedback Control</li>
+        <li><a href="https://arxiv.org/abs/2609.14129" target="_blank" rel="noopener">2609.14129</a> Deformable 2D Gaussian Splatting for Efficient 4K Video Compression</li>
+        <li><a href="https://arxiv.org/abs/2609.14985" target="_blank" rel="noopener">2609.14985</a> Converting Sequenced Fuzzy Cognitive Maps to Causal Virtual Worlds with Large Video Generators</li>
+        <li><a href="https://arxiv.org/abs/2609.14725" target="_blank" rel="noopener">2609.14725</a> CrossDistill: Balancing Quality and Diversity via Trajectory-Level Hybrid Few-Step Distillation</li>
+        <li><a href="https://arxiv.org/abs/2609.15032" target="_blank" rel="noopener">2609.15032</a> Tele360: Real-Time Feed-Forward Human Reconstruction from Sparse Unposed Cameras</li>
+        <li><a href="https://arxiv.org/abs/2609.15833" target="_blank" rel="noopener">2609.15833</a> Integrating Multi-view Multi-light Surface Reconstruction into Cultural Heritage Workflows</li>
+        <li><a href="https://arxiv.org/abs/2609.08275" target="_blank" rel="noopener">2609.08275</a> Beyond Coherence: Benchmarking Professional Editing-Technique Execution in Multi-Shot Audio-Video Generation</li>
+        <li><a href="https://arxiv.org/abs/2609.15863" target="_blank" rel="noopener">2609.15863</a> LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows</li>
+        <li><a href="https://arxiv.org/abs/2609.15570" target="_blank" rel="noopener">2609.15570</a> DIDO: Distilling Interaction-Centric Dynamics into One-Step Denoising for World Action Models</li>
+        <li><a href="https://arxiv.org/abs/2609.15562" target="_blank" rel="noopener">2609.15562</a> PIVOT: Physics-Grounded Verification for AI-Generated Audio-Video Detection</li>
+        <li><a href="https://arxiv.org/abs/2609.14408" target="_blank" rel="noopener">2609.14408</a> Dynamic Learning Solutions: A System for Personalized Educational Video Generation</li>
+        <li><a href="https://arxiv.org/abs/2609.14122" target="_blank" rel="noopener">2609.14122</a> SignMimic: Robust High-Quality Sign Language Motion Generation via Human-Shape-Oblivious Pose Transfer Guidance</li>
+        <li><a href="https://arxiv.org/abs/2609.15606" target="_blank" rel="noopener">2609.15606</a> VideoScout: Learning Agentic Active Exploration with Adaptive Reasoning Pacing for Long Video Understanding</li>
+        <li><a href="https://arxiv.org/abs/2609.15938" target="_blank" rel="noopener">2609.15938</a> HypoEvolve: Genetic Algorithms Enable Multi-Agent LLMs to Discover Scientific Hypotheses</li>
+        <li><a href="https://arxiv.org/abs/2609.15721" target="_blank" rel="noopener">2609.15721</a> Assembling the CREW: A Collaborative Multi-agent Reinforcement Learning Framework for Automated Related Work Generation</li>
+        <li><a href="https://arxiv.org/abs/2609.15457" target="_blank" rel="noopener">2609.15457</a> AnchorGUI: Asymmetric Memory for Dual-Scale Learning in GUI Navigation</li>
+        <li><a href="https://arxiv.org/abs/2609.15683" target="_blank" rel="noopener">2609.15683</a> V-ICAL Bench: Evaluating Video In-Context Learning for Multimodal Agents in Interactive Environments</li>
+        <li><a href="https://arxiv.org/abs/2609.15478" target="_blank" rel="noopener">2609.15478</a> BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender</li>
+        <li><a href="https://arxiv.org/abs/2609.15706" target="_blank" rel="noopener">2609.15706</a> Beyond Accuracy: Robustness, Cost, and Governance Trade-offs for Vision-Language Models in Templated Document Extraction</li>
+        <li><a href="https://arxiv.org/abs/2609.15695" target="_blank" rel="noopener">2609.15695</a> NoteVQA: Benchmarking VLMs on Real-Life Questions from Human Communities</li>
+        <li><a href="https://arxiv.org/abs/2609.15671" target="_blank" rel="noopener">2609.15671</a> Don&#x27;t Send What You Don&#x27;t Need: Question-Guided Token Pruning as a Privacy Defense for Vision-Language Models</li>
+        <li><a href="https://arxiv.org/abs/2609.15640" target="_blank" rel="noopener">2609.15640</a> Human-Grounded Calibration for Long-Text Image-Text Congruence in Vision-Language Models</li>
+        <li><a href="https://arxiv.org/abs/2609.15635" target="_blank" rel="noopener">2609.15635</a> ModaLens: Measuring Image Sensitivity in Report-Conditioned Medical VLMs</li>
+        <li><a href="https://arxiv.org/abs/2609.15603" target="_blank" rel="noopener">2609.15603</a> A Unified Vision-Language Model for PSMA PET/CT Report Generation, Visual Question Answering, and Lesion Segmentation</li>
+    </ul>
 
   <footer>tech-research-radar · 自动生成于每日检索 · 数据源 arXiv</footer>
 </div>
