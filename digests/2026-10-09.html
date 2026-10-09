@@ -39,21 +39,223 @@
 <body>
 <div class="wrap">
   <h1>技术进展雷达 · 2026-10-09</h1>
-  <div class="meta">命中 0 篇 · S2 未启用</div>
-  <p class="note">⚠️ 本日自动生成未成功 (claude exit=0)，将于后续触发重试。详见 logs/run_2026-10-09.log</p>
+  <div class="meta">arXiv (cs.CV / eess.IV / cs.AI / cs.LG / cs.MM) · 窗口 2026-10-06 ~ 2026-10-09 · 命中 51 篇 · S2 未启用</div>
+  <p class="note">S2 未启用（无 API key）。export.arxiv.org 和 arxiv.org 域名在 WebFetch 下受企业安全策略阻断，改用本地 curl 成功检索。窗口取最近 3 天（10-06 至 10-09）。</p>
   <div class="back"><a href="../index.html">← 返回索引</a></div>
 
   <h2>📊 今日概览</h2>
-  <p class="summary">本日自动生成未成功，等待重试。</p>
+  <p class="summary">今日扫描 23 个主题，窗口 10-06～10-09 共命中约 51 篇（去重）。核心主线方面：TSRN-RTVD 针对手持/端侧场景实现实时视频去模糊，Streaming-Aware Diffusion 以跨步注意力机制将单图扩散模型低成本迁移至流式视频超分，是本期最直接服务移动影像的两篇；HarnessIR 引入 agentic 框架驱动多模态基础模型统一处理真实场景混合降质，代表 low-level restoration 的新范式转变。泛领域方面，Oct 8 涌现大量视频生成论文（WorldGuide、WorldCast、WorldAlign 等世界模型，iCATS、Parametric Trajectory Distillation 等高效生成），LLM Agent 和多模态大模型方向同日亦有密集产出，显示这两个方向近期进入集中爆发期。</p>
 
   <h2>🌟 极大维度推荐</h2>
-    <p class="empty">今日无推荐。</p>
+    <ol class="rec">
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2610.08230" target="_blank" rel="noopener">TSRN-RTVD: Real-Time Video Deblurring System</a></b> <span class="aid">[2610.08230]</span></div>
+        <div class="hl">亮点：专为手持/端侧设备设计的实时视频去模糊系统，在消费级硬件上以轻量架构平衡感知质量与推理速度，弥补了强力去模糊网络无法在移动端实时运行的鸿沟。</div>
+        <div class="dim">代表性维度：①突破性：端侧实时视频去模糊的工程突破；③相关度：直接服务手机录像/移动视频拍摄场景</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2610.11746" target="_blank" rel="noopener">Streaming-Aware Diffusion for Real-Time Video Super-Resolution via Cross-Step Attention</a></b> <span class="aid">[2610.11746]</span></div>
+        <div class="hl">亮点：提出跨步注意力（Cross-Step Attention）机制，让预训练单图潜在扩散模型无需显式时序建模即可跨相邻帧和扩散步骤复用中间特征，实现流式视频超分的实时推理，兼顾时空保真度与严格延迟约束。</div>
+        <div class="dim">代表性维度：①突破性：扩散模型首次适配流式视频 SR 的实时推理；③相关度：服务端侧/云端视频增强链路</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2610.10133" target="_blank" rel="noopener">HarnessIR: Harnessing Multimodal Foundation Models for Universal Real-World Image Restoration</a></b> <span class="aid">[2610.10133]</span></div>
+        <div class="hl">亮点：将真实场景图像修复建模为多模态基础模型驱动的 agentic 框架，突破传统「串行单降质工具调用」范式，直接以强大的基础模型能力端到端处理复杂混合降质。</div>
+        <div class="dim">代表性维度：①突破性：以 agent + 基础模型重构真实 IR 系统范式；④覆盖面：覆盖噪声、模糊、大气效应等多类降质</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2610.08892" target="_blank" rel="noopener">Hybrid++: The Bridge between PDE Models and Deep Learning for Gamma Noise Removal</a></b> <span class="aid">[2610.08892]</span></div>
+        <div class="hl">亮点：融合 PDE 模型（可解释性强）与深度学习（恢复能力强）处理 SAR/超声图像的乘性伽马噪声，该类逐像素相关噪声因不均匀性高而难以用纯深度学习方法应对。</div>
+        <div class="dim">代表性维度：③相关度：乘性噪声模型与 RAW 域成像中的光子散粒噪声特性相近；①突破性：PDE+DL 混合在 gamma 噪声上的新基准</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2610.09077" target="_blank" rel="noopener">DISRQAD: Diffusion Image Super-Resolution Quality Assessment Dataset and Benchmark</a></b> <span class="aid">[2610.09077]</span></div>
+        <div class="hl">亮点：首个专门面向扩散式 SR 的主观质量评估数据集：14,000 张 MOS 评分结果覆盖 10 种扩散方法与 4 种非扩散方法，系统测评 51 种全参考/无参考指标配置，揭示现有指标在扩散幻觉细节场景下的局限。</div>
+        <div class="dim">代表性维度：④覆盖面：为扩散 SR 质量评估提供基础设施；③相关度：直接影响移动影像 SR 算法的评测标准</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2610.08188" target="_blank" rel="noopener">PIE-PS: Photometric Stereo from Physical Irradiance Event Streams</a></b> <span class="aid">[2610.08188]</span></div>
+        <div class="hl">亮点：利用事件相机高动态范围与微秒级延迟的优势，提出物理辐照事件特征（PIEF）绕过未知对比度阈值，结合图神经网络（PIE-GNN）和可靠性加权注意力（RGA）实现运动光照下密集法线的鲁棒重建。</div>
+        <div class="dim">代表性维度：③相关度：高动态范围场景三维重建，与 HDR 成像和计算摄影深度感知直接相关；①突破性：SIGGRAPH Asia 2026 接收</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2610.12337" target="_blank" rel="noopener">ContiLNN: Mitigating Slice Sampling Discontinuity with Liquid Neural Networks for Medical Image Restoration</a></b> <span class="aid">[2610.12337]</span></div>
+        <div class="hl">亮点：用液态神经网络（LNN）解决医学影像切片采样不连续导致的体积伪影，将连续时间动力学引入切片级图像修复，为三维医学影像重建提供新思路。</div>
+        <div class="dim">代表性维度：①突破性：LNN 在 3D 图像修复中的创新应用；③相关度：修复流程与通用图像重建方法有较强可迁移性</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2610.12104" target="_blank" rel="noopener">VINCIE-NExT: Unlocking Video Editing from Images via In-Context Modeling</a></b> <span class="aid">[2610.12104]</span></div>
+        <div class="hl">亮点：通过在上下文中提供参考图像对的方式（in-context modeling）驱动视频编辑，无需任何视频编辑专用训练数据，将图像级编辑能力直接迁移到视频域。</div>
+        <div class="dim">代表性维度：①突破性：无视频编辑训练数据的 in-context 迁移；④覆盖面：通用视频编辑基础方法</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2610.11302" target="_blank" rel="noopener">iCATS: Fast Video Generation via Interaction-Aware Sparse Attention and Timestep-Adaptive Sparsity</a></b> <span class="aid">[2610.11302]</span></div>
+        <div class="hl">亮点：提出交互感知稀疏注意力与时步自适应稀疏度，在保持生成质量的前提下大幅降低视频扩散模型的计算成本，实现快速视频生成。</div>
+        <div class="dim">代表性维度：①突破性：高效视频生成的注意力稀疏化新方案；②影响力：视频生成基础架构优化，覆盖下游众多应用</div>
+      </li>
+      <li>
+        <div class="rec-title"><b><a href="https://arxiv.org/abs/2610.11498" target="_blank" rel="noopener">Parametric Trajectory Distillation for Few-Step Video Generation</a></b> <span class="aid">[2610.11498]</span></div>
+        <div class="hl">亮点：通过参数化轨迹蒸馏将多步视频扩散模型压缩为少步模型，在保持时序一致性的同时显著加速推理，为端侧视频生成提供可行路径。</div>
+        <div class="dim">代表性维度：①突破性：少步视频生成的蒸馏新范式；③相关度：端侧视频生成加速</div>
+      </li>
+    </ol>
 
   <h2>📚 分主题进展</h2>
-<p class="empty">无主题数据。</p>
+      <div class="topic"><h3>计算摄影 | computational photography</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机影像 | mobile computational imaging</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机拍照 | smartphone photography on-device ISP</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机录像 | smartphone video capture mobile videography</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>端侧神经ISP | on-device neural ISP learned camera pipeline</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>神经网络ISP | deep learning ISP RAW-to-RGB reconstruction</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>端芯云协同 | edge cloud collaborative mobile video processing</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>手机视频增强 | mobile video enhancement restoration on-device</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2610.08230" target="_blank" rel="noopener">TSRN-RTVD: Real-Time Video Deblurring System</a> <span class="aid">[2610.08230]</span> — 针对手持/端侧设备的实时视频去模糊系统，以轻量高效架构在消费级硬件上实时恢复运动模糊，兼顾感知质量与推理速度。</li>
+      </ul></div>
+      <div class="topic"><h3>HDR | high dynamic range imaging</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2610.08188" target="_blank" rel="noopener">PIE-PS: Photometric Stereo from Physical Irradiance Event Streams</a> <span class="aid">[2610.08188]</span> — 利用事件相机天然高动态范围特性进行光度立体重建，提出物理辐照事件特征（PIEF）绕过未知阈值，结合图神经网络实现鲁棒密集法线估计。</li>
+        <li><a href="https://arxiv.org/abs/2610.09873" target="_blank" rel="noopener">Bringing BNNs to Fast Event Processing</a> <span class="aid">[2610.09873]</span> — 将二值神经网络（BNN）适配至高动态范围事件相机数据，引入 Polar-wise Binary Event Volume 表示，在 N-Caltech101 上达到 90.58% 精度，运算量降低 7.5×。</li>
+      </ul></div>
+      <div class="topic"><h3>tone mapping | tone mapping</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>多帧融合 | multi-frame image fusion burst</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>RAW去噪 | RAW image denoising</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>防抖 | image video stabilization</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2610.08230" target="_blank" rel="noopener">TSRN-RTVD: Real-Time Video Deblurring System</a> <span class="aid">[2610.08230]</span> — 实时视频去模糊系统，直接对抗手持抖动引发的运动模糊，与防抖流程高度互补，适合端侧实时处理链路。</li>
+      </ul></div>
+      <div class="topic"><h3>ISP处理 | image signal processor pipeline</h3>
+      <div class="none">— 无新进展</div></div>
+      <div class="topic"><h3>low-level CV | low-level computer vision</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2610.10133" target="_blank" rel="noopener">HarnessIR: Harnessing Multimodal Foundation Models for Universal Real-World Image Restoration</a> <span class="aid">[2610.10133]</span> — 以 agentic 框架驱动多模态基础模型统一处理真实混合降质，突破传统串行单任务工具调用范式，大幅提升复杂场景恢复能力。</li>
+        <li><a href="https://arxiv.org/abs/2610.09077" target="_blank" rel="noopener">DISRQAD: Diffusion Image Super-Resolution Quality Assessment Dataset and Benchmark</a> <span class="aid">[2610.09077]</span> — 14,000 张 MOS 评分的扩散式 SR 质量评估基准，覆盖 10 种扩散方法，系统测评 51 种指标配置，揭示现有指标对扩散幻觉细节的局限。</li>
+        <li><a href="https://arxiv.org/abs/2610.08892" target="_blank" rel="noopener">Hybrid++: The Bridge between PDE Models and Deep Learning for Gamma Noise Removal</a> <span class="aid">[2610.08892]</span> — 融合 PDE 可解释性与深度学习恢复能力，专攻 SAR/超声图像乘性伽马噪声，为该难题提供新的混合解法。</li>
+        <li><a href="https://arxiv.org/abs/2610.09281" target="_blank" rel="noopener">Twist Flow for Inverse Problems</a> <span class="aid">[2610.09281]</span> — 提出 Twist Flow 用于图像逆问题求解，在流匹配框架下改进后验采样效率与精度。</li>
+        <li><a href="https://arxiv.org/abs/2610.11746" target="_blank" rel="noopener">Streaming-Aware Diffusion for Real-Time Video Super-Resolution via Cross-Step Attention</a> <span class="aid">[2610.11746]</span> — 跨步注意力机制将单图扩散模型低成本迁移至实时流式视频超分，兼顾时空保真度与严格延迟约束。</li>
+      </ul></div>
+      <div class="topic"><h3>图片处理 | image processing restoration enhancement</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2610.10133" target="_blank" rel="noopener">HarnessIR: Harnessing Multimodal Foundation Models for Universal Real-World Image Restoration</a> <span class="aid">[2610.10133]</span> — agentic 框架驱动多模态基础模型统一真实世界图像修复，覆盖噪声、模糊、大气效应等复杂混合降质。</li>
+        <li><a href="https://arxiv.org/abs/2610.08892" target="_blank" rel="noopener">Hybrid++: The Bridge between PDE Models and Deep Learning for Gamma Noise Removal</a> <span class="aid">[2610.08892]</span> — PDE 与深度学习混合方法去除乘性伽马噪声，在 SAR 和超声影像上有效。</li>
+        <li><a href="https://arxiv.org/abs/2610.12337" target="_blank" rel="noopener">ContiLNN: Mitigating Slice Sampling Discontinuity with Liquid Neural Networks for Medical Image Restoration</a> <span class="aid">[2610.12337]</span> — 液态神经网络（LNN）的连续时间动力学解决医学图像切片不连续伪影，提升三维体积重建一致性。</li>
+        <li><a href="https://arxiv.org/abs/2610.11433" target="_blank" rel="noopener">DLC: A Metric-Guided Dynamic Loss Controller for Multi-Objective Training</a> <span class="aid">[2610.11433]</span> — 提出指标引导动态损失控制器，在多目标图像修复训练中自适应平衡各损失项权重，提升模型综合性能。</li>
+      </ul></div>
+      <div class="topic"><h3>视频处理 | video processing restoration</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2610.11746" target="_blank" rel="noopener">Streaming-Aware Diffusion for Real-Time Video Super-Resolution via Cross-Step Attention</a> <span class="aid">[2610.11746]</span> — 基于跨步注意力的流式视频超分，在严格延迟约束下实现高时空保真度的实时推理。</li>
+        <li><a href="https://arxiv.org/abs/2610.08230" target="_blank" rel="noopener">TSRN-RTVD: Real-Time Video Deblurring System</a> <span class="aid">[2610.08230]</span> — 端侧实时视频去模糊系统，以轻量架构在消费级硬件上实时处理手持抖动引发的运动模糊。</li>
+      </ul></div>
+      <div class="topic"><h3>视频生成与修复 | Video Generation and Restoration</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2610.11746" target="_blank" rel="noopener">Streaming-Aware Diffusion for Real-Time Video Super-Resolution via Cross-Step Attention</a> <span class="aid">[2610.11746]</span> — 流式视频超分扩散框架，实时修复低分辨率视频的时空细节。</li>
+        <li><a href="https://arxiv.org/abs/2610.12104" target="_blank" rel="noopener">VINCIE-NExT: Unlocking Video Editing from Images via In-Context Modeling</a> <span class="aid">[2610.12104]</span> — 以 in-context 方式从图像对驱动视频编辑，无需视频编辑训练数据即可迁移图像级编辑能力至视频域。</li>
+        <li><a href="https://arxiv.org/abs/2610.11791" target="_blank" rel="noopener">Phase-aware video generation for physics-grounded dynamics and interactions</a> <span class="aid">[2610.11791]</span> — 引入相位感知约束使视频生成符合物理动力学规律，提升运动与交互的物理真实性。</li>
+      </ul></div>
+      <div class="topic"><h3>计算机视觉 | computer vision</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2610.12448" target="_blank" rel="noopener">One Block, Multiple Depths: Recurrent Vision Transformers with Depth-Programmed Experts</a> <span class="aid">[2610.12448]</span> — 循环视觉 Transformer 以单一 block 在不同深度复用专家，参数高效且性能强，是视觉基础架构的新探索。</li>
+        <li><a href="https://arxiv.org/abs/2610.12423" target="_blank" rel="noopener">Pumpire: Unified Benchmark for Metric Distance Estimation</a> <span class="aid">[2610.12423]</span> — 统一度量距离估计基准，覆盖多种场景与传感器，推动单目/多目深度估计的系统评测。</li>
+        <li><a href="https://arxiv.org/abs/2610.12388" target="_blank" rel="noopener">GenIA: Generative Reconstruction with Test-Time Input Alignment</a> <span class="aid">[2610.12388]</span> — 测试时输入对齐的生成重建方法，提升零样本泛化能力。</li>
+      </ul></div>
+      <div class="topic"><h3>视频编辑 | video editing generative</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2610.12104" target="_blank" rel="noopener">VINCIE-NExT: Unlocking Video Editing from Images via In-Context Modeling</a> <span class="aid">[2610.12104]</span> — 通过图像对 in-context 建模实现视频编辑，无需视频编辑训练数据，方法通用性强。</li>
+        <li><a href="https://arxiv.org/abs/2610.11037" target="_blank" rel="noopener">Transforming Image Editors into Video Editors</a> <span class="aid">[2610.11037]</span> — 将现有图像编辑器能力迁移至视频域，统一图像与视频编辑接口，降低视频编辑开发门槛。</li>
+        <li><a href="https://arxiv.org/abs/2610.08779" target="_blank" rel="noopener">ALIVE: Interaction-Aligned Object Insertion for First-Frame-Guided Video Editing</a> <span class="aid">[2610.08779]</span> — 以首帧为引导、交互对齐的视频对象插入方法，保持插入对象与场景的时序一致性和物理合理性。</li>
+      </ul></div>
+      <div class="topic"><h3>视频生成 | Video Generation</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2610.12459" target="_blank" rel="noopener">WorldGuide: Goal-Directed Video World Model for Procedural Task Execution</a> <span class="aid">[2610.12459]</span> — 目标导向的视频世界模型，支持程序性任务执行中的视频预测与规划。</li>
+        <li><a href="https://arxiv.org/abs/2610.12382" target="_blank" rel="noopener">WorldAlign: Decoupled 4D Reward for World-Consistent Video Generation</a> <span class="aid">[2610.12382]</span> — 解耦 4D 奖励信号对齐视频生成，提升多帧时空一致性。</li>
+        <li><a href="https://arxiv.org/abs/2610.11302" target="_blank" rel="noopener">iCATS: Fast Video Generation via Interaction-Aware Sparse Attention and Timestep-Adaptive Sparsity</a> <span class="aid">[2610.11302]</span> — 交互感知稀疏注意力与时步自适应稀疏度大幅加速视频扩散推理，保持生成质量。</li>
+        <li><a href="https://arxiv.org/abs/2610.11498" target="_blank" rel="noopener">Parametric Trajectory Distillation for Few-Step Video Generation</a> <span class="aid">[2610.11498]</span> — 参数化轨迹蒸馏将多步视频扩散压缩至少步推理，保持时序一致性同时显著提速。</li>
+        <li><a href="https://arxiv.org/abs/2610.11756" target="_blank" rel="noopener">Memory Forcing: Attendable Mid-Horizon History for Streaming Video Generation</a> <span class="aid">[2610.11756]</span> — 为流式视频生成引入可注意的中期历史记忆机制，改善长时序生成的一致性。</li>
+        <li><a href="https://arxiv.org/abs/2610.10524" target="_blank" rel="noopener">GRACE: Generation-aware latent compression for efficient video generation</a> <span class="aid">[2610.10524]</span> — 生成感知的潜空间压缩，在视频生成中减少冗余计算，提升推理效率。</li>
+        <li><a href="https://arxiv.org/abs/2610.12412" target="_blank" rel="noopener">WorldCast: Distributed Multiplayer World Models</a> <span class="aid">[2610.12412]</span> — 分布式多玩家世界模型，支持多智能体并行驱动视频世界生成。</li>
+      </ul></div>
+      <div class="topic"><h3>Agent | LLM agent autonomous</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2610.12375" target="_blank" rel="noopener">OnTrack: Real-Time Monitoring and Intervention in LLM Agent Trajectories via Streaming Structure-Aware Optimal Transport</a> <span class="aid">[2610.12375]</span> — 基于流式结构感知最优传输实时监控和干预 LLM agent 执行轨迹，提升 agent 可靠性与安全性。</li>
+        <li><a href="https://arxiv.org/abs/2610.12124" target="_blank" rel="noopener">Use and Disuse: Intent-Structured Experience Consolidation for Memory and Learning in LLM Agents</a> <span class="aid">[2610.12124]</span> — 意图结构化经验整合机制，让 LLM agent 在长期使用中高效记忆和遗忘，改善持续学习能力。</li>
+        <li><a href="https://arxiv.org/abs/2610.11794" target="_blank" rel="noopener">Memento 3: Model-Based Recursive Self-Improvement through Reflective Rulebooks</a> <span class="aid">[2610.11794]</span> — 通过反思规则书驱动 agent 递归自改进，提升模型在复杂任务中的自主进化能力。</li>
+        <li><a href="https://arxiv.org/abs/2610.11678" target="_blank" rel="noopener">TRACE: Diagnosing Verifier Brittleness in Agentic Evaluation</a> <span class="aid">[2610.11678]</span> — 诊断 agent 评估中验证器的脆弱性，揭示评估系统对奖励黑客攻击的敏感性。</li>
+      </ul></div>
+      <div class="topic"><h3>多模态大模型 | multimodal large language model</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2610.12417" target="_blank" rel="noopener">WOVEN: Weaving Visual World Modeling into Multimodal LLMs</a> <span class="aid">[2610.12417]</span> — 将视觉世界建模编织进多模态大模型，赋予模型对物理世界动态变化的预测与理解能力。</li>
+        <li><a href="https://arxiv.org/abs/2610.12266" target="_blank" rel="noopener">DVD: Dynamic Vector Decoding for Efficient MLLM-based Perception</a> <span class="aid">[2610.12266]</span> — 动态向量解码机制加速多模态大模型的感知推理，降低视觉 token 处理开销。</li>
+        <li><a href="https://arxiv.org/abs/2610.12402" target="_blank" rel="noopener">SpaceCast-Bench: Evaluating Predictive Spatial Reasoning in Vision-Language Models</a> <span class="aid">[2610.12402]</span> — 评估 VLM 预测性空间推理能力的新基准，覆盖 3D 空间关系预测与场景理解。</li>
+        <li><a href="https://arxiv.org/abs/2610.12458" target="_blank" rel="noopener">OmniCapBench: A Deep-Structured Evaluation Framework for Fine-Grained Audio-Visual Captioning</a> <span class="aid">[2610.12458]</span> — 面向细粒度音视频描述的深度结构化评估框架，系统衡量多模态模型的跨模态理解能力。</li>
+      </ul></div>
 
   <h2>🔗 附：全部命中列表</h2>
-    <p class="empty">—</p>
+    <ul class="hits">
+        <li><a href="https://arxiv.org/abs/2610.08230" target="_blank" rel="noopener">2610.08230</a> TSRN-RTVD: Real-Time Video Deblurring System</li>
+        <li><a href="https://arxiv.org/abs/2610.08892" target="_blank" rel="noopener">2610.08892</a> Hybrid++: The Bridge between PDE Models and Deep Learning for Gamma Noise Removal</li>
+        <li><a href="https://arxiv.org/abs/2610.09077" target="_blank" rel="noopener">2610.09077</a> DISRQAD: Diffusion Image Super-Resolution Quality Assessment Dataset and Benchmark</li>
+        <li><a href="https://arxiv.org/abs/2610.08188" target="_blank" rel="noopener">2610.08188</a> PIE-PS: Photometric Stereo from Physical Irradiance Event Streams</li>
+        <li><a href="https://arxiv.org/abs/2610.09873" target="_blank" rel="noopener">2610.09873</a> Bringing BNNs to Fast Event Processing</li>
+        <li><a href="https://arxiv.org/abs/2610.10133" target="_blank" rel="noopener">2610.10133</a> HarnessIR: Harnessing Multimodal Foundation Models for Universal Real-World Image Restoration</li>
+        <li><a href="https://arxiv.org/abs/2610.09281" target="_blank" rel="noopener">2610.09281</a> Twist Flow for Inverse Problems</li>
+        <li><a href="https://arxiv.org/abs/2610.09439" target="_blank" rel="noopener">2610.09439</a> InscriptionOCR: A Dataset and Method for Understanding Inscriptions</li>
+        <li><a href="https://arxiv.org/abs/2610.11746" target="_blank" rel="noopener">2610.11746</a> Streaming-Aware Diffusion for Real-Time Video Super-Resolution via Cross-Step Attention</li>
+        <li><a href="https://arxiv.org/abs/2610.12337" target="_blank" rel="noopener">2610.12337</a> ContiLNN: Mitigating Slice Sampling Discontinuity with Liquid Neural Networks for Medical Image Restoration</li>
+        <li><a href="https://arxiv.org/abs/2610.11433" target="_blank" rel="noopener">2610.11433</a> DLC: A Metric-Guided Dynamic Loss Controller for Multi-Objective Training</li>
+        <li><a href="https://arxiv.org/abs/2610.12273" target="_blank" rel="noopener">2610.12273</a> Deep preferential evolution guided by pairwise comparisons enables motion correction in photoacoustic tomography</li>
+        <li><a href="https://arxiv.org/abs/2610.11531" target="_blank" rel="noopener">2610.11531</a> RAGNAROK: Radar-Aided Gravity-Normalized Alignment for Robust Open Keyframe-based Radar-Visual-Kinematic-Inertial SLAM</li>
+        <li><a href="https://arxiv.org/abs/2610.12459" target="_blank" rel="noopener">2610.12459</a> WorldGuide: Goal-Directed Video World Model for Procedural Task Execution</li>
+        <li><a href="https://arxiv.org/abs/2610.12442" target="_blank" rel="noopener">2610.12442</a> LEGO: A Lifting-Free Approach for Exocentric-to-Egocentric Video Generation</li>
+        <li><a href="https://arxiv.org/abs/2610.12412" target="_blank" rel="noopener">2610.12412</a> WorldCast: Distributed Multiplayer World Models</li>
+        <li><a href="https://arxiv.org/abs/2610.12382" target="_blank" rel="noopener">2610.12382</a> WorldAlign: Decoupled 4D Reward for World-Consistent Video Generation</li>
+        <li><a href="https://arxiv.org/abs/2610.12156" target="_blank" rel="noopener">2610.12156</a> Connected Self Forcing: Beyond Local Learning in Video Autoregression</li>
+        <li><a href="https://arxiv.org/abs/2610.12104" target="_blank" rel="noopener">2610.12104</a> VINCIE-NExT: Unlocking Video Editing from Images via In-Context Modeling</li>
+        <li><a href="https://arxiv.org/abs/2610.12099" target="_blank" rel="noopener">2610.12099</a> UNITAS: A 3D-Native World Action Model for Embodied Manipulation</li>
+        <li><a href="https://arxiv.org/abs/2610.11791" target="_blank" rel="noopener">2610.11791</a> Phase-aware video generation for physics-grounded dynamics and interactions</li>
+        <li><a href="https://arxiv.org/abs/2610.11770" target="_blank" rel="noopener">2610.11770</a> From Video Clips to Creation Trajectory: Sora100K for AI-Native Video Creation</li>
+        <li><a href="https://arxiv.org/abs/2610.11756" target="_blank" rel="noopener">2610.11756</a> Memory Forcing: Attendable Mid-Horizon History for Streaming Video Generation</li>
+        <li><a href="https://arxiv.org/abs/2610.11736" target="_blank" rel="noopener">2610.11736</a> Towards Unified Evaluation of Prompt Enhancers for Video Generation</li>
+        <li><a href="https://arxiv.org/abs/2610.11716" target="_blank" rel="noopener">2610.11716</a> 4-Tensor Attention Model for Semantic Physical Reality</li>
+        <li><a href="https://arxiv.org/abs/2610.11498" target="_blank" rel="noopener">2610.11498</a> Parametric Trajectory Distillation for Few-Step Video Generation</li>
+        <li><a href="https://arxiv.org/abs/2610.11479" target="_blank" rel="noopener">2610.11479</a> Conditional Residual Prediction: Improving Autoregressive Video Diffusion without a Bidirectional Teacher</li>
+        <li><a href="https://arxiv.org/abs/2610.11302" target="_blank" rel="noopener">2610.11302</a> iCATS: Fast Video Generation via Interaction-Aware Sparse Attention and Timestep-Adaptive Sparsity</li>
+        <li><a href="https://arxiv.org/abs/2610.10524" target="_blank" rel="noopener">2610.10524</a> GRACE: Generation-aware latent compression for efficient video generation</li>
+        <li><a href="https://arxiv.org/abs/2610.10457" target="_blank" rel="noopener">2610.10457</a> MORCA: Offline-to-Online Reinforcement Learning for Adaptive Cache Reuse in Video Diffusion Acceleration</li>
+        <li><a href="https://arxiv.org/abs/2610.10343" target="_blank" rel="noopener">2610.10343</a> Real-Time Joint Audio-Video Generation by Parallel Adapter Composition</li>
+        <li><a href="https://arxiv.org/abs/2610.08772" target="_blank" rel="noopener">2610.08772</a> Backend-Agnostic Sparse Attention for Fast High-Resolution Visual Generation</li>
+        <li><a href="https://arxiv.org/abs/2610.11037" target="_blank" rel="noopener">2610.11037</a> Transforming Image Editors into Video Editors</li>
+        <li><a href="https://arxiv.org/abs/2610.08779" target="_blank" rel="noopener">2610.08779</a> ALIVE: Interaction-Aligned Object Insertion for First-Frame-Guided Video Editing</li>
+        <li><a href="https://arxiv.org/abs/2610.12445" target="_blank" rel="noopener">2610.12445</a> Caught in the Act: Probes Effectively Detect Sabotage and Catch Unverbalized Deception</li>
+        <li><a href="https://arxiv.org/abs/2610.12375" target="_blank" rel="noopener">2610.12375</a> OnTrack: Real-Time Monitoring and Intervention in LLM Agent Trajectories via Streaming Structure-Aware Optimal Transport</li>
+        <li><a href="https://arxiv.org/abs/2610.12360" target="_blank" rel="noopener">2610.12360</a> Accurate but Not Humble: Evaluating Epistemic Humility in LLM Agents under Knowledge Conflict</li>
+        <li><a href="https://arxiv.org/abs/2610.12183" target="_blank" rel="noopener">2610.12183</a> A Closer Look at Agentic BBO: Benchmarking LLM Agents for Black-Box Optimization</li>
+        <li><a href="https://arxiv.org/abs/2610.12124" target="_blank" rel="noopener">2610.12124</a> Use and Disuse: Intent-Structured Experience Consolidation for Memory and Learning in LLM Agents</li>
+        <li><a href="https://arxiv.org/abs/2610.11951" target="_blank" rel="noopener">2610.11951</a> &quot;Hot-Blooded&quot; vs &quot;Cold-Blooded&quot;: Simulating the Behavioral Phenotypes of Childhood Aggression via Generative Agents</li>
+        <li><a href="https://arxiv.org/abs/2610.11794" target="_blank" rel="noopener">2610.11794</a> Memento 3: Model-Based Recursive Self-Improvement through Reflective Rulebooks</li>
+        <li><a href="https://arxiv.org/abs/2610.11768" target="_blank" rel="noopener">2610.11768</a> Narrow and Deep: An Ontology Tower as the Knowledge of an LLM Agent for an Industrial Equipment System</li>
+        <li><a href="https://arxiv.org/abs/2610.11732" target="_blank" rel="noopener">2610.11732</a> MemTrial: Learning When to Trust Memory in LLM Portfolio Agents</li>
+        <li><a href="https://arxiv.org/abs/2610.11678" target="_blank" rel="noopener">2610.11678</a> TRACE: Diagnosing Verifier Brittleness in Agentic Evaluation</li>
+        <li><a href="https://arxiv.org/abs/2610.12461" target="_blank" rel="noopener">2610.12461</a> OuroWorld: Bringing Any 3D World Alive as Diverse, Endlessly Looping 3D Cinemagraphs</li>
+        <li><a href="https://arxiv.org/abs/2610.12458" target="_blank" rel="noopener">2610.12458</a> OmniCapBench: A Deep-Structured Evaluation Framework for Fine-Grained Audio-Visual Captioning</li>
+        <li><a href="https://arxiv.org/abs/2610.12417" target="_blank" rel="noopener">2610.12417</a> WOVEN: Weaving Visual World Modeling into Multimodal LLMs</li>
+        <li><a href="https://arxiv.org/abs/2610.12402" target="_blank" rel="noopener">2610.12402</a> SpaceCast-Bench: Evaluating Predictive Spatial Reasoning in Vision-Language Models</li>
+        <li><a href="https://arxiv.org/abs/2610.12391" target="_blank" rel="noopener">2610.12391</a> GeoReform: Reflective Formalization Evolution for Multimodal Geometry Problem Solving</li>
+        <li><a href="https://arxiv.org/abs/2610.12355" target="_blank" rel="noopener">2610.12355</a> Distilling Routed 3D Privilege for Spatial Reasoning in Vision-Language Models</li>
+        <li><a href="https://arxiv.org/abs/2610.12266" target="_blank" rel="noopener">2610.12266</a> DVD: Dynamic Vector Decoding for Efficient MLLM-based Perception</li>
+        <li><a href="https://arxiv.org/abs/2610.12448" target="_blank" rel="noopener">2610.12448</a> One Block, Multiple Depths: Recurrent Vision Transformers with Depth-Programmed Experts</li>
+        <li><a href="https://arxiv.org/abs/2610.12423" target="_blank" rel="noopener">2610.12423</a> Pumpire: Unified Benchmark for Metric Distance Estimation</li>
+        <li><a href="https://arxiv.org/abs/2610.12388" target="_blank" rel="noopener">2610.12388</a> GenIA: Generative Reconstruction with Test-Time Input Alignment</li>
+    </ul>
 
   <footer>tech-research-radar · 自动生成于每日检索 · 数据源 arXiv</footer>
 </div>
